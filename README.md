@@ -40,3 +40,53 @@ The story goes like this:
   - The report shows a basic pie chart for each demographic question.
   - The data draws from self-reported identity information. So the more people that do the _Self-identifying_ task described above, the better reports in general will be.
   - Running a report for the same user in the future will likely yield different data -- either because that user has since changed the people whom they follow, or because more of the user's followers have since added their demographic information.
+  
+---
+  
+# Development Plan
+
+There are a few milestones here:
+
+1. Twitter authentication
+2. CRUD for personal demographic information
+3. Report generation
+4. Sitemap
+5. Controllers/routes/views
+6. Front-end design
+7. Data visualizations
+
+## Twitter authentication
+
+It might help to build a sandbox application to test how third-party authentication works and then build this functionality into this application.
+
+## CRUD for personal demographic information
+
+After authenticating with Twitter, a user should be able to add/edit their demographic information.
+
+## Report generation
+
+What kind of data needs to be collected? How will it be stored? How will it be read efficiently?
+
+There is also an opportunity to use delayed jobs here, because generating the report will probably take a bit of time.
+
+## Sitemap
+
+Define every page, from the end-user's perspective. Answer these questions for each page:
+
+1. What is the page's primary responsibility?
+2. Excluding global navigation links, where can a user go directly from this page?
+3. In what way is this page restricted (if at all)?
+
+The end result of this might look like index cards taped to a whiteboard.
+
+## Controllers/routes/views
+
+Organize the various pages from the sitemap into controllers and build out basic, unstyled views.
+
+## Front-end design
+
+We'll use a CSS framework, like Bootstrap or Foundation (or a new one, like the one GitHub just launched!), to streamline some of our work. Additional CSS will be implemented using some kind of object-oriented CSS approach.
+
+## Data visualizations
+
+The reports should use some JS library to implement good-looking charts.

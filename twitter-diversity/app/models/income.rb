@@ -1,3 +1,3 @@
 class Income < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :amount
 end

@@ -3,6 +3,8 @@ class Income < ActiveRecord::Base
   
   validates :amount, presence: true
   validates :amount, uniqueness:  {case_sensitive: false}
-  validates :amount, numericality: {only_integer: true}
+  validates :amount, numericality: {only_integer: true}  
+ 
+  has_many :users
     
 end

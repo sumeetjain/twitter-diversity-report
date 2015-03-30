@@ -8,6 +8,7 @@ gem 'rails', '3.2.21'
 gem 'test-unit'
 gem "json"
 gem 'pg'
+gem 'twitter'
 
 group :development do
   gem 'pry'

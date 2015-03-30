@@ -1,0 +1,1 @@
+- go back and get rid of updated/created at timestamps for non-user/results tables if unnecessary (to save data storage)

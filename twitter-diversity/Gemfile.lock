@@ -33,6 +33,9 @@ GEM
     buftok (0.2.0)
     builder (3.0.4)
     coderay (1.1.0)
+    dotenv (0.9.0)
+    dotenv-rails (0.9.0)
+      dotenv (= 0.9.0)
     equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.4.0)
@@ -138,6 +141,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv-rails
   jquery-rails
   json
   omniauth-twitter

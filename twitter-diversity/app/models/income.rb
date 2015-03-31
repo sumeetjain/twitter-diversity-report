@@ -5,6 +5,6 @@ class Income < ActiveRecord::Base
   validates :amount, uniqueness:  {case_sensitive: false}
   validates :amount, numericality: {only_integer: true}  
  
-  has_many :users
+  has_many :user_answers, as: :answer
     
 end

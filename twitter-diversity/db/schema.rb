@@ -11,13 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150330192137) do
+ActiveRecord::Schema.define(:version => 20150330212613) do
 
   create_table "ages", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "birth_year"
-    t.integer  "user_id"
   end
 
   create_table "ages_users", :force => true do |t|
@@ -29,7 +28,6 @@ ActiveRecord::Schema.define(:version => 20150330192137) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.text     "level_attained"
-    t.integer  "user_id"
   end
 
   create_table "educations_users", :force => true do |t|
@@ -41,7 +39,6 @@ ActiveRecord::Schema.define(:version => 20150330192137) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "amount"
-    t.integer  "user_id"
   end
 
   create_table "incomes_users", :force => true do |t|

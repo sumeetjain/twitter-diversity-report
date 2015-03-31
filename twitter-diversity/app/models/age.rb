@@ -5,5 +5,5 @@ class Age < ActiveRecord::Base
   validates :birth_year, presence: true  
   validates :birth_year, uniqueness: {case_sensitive: false}
   
-  has_many :users
+  has_and_belongs_to_many :users
 end

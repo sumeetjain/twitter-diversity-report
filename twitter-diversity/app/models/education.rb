@@ -4,5 +4,5 @@ class Education < ActiveRecord::Base
   validates :level_attained, presence: true
   validates :level_attained, uniqueness: {case_sensitive: false}
   
-  has_many :users
+  has_and_belongs_to_many :users
 end

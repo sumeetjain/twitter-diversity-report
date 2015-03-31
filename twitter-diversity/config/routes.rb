@@ -1,4 +1,7 @@
 TwitterDiversity::Application.routes.draw do
+  # `params` for this contains good stuff.
+  get "auth/twitter/callback" => 'misc#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

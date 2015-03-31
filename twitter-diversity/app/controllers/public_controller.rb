@@ -8,6 +8,7 @@ class PublicController < ApplicationController
   end
   
   def return
+    render "public/return"
   end
   
   def result

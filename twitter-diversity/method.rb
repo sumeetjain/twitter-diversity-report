@@ -1,11 +1,11 @@
-User.select("twitter_handle").each_with_object([]) do |object, user_array| 
-  user_array.push object.twitter_handle
+User.select("twitter_handle").each_with_object([]) do |user_object, user_array| 
+  user_array.push user_object.twitter_handle
 end
 
-follower_array = client.friends("cza_dev").to_a
+friend_array = client.friends("cza_dev").to_a
 
-follower_array.each_with_object([]) do |object, matching_array|
-  if user_array.include?(object.screen_name.downcase)
-    matching_array.push object
+friend_array.each_with_object([]) do |friend_object, matching_array|
+  if user_array.include?(friend_object.screen_name.downcase)
+    matching_array.push friend_object
   end
 end

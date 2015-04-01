@@ -65,8 +65,6 @@ class ResultsController < ApplicationController
       friend_answers += matched_user.user_answers
     end
     
-    binding.pry
-    
     demographics = []
     friend_answers.each do |a|
       unless demographics.include?(a.answer_type)
@@ -84,8 +82,6 @@ class ResultsController < ApplicationController
         end
       end
       
-      binding.pry #demo_answers
-      
       unique_ans = []
       
       demo_answers.each do |a|
@@ -94,19 +90,10 @@ class ResultsController < ApplicationController
         end
       end
       
-      binding.pry #unique_ans
-      
       slice_hash = {}
       
       unique_ans.each do |a|
         count = demo_answers.count{|b| b.answer_id == a}
-        # if d == "Income"
-        #   answer = d.constantize.find(a).amount
-        # elsif d == "Education"
-        #   answer = d.constantize.find(a).level_attained
-        # elsif d == "Age"
-        #   answer = d.constantize.find(a).birth_year
-        # end
         answer = d.constantize.find(a).value
         slice_hash[answer] = count
       end
@@ -115,10 +102,13 @@ class ResultsController < ApplicationController
       
     end
     
-    binding.pry #demo_hash
     
+    #demo_hash = {"Income"=>{40000=>1, 20000=>1}, "Age"=>{1985=>1, 1990=>1}, "Education"=>{"secondary"=>1, "graduate"=>1}}
+    @edu_chart_data = [["Level Attained", "Count"]]
+    demo_hash["Education"].each do |k,v|
+      @edu_chart_data.push [k,v]
+    end
     
-
     
   end
   

@@ -109,6 +109,30 @@ class ResultsController < ApplicationController
       @edu_chart_data.push [k,v]
     end
     
+    income_buckets = [["Under 15000", 0],["15000 - 25000", 0],["25000 - 35000", 0],["35000 - 50000", 0],["50000 - 75000", 0],["75000 - 100000", 0],["100000 - 150000", 0],["Over 150000", 0]]
+    
+    demo_hash["Income"].each do |amount,count|
+      if amount < 15000
+        income_buckets[0][1] += count
+      elsif amount >= 15000 && amount < 25000
+        income_buckets[1][1] += count
+      elsif amount >= 25000 && amount < 35000
+        income_buckets[2][1] += count
+      elsif amount >= 35000 && amount < 50000
+        income_buckets[3][1] += count
+      elsif amount >= 50000 && amount < 75000
+        income_buckets[4][1] += count
+      elsif amount >= 75000 && amount < 100000
+        income_buckets[5][1] += count
+      elsif amount >= 100000 && amount < 150000
+        income_buckets[6][1] += count
+      elsif amount >= 150000
+        income_buckets[7][1] += count
+      end
+    end 
+    
+    @income_chart_data = [["Income", "Count"]]
+    income_buckets.each{ |b| @income_chart_data.push b }
     
   end
   

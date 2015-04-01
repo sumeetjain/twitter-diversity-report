@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
       user_array.push user_object.twitter_handle
     end
 
-
     friend_array = client.friends(searched_twitter_handle).to_a
 
     friend_array.each_with_object([]) do |friend_object, matching_array|

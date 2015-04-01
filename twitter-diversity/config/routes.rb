@@ -11,6 +11,7 @@ TwitterDiversity::Application.routes.draw do
 
   get "/results/new" => "results#new", as: "results"
   
+  get "/test" => "results#test"
   
   
   

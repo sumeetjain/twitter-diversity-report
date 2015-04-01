@@ -1,4 +1,17 @@
 TwitterDiversity::Application.routes.draw do
+
+  get "/search" => "public#home", as: "home"
+  
+  get "/auth/twitter/callback" => "public#return"
+
+  post "/results/:id" => "public#results"
+
+
+  get "/results/new" => "results#new", as: "results"
+  
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

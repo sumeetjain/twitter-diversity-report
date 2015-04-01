@@ -8,5 +8,3 @@ client = Twitter::REST::Client.new do |config|
 end
 
 x = client.user("hilarysk")
-
-binding.pry

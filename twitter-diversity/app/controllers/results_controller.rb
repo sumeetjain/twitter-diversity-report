@@ -18,7 +18,7 @@ class ResultsController < ApplicationController
     end
     
     parse_var = parse(@user_objects_return)
-    binding.pry
+    ￿
 
 
   end

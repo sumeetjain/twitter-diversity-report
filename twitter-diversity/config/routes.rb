@@ -13,7 +13,7 @@ TwitterDiversity::Application.routes.draw do
   
   get "/users/new" => 'users#new'
   
-  post "/users" =>'users#create', as: "users"
+  post "/users/new" =>'users#create'
   
   get "/users/:screen_name/edit" => 'users#edit' #protected
   

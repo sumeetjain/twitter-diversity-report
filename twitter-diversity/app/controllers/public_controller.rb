@@ -1,21 +1,10 @@
 class PublicController < ApplicationController
   
-  before_filter :auth_check, only: [:return]
-
   def home
     render "/public/home"
   end
   
   def call 
-  end
-  
-  def auth_check
-    # ouath_hash = request.env['omniauth.auth']
-    if oauth_hash == nil
-      redirect_to "/auth/twitter"
-    else
-      
-    end
   end
   
   def failure

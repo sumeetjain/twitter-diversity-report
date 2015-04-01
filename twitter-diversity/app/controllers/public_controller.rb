@@ -12,18 +12,18 @@ class PublicController < ApplicationController
   def auth_check
     # ouath_hash = request.env['omniauth.auth']
     if oauth_hash == nil
-      redirect "/auth/twitter"
+      redirect_to "/auth/twitter"
     else
       
     end
   end
   
+  def failure
+    redirect_to "/auth/twitter"
+  end
+  
   def return
-    begin
     @username = oauth_hash['info']['nickname']
-    rescue
-      redirect "/auth/twitter"
-    end
   end
   
   def result

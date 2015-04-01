@@ -9,6 +9,8 @@ gem 'test-unit'
 gem "json"
 gem 'pg'
 gem 'twitter'
+gem 'omniauth-twitter', '~> 1.1.0'
+gem 'dotenv-rails', '~> 2.0.0'
 
 group :development do
   gem 'pry'

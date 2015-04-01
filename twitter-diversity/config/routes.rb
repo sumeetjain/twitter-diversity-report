@@ -1,17 +1,36 @@
 TwitterDiversity::Application.routes.draw do
-
-  get "/search" => "public#home", as: "home"
+  
+  ########### PUBLIC ############################
+  
+  get "/" => 'public#home' #if they click search, sends that name to post:results
+  
+  ########## USERS ##############################
+  
+  get "/users/new" => 'users#new'
+  
+  post "/users" =>'users#create', as: "users"
+  
+  get "/users/:screen_name/edit" => 'users#edit' #protected
+  
+  put "/users/:screen_name" => 'users#save'
+  
+  delete "/users/:screen_name" => 'users#delete' #protected
+   
+  get "/users/:screen_name" => 'users#view' #protected
+  
+  ########## RESULTS ###########################
+  
+  get "/current/:screen_name" => 'results#current' #redirects to /:id
+  
+  post "/results" => 'results#create' #generates results record to populate /:id, make sure to clear session after this loads
+  
+  get "/results/:id" => 'results#view' #pulls from results table
+  
+  ######### OMNIAUTH ###########################
   
   get "/auth/twitter/callback" => "public#return"
-  
+
   get "/auth/failure" => "public#failure"
-
-  post "/results/:id" => "public#results"
-
-
-  get "/results/new" => "results#new", as: "results"
-  
-  
   
   
   # The priority is based upon order of creation:

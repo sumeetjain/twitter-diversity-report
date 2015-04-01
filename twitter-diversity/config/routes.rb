@@ -3,6 +3,8 @@ TwitterDiversity::Application.routes.draw do
   get "/search" => "public#home", as: "home"
   
   get "/auth/twitter/callback" => "public#return"
+  
+  get "/auth/failure" => "public#failure"
 
   post "/results/:id" => "public#results"
 

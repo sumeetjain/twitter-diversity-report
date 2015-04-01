@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150401203709) do
+ActiveRecord::Schema.define(:version => 20150401205108) do
 
   create_table "ages", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -35,9 +35,7 @@ ActiveRecord::Schema.define(:version => 20150401203709) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.text     "searched_handle"
-    t.text     "education"
-    t.text     "income"
-    t.text     "age"
+    t.text     "demo_hash"
   end
 
   create_table "user_answers", :force => true do |t|

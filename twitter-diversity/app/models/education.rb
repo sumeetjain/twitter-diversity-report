@@ -1,8 +1,8 @@
 class Education < ActiveRecord::Base
-  attr_accessible :level_attained
+  attr_accessible :value
   
-  validates :level_attained, presence: true
-  validates :level_attained, uniqueness: {case_sensitive: false}
+  validates :value, presence: true
+  validates :value, uniqueness: {case_sensitive: false}
   
   has_many :user_answers, as: :answer
 end

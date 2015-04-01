@@ -1,9 +1,9 @@
 class Age < ActiveRecord::Base
-  attr_accessible :birth_year
+  attr_accessible :value
   
-  validates :birth_year, numericality: {only_integer: true}
-  validates :birth_year, presence: true  
-  validates :birth_year, uniqueness: {case_sensitive: false}
+  validates :value, numericality: {only_integer: true}
+  validates :value, presence: true  
+  validates :value, uniqueness: {case_sensitive: false}
   
   has_many :user_answers, as: :answer
 end

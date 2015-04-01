@@ -11,24 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150331135906) do
+ActiveRecord::Schema.define(:version => 20150401203709) do
 
   create_table "ages", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "birth_year"
+    t.integer  "value"
   end
 
   create_table "educations", :force => true do |t|
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.text     "level_attained"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "value"
   end
 
   create_table "incomes", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "amount"
+    t.integer  "value"
   end
 
   create_table "results", :force => true do |t|

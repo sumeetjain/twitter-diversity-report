@@ -22,6 +22,7 @@ class ResultsController < ApplicationController
   end
   
   def test
+    require 'json'
     
     client = Twitter::REST::Client.new do |config|
       config.consumer_key = "5yMZJo4VreMP3mMER6LS5Z5j7"  
@@ -59,13 +60,9 @@ class ResultsController < ApplicationController
     # end
 
     friend_answers = []
-    friend_answers2 = []
     matching_array.each do |friend_object|
-      binding.pry
       matched_user = User.find_by_twitter_handle(friend_object.screen_name.downcase)
-      friend_answers = friend_answers + matched_user.user_answers
-      friend_answers2 += matched_user.user_answers
-      binding.pry
+      friend_answers += matched_user.user_answers
     end
     
     binding.pry
@@ -87,6 +84,8 @@ class ResultsController < ApplicationController
         end
       end
       
+      binding.pry #demo_answers
+      
       unique_ans = []
       
       demo_answers.each do |a|
@@ -95,19 +94,20 @@ class ResultsController < ApplicationController
         end
       end
       
+      binding.pry #unique_ans
+      
       slice_hash = {}
       
       unique_ans.each do |a|
         count = demo_answers.count{|b| b.answer_id == a}
-        if d == "Income"
-          answer = d.constantize.find(a).amount
-        elsif d == "Education"
-          answer = d.constantize.find(a).level_attained
-        elsif d == "Age"
-          answer = d.constantize.find(a).birth_year
-        end
-        #answer = d.constantize.find(a)
-        binding.pry
+        # if d == "Income"
+        #   answer = d.constantize.find(a).amount
+        # elsif d == "Education"
+        #   answer = d.constantize.find(a).level_attained
+        # elsif d == "Age"
+        #   answer = d.constantize.find(a).birth_year
+        # end
+        answer = d.constantize.find(a).value
         slice_hash[answer] = count
       end
       
@@ -115,8 +115,11 @@ class ResultsController < ApplicationController
       
     end
     
-    binding.pry
+    binding.pry #demo_hash
+    
+    
 
+    
   end
   
 end

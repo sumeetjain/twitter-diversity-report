@@ -7,7 +7,7 @@ TwitterDiversity::Application.routes.draw do
   post "/results/:id" => "public#results"
 
 
-  
+  get "/results/new" => "results#new", as: "results"
   
   
   

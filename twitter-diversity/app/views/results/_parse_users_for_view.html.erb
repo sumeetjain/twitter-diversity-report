@@ -1,0 +1,6 @@
+<% user_array.each do |user_object| %>
+<p><%= user_object.twitter_handle -%></p>
+<p><%= user_object.incomes[0].amount -%></p>
+<p><%= user_object.educations[0].level_attained -%></p>
+<p><%= user_object.ages[0].birth_year -%></p>
+<% end %>

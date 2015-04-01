@@ -7,9 +7,12 @@ class PublicController < ApplicationController
   def call 
   end
   
+  def failure
+    redirect_to "/auth/twitter"
+  end
+  
   def return
     @username = oauth_hash['info']['nickname']
-    binding.pry
   end
   
   def result

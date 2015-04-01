@@ -8,11 +8,17 @@ class PublicController < ApplicationController
   end
   
   def return
-    render "public/return"
-    # params returned here include oatuh_token and oauth_verifier. These will(probably) be used to ensure that someone can only fill out a form with their own information / for their own handle
+    @username = oauth_hash['info']['nickname']
+    binding.pry
   end
   
   def result
+  end
+  
+  protected
+  
+  def oauth_hash
+    request.env['omniauth.auth']
   end
   
 end

@@ -13,6 +13,14 @@ class PublicController < ApplicationController
   
   def return
     session[:screen_name] = oauth_hash['info']['nickname']
+    
+    user = User.find_by_twitter_handle(session[:screen_name].downcase)
+
+    if user
+      redirect_to "/users/#{user.id}"
+    else
+      redirect_to "/users/#{session[:screen_name]}/edit"  
+    end
   end
   
   def result

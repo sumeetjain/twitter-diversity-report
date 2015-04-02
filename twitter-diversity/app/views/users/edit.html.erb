@@ -1,21 +1,30 @@
 <div class="form">
-  <h2>Demographic Info for: <%= session[:screen_name] -%></h2>
-  <% binding.pry %>
-  <%= form_for :answers do |f| %>
-    <strong><%= f.label :education, "Highest Level of Education Attained: " %></strong><br><br>
-    <%= f.text_field :education, autofocus: true, value: "#{@answers["Education"]}" -%>
-      <p><em>Or choose an option from below: </em></p>
-      <input type="radio" name="education1" value="elementary">Elementary<br>
-      <input type="radio" name="education1" value="secondary">Secondary<br>
-      <input type="radio" name="education1" value="post-secondary">Post-Secondary<br>
-      <input type="radio" name="education1" value="graduate">Graduate<br>
-      <input type="radio" name="education1" value="post-graduate">Post-Graduate<br><br><br>
-    <strong><%= f.label :income, "Annual Income (USD): " %></strong><br><br>
-    <div class="error"><%= flash[:income_error] -%></div>
-    <%= f.number_field :income, autofocus: true, value: "#{@answers["Income"]}", placeholder: "IE: 45,000" %><br><br>
-    <strong><%= f.label :age, "Year You Were Born (YYYY): " %></strong><br><br>
-    <div class="error"><%= flash[:age_error] -%></div>
-    <%= f.number_field :age, autofocus: true, value: "#{@answers["Age"]}" %><br><br>
+  <h2>Add or update your information: <%= session[:screen_name] -%></h2>
+  <%= form_for @user do |f| -%>
+    <%= f.fields_for :user_answers do |u| %>
+      <%= u.label :value, user_answer_field_label(u.object.field_value) %><br><br>
+      <%= u.hidden_field :answer_type %>
+  
+      <% if u.object.answer_type == "Education" %>
+        <%= u.text_field :value, style: "width: 70%", autofocus: true %><br><br>
+        <p><em>Or choose an option from below: </em></p>
+        <input type="radio" name="education1" value="elementary">Elementary<br>
+        <input type="radio" name="education1" value="secondary">Secondary<br>
+        <input type="radio" name="education1" value="post-secondary">Post-Secondary<br>
+        <input type="radio" name="education1" value="graduate">Graduate<br>
+        <input type="radio" name="education1" value="post-graduate">Post-Graduate<br><br><br>
+
+      <% else %>
+       <%= u.number_field :value %><br><br>
+      
+      <% end %>
+    <% end %>
+    
     <%= f.submit %>
   <% end %>
+
+
+
 </div>
+
+  

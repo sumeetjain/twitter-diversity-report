@@ -3,3 +3,12 @@
   They will automatically be included in application.css.
 */
 
+.form {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.error {
+  color: red;
+}

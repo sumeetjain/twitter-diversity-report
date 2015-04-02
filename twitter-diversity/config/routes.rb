@@ -13,7 +13,7 @@ TwitterDiversity::Application.routes.draw do
   
   get "/users/new" => 'users#new'
   
-  post "/users" =>'users#create', as: "users"
+  post "/users/new" =>'users#create'
   
   get "/users/:screen_name/edit" => 'users#edit' #protected
   
@@ -30,6 +30,8 @@ TwitterDiversity::Application.routes.draw do
   post "/results" => 'results#create' #generates results record to populate /:id, make sure to clear session after this loads
   
   get "/results/:id" => 'results#view' #pulls from results table
+  
+  get "/test" => "results#test"
   
   ######### OMNIAUTH ###########################
   

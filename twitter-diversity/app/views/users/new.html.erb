@@ -1,0 +1,21 @@
+<div class="form">
+  <h2>Demographic Info for: <%= session[:screen_name] -%></h2>
+  
+  <%= form_for :answers do |f| %>
+    <strong><%= f.label :education, "Highest Level of Education Attained: " %></strong><br><br>
+    <%= f.text_field :education, autofocus: true, style: "width: 100%" %>
+      <p><em>Or choose an option from below: </em></p>
+      <input type="radio" name="education1" value="elementary">Elementary<br>
+      <input type="radio" name="education1" value="secondary">Secondary<br>
+      <input type="radio" name="education1" value="post-secondary">Post-Secondary<br>
+      <input type="radio" name="education1" value="graduate">Graduate<br>
+      <input type="radio" name="education1" value="post-graduate">Post-Graduate<br><br><br>
+    <strong><%= f.label :income, "Annual Income (USD): " %></strong><br><br>
+    <div class="error"><%= flash[:income_error] -%></div>
+    <%= f.number_field :income, autofocus: true, style: "width: 100%", placeholder: "IE: 45,000" %><br><br>
+    <strong><%= f.label :age, "Year You Were Born (YYYY): " %></strong><br><br>
+    <div class="error"><%= flash[:age_error] -%></div>
+    <%= f.number_field :age, autofocus: true, style: "width: 100%" %><br><br>
+    <%= f.submit %>
+  <% end %>
+</div>

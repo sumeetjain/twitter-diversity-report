@@ -13,15 +13,15 @@ TwitterDiversity::Application.routes.draw do
   
   get "/users/new" => 'users#new'
   
-  post "/users/new" =>'users#create'
+  post "/users" =>'users#create'
   
   get "/users/:screen_name/edit" => 'users#edit' #protected
   
-  put "/users/:screen_name" => 'users#save'
+  put "/users/:id" => 'users#save', as: :user
   
-  delete "/users/:screen_name" => 'users#delete' #protected
+  delete "/users/:id" => 'users#delete' #protected
    
-  get "/users/:screen_name" => 'users#view' #protected
+  get "/users/:id" => 'users#view' #protected
   
   ########## RESULTS ###########################
   

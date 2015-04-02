@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   before_filter :params_check, only: [:create]
   before_filter :validate_user_authorized
-  before_filter :validate_if_params_matches_session, except: [:new, :create]
+  # before_filter :validate_if_params_matches_session, except: [:new, :create]
   
   ########### Before Filters #############
   
@@ -42,20 +42,29 @@ class UsersController < ApplicationController
   ########### Route Methods ##############
     
   def new
+    @user = User.find_or_create_by_twitter_handle(session[:screen_name].downcase)
+    @user.user_answers.build(answer_type: "Age")
+    @user.user_answers.build(answer_type: "Income")
   end
   
   def create
-    education, age, income = params["answers"]["education"], params["answers"]["age"], params["answers"]["income"]
+    @user = User.find_by_twitter_handle(session[:screen_name].downcase)
     
-    @user = User.find_or_create_by_twitter_handle(session[:screen_name].downcase)
-      
-    find_or_create_if_not_nil(education: education, age: age, income: income)
+    # Add user ID to params, since we don't want users to be able to add it themselves in web inspector.
+    params[:user][:user_answers_attributes].each do |k, h|
+      h[:user_id] = @user.id
+    end
+    
+    @user.update_attributes(params[:user])
+    
+    # find_or_create_if_not_nil(params["answers"])
+    
+    flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
     
     if session[:searched_for] == nil
-      flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
-      redirect_to "/users/#{session[:username]}"
+      redirect_to "/users/#{session[:username]}" # To change to results.
     else
-      redirect_to "/user/#{session[:searched_for]}"
+      redirect_to "/user/#{session[:searched_for]}" # To change to results.
     end
   end
   
@@ -65,7 +74,26 @@ class UsersController < ApplicationController
   end
   
   def save
-
+    @user = User.find(params[:id])
+    
+    # Add user ID to params, since we don't want users to be able to add it themselves in web inspector.
+    params[:user][:user_answers_attributes].each do |k, h|
+      h[:user_id] = @user.id
+    end
+    
+    binding.pry
+    
+    @user.update_attributes(params[:user])
+    
+    # find_or_create_if_not_nil(params["answers"])
+    
+    flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
+    
+    if session[:searched_for] == nil
+      redirect_to "/users/#{session[:username]}" # To change to results.
+    else
+      redirect_to "/user/#{session[:searched_for]}" # To change to results.
+    end
   end
   
   def delete

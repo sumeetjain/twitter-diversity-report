@@ -3,4 +3,6 @@ class Result < ActiveRecord::Base
   
   validates :searched_handle, presence: true
   
+  serialize :demo_hash, Hash
+  
 end

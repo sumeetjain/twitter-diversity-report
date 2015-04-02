@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :twitter_handle
+  attr_accessible :twitter_handle, :user_answers_attributes
   
   validates :twitter_handle, presence: true
   validates :twitter_handle, uniqueness: {case_sensitive: false} 
@@ -17,4 +17,6 @@ class User < ActiveRecord::Base
                      source: :answer
                     
   has_many :user_answers
+  
+  accepts_nested_attributes_for :user_answers
 end

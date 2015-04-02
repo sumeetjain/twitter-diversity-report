@@ -2,9 +2,11 @@ module UsersHelper
   def user_answer_field_label(answer_type)
     case answer_type
     when "Age"
-      "Birth year"
+      "Year you were born (YYYY): "
     when "Income"
-      "How much $$$$?????"
+      "Annual income (USD):"
+    when "Education"
+      "Highest level of education attained"
     end
   end
 end

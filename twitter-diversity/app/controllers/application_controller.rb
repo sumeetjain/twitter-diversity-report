@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
       user_array.push user_object.twitter_handle
     end
 
-
     friend_array = client.friends(searched_twitter_handle).to_a
 
     friend_array.each_with_object([]) do |friend_object, matching_array|
@@ -25,6 +24,9 @@ class ApplicationController < ActionController::Base
       end
     end
     #matching_array is scoped within this block of code, cannot be accessed outside of it. only accessible right now because it is the final return of the method (and is set equal to a variable in our controller)
+    
+
+    
   end
   
 end

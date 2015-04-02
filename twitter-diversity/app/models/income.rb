@@ -1,9 +1,9 @@
 class Income < ActiveRecord::Base
-  attr_accessible :amount
+  attr_accessible :value
   
-  validates :amount, presence: true
-  validates :amount, uniqueness:  {case_sensitive: false}
-  validates :amount, numericality: {only_integer: true}  
+  validates :value, presence: true
+  validates :value, uniqueness:  {case_sensitive: false}
+  validates :value, numericality: {only_integer: true}  
  
   has_many :user_answers, as: :answer
     

@@ -12,7 +12,7 @@ class PublicController < ApplicationController
   end
   
   def return
-    @username = oauth_hash['info']['nickname']
+    session[:screen_name] = oauth_hash['info']['nickname']
   end
   
   def result

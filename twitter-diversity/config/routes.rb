@@ -37,6 +37,8 @@ TwitterDiversity::Application.routes.draw do
 
   get "/auth/failure" => "public#failure"
   
+  get "/test" => "results#test"
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

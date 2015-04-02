@@ -11,6 +11,7 @@ TwitterDiversity::Application.routes.draw do
   
   ########## USERS ##############################
   
+
   # get "/users/new" => 'users#new'
   #
   # post "/users" =>'users#create'

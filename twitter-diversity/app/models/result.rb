@@ -5,6 +5,7 @@ class Result < ActiveRecord::Base
   
   serialize :demo_hash, Hash
   
+<<<<<<< HEAD
   def get_friend_answers(m)
     friend_answers = []
     m.each do |friend_obj|
@@ -61,4 +62,6 @@ class Result < ActiveRecord::Base
     end
     slice_hash
   end
+=======
+>>>>>>> 3a65edfb735954cf4fd057522f3dac41276ed335
 end

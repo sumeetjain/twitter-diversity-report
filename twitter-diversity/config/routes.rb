@@ -31,6 +31,8 @@ TwitterDiversity::Application.routes.draw do
   
   get "/results/:id" => 'results#view' #pulls from results table
   
+  get "/test" => "results#test"
+  
   ######### OMNIAUTH ###########################
   
   get "/auth/twitter/callback" => "public#return"

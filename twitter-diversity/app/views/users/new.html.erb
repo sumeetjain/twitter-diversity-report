@@ -1,6 +1,6 @@
 <div class="form">
   <h2>Demographic Info for: <%= session[:screen_name] -%></h2>
-  
+
   <%= form_for :answers do |f| %>
     <strong><%= f.label :education, "Highest Level of Education Attained: " %></strong><br><br>
     <%= f.text_field :education, autofocus: true, style: "width: 100%" %>
@@ -19,3 +19,14 @@
     <%= f.submit %>
   <% end %>
 </div>
+
+  <%= form_for @user do |f| -%>
+    <%= f.fields_for :user_answers do |u| %>
+      <%= u.label :value, user_answer_field_label(u.object.field_value) %>
+      <%= u.hidden_field :answer_type %>
+      <%= u.number_field :value %>
+    <% end %>
+    
+    <%= f.submit %>
+  <% end %>
+  

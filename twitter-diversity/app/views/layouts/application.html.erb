@@ -8,19 +8,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="header">
-  <a href="/"><img class="logo" src="/assets/logo.png"></a>
-  <div id="menuClicked" class="menuclicked"><a href="#"><img id="menu" class="menu" src="/assets/menu.png"></a></div>
-  <div id="menuList" class="menulist" style="display:none">
-    <p><a href="/users/1">VIEW YOUR INFO</a></p>
-    <p><a href="/about">ABOUT</a></p>
-    <p><a href="/">HOME</a></p>
-  </div>
-</div>
+  
+  <nav class="top-bar blue" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/"><img class="logo" src="/assets/logo.png"></a></h1>
+      </li>
+    </ul>
 
+    <section class="top-bar-section" style="background-color:rgb(0, 204, 255)">
+      <!-- Right Nav Section -->
+      <ul class="right" style="background-color:rgb(0, 204, 255)">
+        <li class="has-dropdown" style="background-color:rgb(0, 204, 255)">
+          <a href="#" style="background-color:rgb(0, 204, 255)">MENU</a>
+          <ul class="dropdown">
+            <li><a href="/users/1">VIEW YOUR INFO</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li><a href="/">HOME</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </section>
+  </nav>
   
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

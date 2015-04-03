@@ -3,17 +3,17 @@
 
 window.onload = function(){
   
-  document.getElementById("menu").addEventListener("click", function(){
-    if (document.getElementById("menuList").style.display === "none") {
-      document.getElementById("menuList").style.display = "block";
-      document.getElementById("menuClicked").style.backgroundColor = "rgba(265,265,265,1)";
-      document.getElementById("menu").src = "/assets/menudark.png";
-    } else {
-      document.getElementById("menuList").style.display = "none";
-      document.getElementById("menuClicked").style.backgroundColor = "";
-      document.getElementById("menu").src = "/assets/menu.png";
-    }
-  });
+  // document.getElementById("menu").addEventListener("click", function(){
+  //   if (document.getElementById("menuList").style.display === "none") {
+  //     document.getElementById("menuList").style.display = "block";
+  //     document.getElementById("menuClicked").style.backgroundColor = "rgba(265,265,265,1)";
+  //     document.getElementById("menu").src = "/assets/menudark.png";
+  //   } else {
+  //     document.getElementById("menuList").style.display = "none";
+  //     document.getElementById("menuClicked").style.backgroundColor = "";
+  //     document.getElementById("menu").src = "/assets/menu.png";
+  //   }
+  // });
   
   document.getElementById("searchinfo").addEventListener("click", function(){
     if (document.getElementById("searchinfobox").style.display === "none") {

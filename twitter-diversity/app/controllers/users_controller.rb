@@ -37,10 +37,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_or_create_by_twitter_handle(session[:screen_name].downcase)
-    @user.user_answers.build(answer_type: "Education")
-
-    @user.user_answers.build(answer_type: "Age")
-    @user.user_answers.build(answer_type: "Income")
   end
   
 

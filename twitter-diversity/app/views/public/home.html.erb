@@ -1,12 +1,6 @@
-
-<form action="results" method="post">
-	<input type="text" name="searched_twitter_handle">
-	<input type="submit">
-</form>
-
-<%= flash[:message] %>	
-
-<a href="/auth/twitter">Enter your own information</a>
+<div class="error">
+  <%= flash[:message] %>
+</div>
 
 <div id="searchbox">
   <div class="form">

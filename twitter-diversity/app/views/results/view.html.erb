@@ -1,7 +1,9 @@
+<%= javascript_include_tag "//www.google.com/jsapi" %> 
+<%= javascript_include_tag "application", "chartkick" %>
 
 
-<%= pie_chart @result.edu_chart(@demo_hash) %>
+<%= pie_chart @result.edu_chart %>
 
-<%= column_chart @result.income_chart(@demo_hash) %>
+<%= column_chart @result.income_chart %>
 
-<%= column_chart @result.age_chart(@demo_hash) %>
+<%= column_chart @result.age_chart %>

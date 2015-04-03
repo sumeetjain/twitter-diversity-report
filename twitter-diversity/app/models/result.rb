@@ -40,13 +40,12 @@ class Result < ActiveRecord::Base
     matching_array
   end
   
-  
   def self.get_friend_answers(m)
     friend_answers = []
     
     m.each do |friend_obj|
       matched_user = User.find_by_twitter_handle(friend_obj.screen_name.downcase)
-      friend_answers + matched_user.user_answers #SQL
+      friend_answers += matched_user.user_answers #SQL
     end
     friend_answers
   end
@@ -66,13 +65,13 @@ class Result < ActiveRecord::Base
     demos.each do |d|
       sub_ans = subset_fa_by_demo(d,friend_answers)
       unique_ans = get_unique_answers(sub_ans)
-      slice_hash = build_slice_hash(unique_ans, sub_ans)  #indirect SQL
+      slice_hash = build_slice_hash(d, unique_ans, sub_ans)  #indirect SQL
       demo_hash[d] = slice_hash
     end
     demo_hash
   end
   
-  def subset_fa_by_demo(d,friend_answers)
+  def self.subset_fa_by_demo(d, friend_answers)
     demo_ans_array = []
     friend_answers.each do |a|
       if a.answer_type == d
@@ -82,7 +81,7 @@ class Result < ActiveRecord::Base
     demo_ans_array
   end
 
-  def get_unique_answers(sub_ans)
+  def self.get_unique_answers(sub_ans)
     unique_ans = []
     sub_ans.each do |a|
       unless unique_ans.include?(a.answer_id)
@@ -92,7 +91,7 @@ class Result < ActiveRecord::Base
     unique_ans
   end
   
-  def build_slice_hash(unique_ans, sub_ans)
+  def self.build_slice_hash(d, unique_ans, sub_ans)
     slice_hash = {}
     unique_ans.each do |a|
       count = sub_ans.count{ |b| b.answer_id == a }
@@ -102,14 +101,14 @@ class Result < ActiveRecord::Base
     slice_hash
   end
   
-  def edu_chart(demo_hash)
+  def edu_chart
     @edu_chart_data = [["Level Attained", "Count"]]
-      demo_hash["Education"].each do |k,v|
+      self.demo_hash["Education"].each do |k,v|
         @edu_chart_data.push [k,v]
       end
   end
       
-  def income_chart(demo_hash)
+  def income_chart
     income_buckets = [["Under 15000", 0],
                       ["15000 - 25000", 0],
                       ["25000 - 35000", 0],
@@ -119,7 +118,7 @@ class Result < ActiveRecord::Base
                       ["100000 - 150000", 0],
                       ["Over 150000", 0]]
   
-    demo_hash["Income"].each do |amount,count|
+    self.demo_hash["Income"].each do |amount,count|
       if amount < 15000
         income_buckets[0][1] += count
       elsif amount >= 15000 && amount < 25000
@@ -143,7 +142,7 @@ class Result < ActiveRecord::Base
     income_buckets.each{ |b| @income_chart_data.push b }
   end
 
-  def age_chart(demo_hash)
+  def age_chart
     age_buckets = [["Under 18", 0],
                   ["18-24", 0],
                   ["25-34", 0],
@@ -152,7 +151,7 @@ class Result < ActiveRecord::Base
                   ["55-64", 0],
                   ["65 and older", 0]]
               
-    demo_hash["Age"].each do |birth_year,count|
+    self.demo_hash["Age"].each do |birth_year,count|
     age = Time.now.year - birth_year
       if age < 18
         age_buckets[0][1] += count

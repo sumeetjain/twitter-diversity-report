@@ -23,10 +23,7 @@ class ApplicationController < ActionController::Base
         matching_array.push friend_object
       end
     end
-    #matching_array is scoped within this block of code, cannot be accessed outside of it. only accessible right now because it is the final return of the method (and is set equal to a variable in our controller)
-    
-
-    
+    #matching_array is scoped within this block of code, cannot be accessed outside of it. only accessible right now because it is the final return of the method (and is set equal to a variable in our controller) 
   end
   
 end

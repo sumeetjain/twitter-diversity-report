@@ -5,7 +5,14 @@ class Result < ActiveRecord::Base
   
   serialize :demo_hash, Hash
   
-  def build_result_hash(client, searched_twitter_handle)
+  def self.client
+    Twitter::REST::Client.new do |config|
+          config.consumer_key = ENV["public"]  
+          config.consumer_secret = ENV["secret"]
+        end
+  end
+  
+  def self.build_result_hash(client, searched_twitter_handle)
     matching_array = fetch_friend_matches(client, searched_twitter_handle)
     friend_answers = get_friend_answers(matching_array)
     demos = get_demo_types(friend_answers)

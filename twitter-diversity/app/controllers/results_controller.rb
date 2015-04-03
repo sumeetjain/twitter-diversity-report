@@ -6,15 +6,12 @@ class ResultsController < ApplicationController
   def create
     @twitter_handle = params[:searched_twitter_handle]
     
-    #move this eventually#
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key = "5yMZJo4VreMP3mMER6LS5Z5j7"  
-      config.consumer_secret =
-        "jizR3IdQCUsxfgdEyD9LrnOmw1WHLF3XzPzYq5SAqlfhk0gter"  
-    end
+    client = Result.client
     
-    result = Result.new(twitter_handle: @twitter_handle,
-                        demo_hash: build_result_hash(client,@twitter_handle))
+    result = Result.create(twitter_handle: @twitter_handle,
+                        demo_hash: build_result_hash(client, @twitter_handle))
+    
+    binding.pry
     
     redirect_to "/results/#{result.id}"
     

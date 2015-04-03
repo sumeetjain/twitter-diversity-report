@@ -2,12 +2,79 @@
   <%= flash[:message] %>
 </div>
 
-<div id="searchbox">
+
+<div class="row">
+    <div class="columns small-0 medium-1" style="height:500px"> </div>
+  <div class="columns medium-6" id="searchbox">
+    <div class="columns small-12 medium-11">
+    <div class="form">
+      <form action="/results" method="post">
+        <label>TWITTER HANDLE:</label><br><br>
+      	<input type="text" name="twitter_handle" placeholder="ie: @barackobama"><br><br>
+      	<input class="button" type="submit" value="SEE RESULTS">
+      </form>
+    </div>
+    <div class="whysearch">
+      <hr></hr>
+      <p><a href="#" id="searchinfo"><em>=> Who should I search for?</em></a></p>
+      <div id="searchinfobox" style="display: none">
+        <p><br><strong>YOURSELF</strong><br>
+          How diverse is your feed? Are you exposed primarily to viewpoints similar to yours?
+        </p>
+        <p><strong>ELECTED OFFICIALS</strong><br>
+          Are your representatives paying attention to the myriad of voices that comprise their constituency?
+        </p>
+        <p><strong>YOUR FAVORITE JOURNALIST</strong><br>
+          Are they seeking information from a wide variety of people?
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="columns small-0 medium-1" style="height:500px"> </div>
+  <div class="columns medium-3" id="infobox">
+    <div class="columns small-12 medium-11">
+    
+    <div class="form">
+      <label class="searchlabel">ADD YOUR INFO:</label><br><br>
+      <a href="/auth/twitter"><button class="button">GET STARTED</button></a>
+    </div>
+      <div class="whyinfo">
+        <hr></hr>
+        <p><a href="#" id="addinfo"><em>=> What happens to my data?</em></a></p>
+        <div id="addinfobox" style="display: none">
+          <p><br><strong>MORE ACCURATE DATA</strong><br>
+            The greater percentage of twitter users who participate, the more complete and meaningful the data. 
+          </p>
+          <p><strong>IT’S KEPT ANONYMOUS</strong><br>
+            We encrypt any identifying information, meaning no one can look up your answers.
+          </p>
+          <p><strong>ONLY SHARE WHAT YOU WANT</strong><br>
+            Seriously, no pressure. Not comfortable answering a question? Just leave it blank.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+    <div class="columns small-0 medium-1" style="height:500px"> </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--<div id="searchbox">
   <div class="form">
     <form action="results/new" method="get">
       <label class="searchlabel">TWITTER HANDLE:</label><br><br>
-    	<input type="text" name="twitter_handle" placeholder="ie: @barackobama"><br><br>
-    	<input class="button" type="submit" value="SEE RESULTS">
+      <input type="text" name="twitter_handle" placeholder="ie: @barackobama"><br><br>
+      <input class="button" type="submit" value="SEE RESULTS">
     </form>
   </div>
   <div class="whysearch">
@@ -36,7 +103,7 @@
       <p><a href="#" id="addinfo"><em>=> What happens to my data?</em></a></p>
       <div id="addinfobox" style="display: none">
         <p><br><strong>MORE ACCURATE DATA</strong><br>
-          The greater percentage of twitter users who participate, the more complete and meaningful the data. 
+          The greater percentage of twitter users who participate, the more complete and meaningful the data.
         </p>
         <p><strong>IT’S KEPT ANONYMOUS</strong><br>
           We encrypt any identifying information, meaning no one can look up your answers.
@@ -47,4 +114,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

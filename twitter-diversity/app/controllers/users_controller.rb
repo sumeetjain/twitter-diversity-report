@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   
   before_filter :params_check, only: [:create]
   before_filter :validate_user_authorized
+
   
   ########### Before Filters #############
   
@@ -33,14 +34,18 @@ class UsersController < ApplicationController
     
   ########### Route Methods ##############
     
+
   def edit
     @user = User.find_or_create_by_twitter_handle(session[:screen_name].downcase)
     @user.user_answers.build(answer_type: "Education")
+
     @user.user_answers.build(answer_type: "Age")
     @user.user_answers.build(answer_type: "Income")
   end
   
+
   def save
+
     @user = User.find_by_twitter_handle(session[:screen_name].downcase)
     
     # Add user ID to params, since we don't want users to be able to add it themselves in web inspector.
@@ -101,6 +106,7 @@ class UsersController < ApplicationController
     session.clear
     
     redirect_to "/"
+
     
   end
   

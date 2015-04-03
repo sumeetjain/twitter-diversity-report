@@ -11,6 +11,7 @@ TwitterDiversity::Application.routes.draw do
   
   ########## USERS ##############################
   
+
   # get "/users/new" => 'users#new'
   #
   # post "/users" =>'users#create'
@@ -27,9 +28,9 @@ TwitterDiversity::Application.routes.draw do
   
   get "/current/:screen_name" => 'results#current' #redirects to /:id
   
-  post "/results" => 'results#create' #generates results record to populate /:id, make sure to clear session after this loads
-  
   get "/results/:id" => 'results#view' #pulls from results table
+  
+  post "/results" => 'results#create' #generates results record to populate /:id, make sure to clear session after this loads
   
   get "/test" => "results#test"
   

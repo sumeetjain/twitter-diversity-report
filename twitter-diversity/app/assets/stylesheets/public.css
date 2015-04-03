@@ -2,3 +2,206 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+body {
+  font-family: 'Oswald', sans-serif;
+  color: #262626;
+  margin: 0px;
+}
+
+.header {
+  height: 40px;
+  width: 100%;
+  background-color: rgb(0, 204, 255);
+}
+
+.logo {
+  width: 300px;
+  padding-left: 15px;
+  padding-top: 3px;
+  display: inline-block;
+  float: left;
+}
+
+.menu {
+  display: inline-block;
+  float: left;
+  width: 25px;
+  padding-top: 6px;
+  position: absolute;
+  right: 10px;
+}
+
+.menuclicked {
+  width: 80px;
+  height: 40px;
+  position: absolute;
+  right: 0px;
+  
+}
+
+.menulist {
+  height: 75px;
+  width: 75px;
+  background-color: rgba(265, 265, 265, 1);
+  color: #262626;
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  font-size: 12px;
+}
+
+.menulist p {
+  margin-left: 5px;
+  margin-right: 5px;
+
+}
+
+.menulist a:hover {
+  color: rgb(0, 204, 255);
+}
+
+.error {
+  color: rgb(128, 0, 0);
+}
+
+
+#searchbox {
+  width: 40%;
+  display: inline-block;
+  margin-left: 10%;
+  max-width: 700px;
+  min-width: 200px;
+  height: 225px;
+  background-color: #EBEBEB;
+  float: left;
+  margin-top: 30px;
+  
+}
+
+.searchlabel {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  align: center;
+  color: #262626;
+}
+
+.button {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  color: #fff;
+  background-color: #262626;
+}
+
+.form {
+  padding: 15px 0px 0px 0px;
+}
+
+.whysearch {
+  padding: 15px 30px 0px 35px;
+  font-family: Georgia, serif;
+
+}
+
+a:link {
+    color: #262626;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #262626;
+    text-decoration: none;
+    
+}
+
+a:hover {
+    color: #262626;
+    text-decoration: none;
+    
+}
+
+a:active {
+    color: #262626;
+    text-decoration: none;
+    
+}
+
+#searchinfobox {
+  font-size: 12px;
+  text-align: center;
+  color: #262626;
+  margin-bottom: 50px;
+  
+}
+
+#infobox {
+  width: 20%;
+  margin-left: 10%;
+  display: inline-block;
+  max-width: 400px;
+  min-width: 200px;
+  height: 225px;
+  background-color: #EBEBEB;
+  float: left;
+  margin-top: 30px;
+  
+}
+
+#addinfobox {
+  font-size: 12px;
+  text-align: center;
+  color: #262626;
+  margin-bottom: 50px;
+  
+}
+
+.whyinfo {
+  padding: 15px 35px 0px 30px;
+  font-family: Georgia, serif;
+
+}
+
+
+/* iphone6 display*/
+
+@media screen and (max-width: 667px) {
+  
+  #searchbox {
+    width: 300px;
+    margin: 0px auto;
+    min-width: 200px;
+    height: 225px;
+    background-color: #EBEBEB;
+    margin-top: 30px;
+  
+  }
+  
+  #infobox {
+    width: 300px;
+    margin: 0px auto;
+    min-width: 200px;
+    height: 225px;
+    background-color: #EBEBEB;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    
+  }
+  
+} 
+
+/* tablet-ish*/
+@media screen and (min-width: 667px) and (max-width:847px){
+
+}
+                                                    
+/* standard monitor */                                                                                                                                                            
+@media screen and (min-width: 847px) and (max-width: 1400px){
+
+  
+}
+
+/* superhuge monitor*/
+@media screen and (min-width: 1400px) {
+
+}
+  

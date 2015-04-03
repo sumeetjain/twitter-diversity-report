@@ -48,30 +48,67 @@ class ResultsController < ApplicationController
   # end
   
   def test
-    require 'json'
+    names = ["hilarysk","midwestboardgam","halfghaninne"]
     
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key = "5yMZJo4VreMP3mMER6LS5Z5j7"  
-      config.consumer_secret = "jizR3IdQCUsxfgdEyD9LrnOmw1WHLF3XzPzYq5SAqlfhk0gter"  
-    end
+    demos = UserAnswer.joins(:user).where(users:{twitter_handle: names}).select("distinct answer_type").map{ |a| a.answer_type }
     
-    user_array = []
+    demo = "Age"
     
-    User.select("twitter_handle").each do |user_object| 
-      user_array.push user_object.twitter_handle
-    end
-
-    searched_twitter_handle = "cza_dev"
-
-    friend_array = client.friends(searched_twitter_handle).to_a
+    result_hash = {}
     
-    matching_array = []
-
-    friend_array.each do |friend_object|
-      if user_array.include?(friend_object.screen_name.downcase)
-        matching_array.push friend_object
+    demos.each do |demo|
+      demo_hash = {}
+      d = demo.downcase.pluralize
+    
+    # x = UserAnswer.joins("INNER JOIN ages ON user_answers.answer_id = ages.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: "Age"},users:{twitter_handle:names}).select("ages.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("ages.value")
+    
+      x = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo},users:{twitter_handle:names}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
+    
+      x.each do |y|
+        # if !/\A\d+\z/.match(y.answer_value)
+        #     #Is not a positive number, y.answer_value is a string
+        # else
+        #     #Is all good ..continue, y.answer_value is a number
+        # end
+        
+        unless !/\A\d+\z/.match(y.answer_value)
+          y.answer_value = y.answer_value.to_i
+        end
+        
+        demo_hash[y.answer_value] = y.answer_count.to_i
       end
+      
+      result_hash[demo] = demo_hash
+      
+      binding.pry
     end
+    
+    binding.pry
+    
+    # require 'json'
+#
+#     client = Twitter::REST::Client.new do |config|
+#       config.consumer_key = "5yMZJo4VreMP3mMER6LS5Z5j7"
+#       config.consumer_secret = "jizR3IdQCUsxfgdEyD9LrnOmw1WHLF3XzPzYq5SAqlfhk0gter"
+#     end
+#
+#     user_array = []
+#
+#     User.select("twitter_handle").each do |user_object|
+#       user_array.push user_object.twitter_handle
+#     end
+#
+#     searched_twitter_handle = "cza_dev"
+#
+#     friend_array = client.friends(searched_twitter_handle).to_a
+#
+#     matching_array = []
+#
+#     friend_array.each do |friend_object|
+#       if user_array.include?(friend_object.screen_name.downcase)
+#         matching_array.push friend_object
+#       end
+#     end
     
     # # User.select("twitter_handle").each_with_object([]) do |user_object, user_array|
     # #   user_array.push user_object.twitter_handle
@@ -85,49 +122,52 @@ class ResultsController < ApplicationController
     #   end
     # end
 
-    friend_answers = []
-    matching_array.each do |friend_object|
-      matched_user = User.find_by_twitter_handle(friend_object.screen_name.downcase)
-      friend_answers += matched_user.user_answers
-    end
-    
-    demographics = []
-    friend_answers.each do |a|
-      unless demographics.include?(a.answer_type)
-        demographics.push a.answer_type
-      end
-    end
-    
-    demo_hash = {}
-    
-    demographics.each do |d|
-      demo_answers = []
-      friend_answers.each do |a|
-        if a.answer_type == d
-          demo_answers.push a
-        end
-      end
-      
-      unique_ans = []
-      
-      demo_answers.each do |a|
-        unless unique_ans.include?(a.answer_id)
-          unique_ans.push a.answer_id
-        end
-      end
-      
-      slice_hash = {}
-      
-      unique_ans.each do |a|
-        count = demo_answers.count{|b| b.answer_id == a}
-        answer = d.constantize.find(a).value
-        slice_hash[answer] = count
-      end
-      
-      demo_hash[d] = slice_hash
-      
-    end
-    
+    # friend_answers = []
+#     matching_array.each do |friend_object|
+#       matched_user = User.find_by_twitter_handle(friend_object.screen_name.downcase)
+#       friend_answers += matched_user.user_answers
+#     end
+#
+#     demographics = []
+#     friend_answers.each do |a|
+#       unless demographics.include?(a.answer_type)
+#         demographics.push a.answer_type
+#       end
+#     end
+#
+#
+#
+#     demo_hash = {}
+#
+#     demographics.each do |d|
+#       x = UserAnswer.joins("INNER JOIN ages ON user_answers.answer_id = ages.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: "Age"},users:{twitter_handle:names}).select("ages.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("ages.value")
+#       demo_answers = []
+#       friend_answers.each do |a|
+#         if a.answer_type == d
+#           demo_answers.push a
+#         end
+#       end
+#
+#       unique_ans = []
+#
+#       demo_answers.each do |a|
+#         unless unique_ans.include?(a.answer_id)
+#           unique_ans.push a.answer_id
+#         end
+#       end
+#
+#       slice_hash = {}
+#
+#       unique_ans.each do |a|
+#         count = demo_answers.count{|b| b.answer_id == a}
+#         answer = d.constantize.find(a).value
+#         slice_hash[answer] = count
+#       end
+#
+#       demo_hash[d] = slice_hash
+#
+#     end
+#
     
     #demo_hash = {"Income"=>{40000=>1, 20000=>1}, "Age"=>{1985=>1, 1990=>1}, "Education"=>{"secondary"=>1, "graduate"=>1}}
     # @edu_chart_data = [["Level Attained", "Count"]]

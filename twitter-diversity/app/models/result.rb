@@ -7,9 +7,9 @@ class Result < ActiveRecord::Base
   
   def self.client
     Twitter::REST::Client.new do |config|
-          config.consumer_key = ENV["public"]  
-          config.consumer_secret = ENV["secret"]
-        end
+      config.consumer_key = ENV["public"]  
+      config.consumer_secret = ENV["secret"]
+    end
   end
   
   def self.build_result_hash(client, searched_twitter_handle)

@@ -8,8 +8,8 @@ class ResultsController < ApplicationController
     
     client = Result.client
     
-    result = Result.create(twitter_handle: @twitter_handle,
-                        demo_hash: build_result_hash(client, @twitter_handle))
+    result = Result.create(searched_handle: @twitter_handle,
+                        demo_hash: Result.build_result_hash(client, @twitter_handle))
     
     binding.pry
     
@@ -19,7 +19,9 @@ class ResultsController < ApplicationController
   end
   
   def view
+    binding.pry
     @result = Result.find(params[:id])  
+    @demo_hash = @result.demo_hash
   end
   
   

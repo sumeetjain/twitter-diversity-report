@@ -1,5 +1,5 @@
 class Result < ActiveRecord::Base
-  attr_accessible :searched_handle, :education, :income, :age
+  attr_accessible :searched_handle, :education, :income, :age, :demo_hash
   
   validates :searched_handle, presence: true
   
@@ -17,10 +17,10 @@ class Result < ActiveRecord::Base
     friend_answers = get_friend_answers(matching_array)
     demos = get_demo_types(friend_answers)
     demo_hash = generate_demo_hash(demos, friend_answers)
-  
+    return demo_hash
   end
   
-  def fetch_friend_matches(client, searched_twitter_handle)
+  def self.fetch_friend_matches(client, searched_twitter_handle)
     
     user_array = []
     
@@ -28,25 +28,30 @@ class Result < ActiveRecord::Base
       user_array.push user_object.twitter_handle
     end
 
-    friend_array = client.friends(searched_twitter_handle).to_a
+    friend_array = client.friends(searched_twitter_handle).to_a # TODO change to get ids.
+    
+    matching_array = []
 
-    friend_array.each_with_object([]) do |friend_object, matching_array|
+    friend_array.each do |friend_object|
       if user_array.include?(friend_object.screen_name.downcase)
-        matching_array.push friend_object
+        matching_array << friend_object
       end
     end
     matching_array
   end
   
-  def get_friend_answers(m)
+  
+  def self.get_friend_answers(m)
     friend_answers = []
+    
     m.each do |friend_obj|
-      friend_answers += friend_obj.user_answers #SQL
+      matched_user = User.find_by_twitter_handle(friend_obj.screen_name.downcase)
+      friend_answers + matched_user.user_answers #SQL
     end
     friend_answers
   end
   
-  def get_demo_types(friend_answers)
+  def self.get_demo_types(friend_answers)
     demos = []
     friend_answers.each do |a|
       unless demos.include?(a.answer_type)
@@ -56,7 +61,7 @@ class Result < ActiveRecord::Base
     demos
   end
   
-  def generate_demo_hash(demos, friend_answers)
+  def self.generate_demo_hash(demos, friend_answers)
     demo_hash = {}
     demos.each do |d|
       sub_ans = subset_fa_by_demo(d,friend_answers)

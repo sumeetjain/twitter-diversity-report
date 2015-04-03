@@ -1,10 +1,11 @@
 class Result < ActiveRecord::Base
-  attr_accessible :searched_handle, :education, :income, :age, :demo_hash
+  attr_accessible :searched_handle, :education, :income, :age
   
   validates :searched_handle, presence: true
   
   serialize :demo_hash, Hash
   
+
   def self.client
     Twitter::REST::Client.new do |config|
       config.consumer_key = ENV["public"]  
@@ -18,6 +19,36 @@ class Result < ActiveRecord::Base
     demos = get_demo_types(friend_answers)
     demo_hash = generate_demo_hash(demos, friend_answers)
     return demo_hash
+  end
+  
+  def self.build_result_hash2(client, searched_twitter_handle)
+
+    names = client.friends(searched_twitter_handle).to_a
+    names = names.map{ |f| f.screen_name }
+
+    #TODO change names, replace with client call for searched_handle(friend_ids)
+    names = ["hilarysk","midwestboardgam","halfghaninne"]
+
+    #TODO twitter_handle in demos call below changed to new field name.
+    demos = UserAnswer.joins(:user).where(users:{twitter_handle: names}).select("distinct answer_type").map{ |a| a.answer_type }
+
+    result_hash = {}
+
+    demos.each do |demo|
+      demo_hash = {}
+      d = demo.downcase.pluralize
+      # TODO change {twitter_handle:names} to {new_id_field_name:id_array_var}
+      answer_groups = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo},users:{twitter_handle:names}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
+
+      answer_groups.each do |g|
+        unless !/\A\d+\z/.match(g.answer_value)
+          g.answer_value = g.answer_value.to_i
+        end
+        demo_hash[g.answer_value] = g.answer_count.to_i
+      end
+      result_hash[demo] = demo_hash
+    end
+    result_hash
   end
   
   def self.fetch_friend_matches(client, searched_twitter_handle)
@@ -42,7 +73,6 @@ class Result < ActiveRecord::Base
   
   def self.get_friend_answers(m)
     friend_answers = []
-    
     m.each do |friend_obj|
       matched_user = User.find_by_twitter_handle(friend_obj.screen_name.downcase)
       friend_answers += matched_user.user_answers #SQL
@@ -50,7 +80,7 @@ class Result < ActiveRecord::Base
     friend_answers
   end
   
-  def self.get_demo_types(friend_answers)
+  def get_demo_types(friend_answers)
     demos = []
     friend_answers.each do |a|
       unless demos.include?(a.answer_type)
@@ -59,7 +89,8 @@ class Result < ActiveRecord::Base
     end
     demos
   end
-  
+
+ 
   def self.generate_demo_hash(demos, friend_answers)
     demo_hash = {}
     demos.each do |d|
@@ -68,9 +99,9 @@ class Result < ActiveRecord::Base
       slice_hash = build_slice_hash(d, unique_ans, sub_ans)  #indirect SQL
       demo_hash[d] = slice_hash
     end
-    demo_hash
   end
   
+
   def self.subset_fa_by_demo(d, friend_answers)
     demo_ans_array = []
     friend_answers.each do |a|
@@ -103,9 +134,9 @@ class Result < ActiveRecord::Base
   
   def edu_chart
     @edu_chart_data = [["Level Attained", "Count"]]
-      self.demo_hash["Education"].each do |k,v|
-        @edu_chart_data.push [k,v]
-      end
+    self.demo_hash["Education"].each do |k,v|
+      @edu_chart_data.push [k,v]
+    end
   end
       
   def income_chart
@@ -175,5 +206,4 @@ class Result < ActiveRecord::Base
   end
   
   
-
 end

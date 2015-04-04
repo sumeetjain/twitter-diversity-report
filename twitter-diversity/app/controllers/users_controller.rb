@@ -22,7 +22,6 @@ class UsersController < ApplicationController
       end
     end
     
-    binding.pry
     if params["user"]["user_answers_attributes"][education_index]["value"] == ""
       params["user"]["user_answers_attributes"][education_index]["value"] = params["education1"]
     end
@@ -47,7 +46,6 @@ class UsersController < ApplicationController
 
   def save
 
-    binding.pry
     #@user = User.find_by_twitter_handle(session[:screen_name].downcase)
     @user = User.find_by_twitterid(session[:twitter_id])
     

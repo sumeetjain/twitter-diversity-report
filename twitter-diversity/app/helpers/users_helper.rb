@@ -7,6 +7,12 @@ module UsersHelper
       "Annual income (USD):"
     when "Education"
       "Highest level of education attained"
+    when "Ethnicity"
+      "Ethnicity"
+    when "Gender"
+      "Gender"
+    when "Orientation"
+      "Orientation"
     end
   end
 end

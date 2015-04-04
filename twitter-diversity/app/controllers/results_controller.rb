@@ -29,7 +29,7 @@ class ResultsController < ApplicationController
 
       result = Result.create(searched_handle: @twitter_handle,
                         demo_hash: demo_hash)
-    
+      binding.pry
       if session[:screen_name] == nil
         redirect_to "/reroute"
         session[:searched_for] = params[:twitter_handle]

@@ -2,7 +2,7 @@ class ResultsController < ApplicationController
   
   def current
     @twitter_handle = params[:screen_name]
-    
+  
     client = Result.client
     
     demo_hash = Result.build_result_hash(client, @twitter_handle)
@@ -20,8 +20,12 @@ class ResultsController < ApplicationController
       redirect_to "/"
     else
       @twitter_handle = params[:twitter_handle]
-    
-      demo_hash = Result.build_result_hash(client, @twitter_handle)
+      begin
+        demo_hash = Result.build_result_hash(client, @twitter_handle)
+      rescue Twitter::Error::NotFound
+        flash[:message] = "Looks like that's one of the few handles that doesn't exist. Try another search:"
+        return redirect_to "/"
+      end
 
       result = Result.create(searched_handle: @twitter_handle,
                         demo_hash: demo_hash)
@@ -43,7 +47,6 @@ class ResultsController < ApplicationController
   end
   
   def reroute
-    binding.pry
     if session[:result].demo_hash = {}
       redirect_to "/"
       flash[:message] = "Oh no! @#{session[:searched_for]} is not following anyone who's filled out information with us. Try another search:" 
@@ -53,7 +56,7 @@ class ResultsController < ApplicationController
     else
       render "/results/reroute"
     end
-
+      
   end
   
 end

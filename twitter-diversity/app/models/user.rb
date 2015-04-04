@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :twitter_handle, :user_answers_attributes
+  attr_accessible :twitter_handle, :user_answers_attributes, :twitter_id
   
   validates :twitter_handle, presence: true
   validates :twitter_handle, uniqueness: {case_sensitive: false} 

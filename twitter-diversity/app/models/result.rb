@@ -16,23 +16,18 @@ class Result < ActiveRecord::Base
 
   
   def self.build_result_hash2(client, searched_twitter_handle)
+    
+    twitter_ids = client.friend_ids(searched_twitter_handle).attrs[:ids]
 
-    names = client.friends(searched_twitter_handle).to_a
-    names = names.map{ |f| f.screen_name.downcase }
-
-    #TODO change names, replace with client call for searched_handle(friend_ids)
-
-
-    #TODO twitter_handle in demos call below changed to new field name.
-    demos = UserAnswer.joins(:user).where(users:{twitter_handle: names}).select("distinct answer_type").map{ |a| a.answer_type }
+    demos = UserAnswer.joins(:user).where(users:{twitter_id: twitter_ids}).select("distinct answer_type").map{ |a| a.answer_type }
 
     result_hash = {}
 
     demos.each do |demo|
       demo_hash = {}
       d = demo.downcase.pluralize
-      # TODO change {twitter_handle:names} to {new_id_field_name:id_array_var}
-      answer_groups = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitter_handle:names}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
+
+      answer_groups = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitter_id:twitter_ids}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
 
       answer_groups.each do |g|
         unless !/\A\d+\z/.match(g.answer_value)

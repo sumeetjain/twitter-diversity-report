@@ -1,3 +1,39 @@
+<style type="text/css">
+     
+  #infobox {
+    display: inline-block;
+    height: 300px;
+    background-color: #EBEBEB;
+    float: left;
+    margin-top: 30px;
+  }
+
+  #searchbox {
+    display: inline-block;
+    height: 300px;
+    background-color: #EBEBEB;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 840px){
+    #infobox {
+      display: inline-block;
+      height: 350px;
+      background-color: #EBEBEB;
+      float: left;
+      margin-top: 30px;
+    }
+
+    #searchbox {
+      display: inline-block;
+      height: 350px;
+      background-color: #EBEBEB;
+      margin-top: 30px;
+    }
+  }
+
+</style>
+    
 <div class="error">
   <%= flash[:message] %>
 </div>
@@ -34,34 +70,28 @@
   <div class="columns small-0 medium-1" style="height:500px"> </div>
   <div class="columns medium-3" id="infobox">
     <div class="columns small-12 medium-12">
-    
-    <div class="form2">
-      <label class="searchlabel">ADD YOUR INFO:</label><br>
-      <a href="/auth/twitter"><button class="button">GET STARTED</button></a>
-      <br><br><br><br>
-    </div>
-      <div class="whyinfo">
-        <hr></hr>
-        <p><a href="#" id="addinfo"><em><img class="arrowsmall" src="/assets/arrow1.png">What happens to my data?</em></a></p>
-        <div id="addinfobox" style="display: none">
-          <p><strong>MORE ACCURATE DATA</strong><br>
-            The greater percentage of twitter users who participate, the more complete and meaningful the data. 
-          </p>
-          <p><strong>IT’S KEPT ANONYMOUS</strong><br>
-            We encrypt any identifying information, meaning no one can look up your answers.
-          </p>
-          <p><strong>ONLY SHARE WHAT YOU WANT</strong><br>
-            Seriously, no pressure. Not comfortable answering a question? Just leave it blank.
-          </p>
+      <div class="form2">
+        <label class="searchlabel">ADD YOUR INFO:</label><br>
+        <a href="/auth/twitter"><button class="button">GET STARTED</button></a>
+        <br><br><br>
+      </div>
+        <div class="whysearch">
+          <hr></hr>
+          <p><a href="#" id="addinfo"><em><img class="arrowsmall" src="/assets/arrow1.png">What happens to my data?</em></a></p>
+          <div id="addinfobox" style="display: none">
+            <p><strong>MORE ACCURATE DATA</strong><br>
+              The greater percentage of twitter users who participate, the more complete and meaningful the data. 
+            </p>
+            <p><strong>IT’S KEPT ANONYMOUS</strong><br>
+              We encrypt any identifying information, meaning no one can look up your answers.
+            </p>
+            <p><strong>ONLY SHARE WHAT YOU WANT</strong><br>
+              Seriously, no pressure. Not comfortable answering a question? Just leave it blank.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
     <div class="columns small-0 medium-1" style="height:500px"> </div>
 </div>
-
-
-
-
-

@@ -56,7 +56,6 @@ class ResultsController < ApplicationController
     else
       render "/results/reroute"
     end
-      
   end
   
 end

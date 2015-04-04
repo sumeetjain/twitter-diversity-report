@@ -1,6 +1,8 @@
-We are generating your result. While you wait, we'd love to get more information about you (it's what keeps our site going)!
-<br><br>
+<div class="form">
+  <h2>We are generating your result.</h2> 
+  <p>While you wait, we'd love to get more information about you (it's what keeps our site going)!</p>
 
-<%= link_to("Sure", "/users/:screen_name/edit") %>
-<br><br>
-<%= link_to("No, thanks", "results/#{session[:result].id}")%>
+  <p><img class="arrowsmall" src="/assets/arrow1.png"><%= link_to("Sure!", "/users/:screen_name/edit") %></p>
+  <p><img class="arrowsmall" src="/assets/arrow1.png"><%= link_to("No, thanks", "results/#{session[:result].id}")%></p>
+
+</div>

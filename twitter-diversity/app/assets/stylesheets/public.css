@@ -31,10 +31,16 @@ h2 {
   padding-right: 4px;
 }
 
+.arrowmedium {
+  width: 26px;
+  padding-bottom: 8px;
+  padding-right: 3px;
+}
+
 .arrowsmall {
-  width: 20px;
-  padding-bottom: 1px;
-  padding-right: 2px;
+  width: 17px;
+  padding-bottom: 3px;
+  padding-right: 3px;
 }
 
 label {
@@ -42,64 +48,13 @@ label {
   color: #262626;
 }
 
-/*
-
-.menu {
-  display: inline-block;
-  float: left;
-  width: 25px;
-  padding-top: 6px;
-  position: absolute;
-  right: 10px;
-}
-
-.menuclicked {
-  width: 80px;
-  height: 40px;
-  position: absolute;
-  right: 0px;
-
-}
-
-.menulist {
-  height: 125px;
-  width: 75px;
-  background-color: rgba(265, 265, 265, 1);
-  color: #262626;
-  position: absolute;
-  right: 0px;
-  top: 40px;
-  font-size: 12px;
-}
-
-.menulist p {
-  margin-left: 10px;
-}
-*/
-
 .menulink a:hover {
   color: rgb(0, 204, 255);
 }
 
-/*
-.error {
-  color: rgb(128, 0, 0);
-}
 
-*/
 
-#searchbox {
-/*  width: 40%;
-*/  display: inline-block;
-/*  margin-left: 10%;
-  max-width: 700px;
-  min-width: 200px;*/
-  height: 300px;
-  background-color: #EBEBEB;
-/*  float: left;*/
-  margin-top: 30px;
 
-}
 
 .searchlabel {
   font-family: 'Oswald', sans-serif;
@@ -128,14 +83,7 @@ label {
   padding: 10px 0px 0px 0px;
 }
 
-/*
-.whysearch {
-  padding: 15px 30px 0px 35px;
-  font-family: Georgia, serif;
 
-}
-
-*/
 
 a:link {
     color: #262626;
@@ -160,43 +108,11 @@ a:active {
 
 }
 
-/*
-
-#searchinfobox {
-  font-size: 12px;
-  text-align: center;
-  color: #262626;
-  margin-bottom: 50px;
-
-}
-
-*/
-
-#infobox {
-/*  width: 20%;
-  margin-left: 10%;
-*/  display: inline-block;
-/*  max-width: 400px;
-  min-width: 200px;
-*/  height: 300px;
-  background-color: #EBEBEB;
-  float: left;
-  margin-top: 30px;
-
-}
-
-
-/*
-.whyinfo {
-  padding: 15px 35px 0px 30px;
+.whysearch {
   font-family: Georgia, serif;
-
+  vertical-align: baseline;
 }
 
-.bluetext {
-  color: rgb(0, 204, 255);
-}
-*/
 
 /* iphone6 display*/
 

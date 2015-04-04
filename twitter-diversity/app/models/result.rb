@@ -20,7 +20,7 @@ class Result < ActiveRecord::Base
     twitter_ids = client.friend_ids(searched_twitter_handle).attrs[:ids]
 
     demos = UserAnswer.joins(:user).where(users:{twitterid: twitter_ids}).select("distinct answer_type").map{ |a| a.answer_type }
-
+    binding.pry
     result_hash = {}
 
     demos.each do |demo|
@@ -28,7 +28,8 @@ class Result < ActiveRecord::Base
       d = demo.downcase.pluralize
 
       answer_groups = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitterid:twitter_ids}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
-
+      
+      binding.pry
       answer_groups.each do |g|
         unless !/\A\d+\z/.match(g.answer_value)
           g.answer_value = g.answer_value.to_i
@@ -115,5 +116,26 @@ class Result < ActiveRecord::Base
     age_buckets.each{ |bucket| @age_chart_data << bucket }
   end
   
+  
+  def orientation_chart
+    @orientation_chart_data = [["Orientation", "Count"]]
+    self.demo_hash["Orientation"].each do |k,v|
+      @orientation_chart_data.push [k,v]
+    end
+  end
+  
+  def gender_chart
+    @gender_chart_data = [["Gender", "Count"]]
+    self.demo_hash["Gender"].each do |k,v|
+      @gender_chart_data.push [k,v]
+    end
+  end
+  
+  def ethnicity_chart
+    @ethnicity_chart_data = [["Ethnicity", "Count"]]
+    self.demo_hash["Ethnicity"].each do |k,v|
+      @ethnicity_chart_data.push [k,v]
+    end
+  end
   
 end

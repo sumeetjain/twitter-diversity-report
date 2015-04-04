@@ -36,8 +36,13 @@
     <div class="columns small-12 medium-12">
     
     <div class="form2">
-      <label class="searchlabel">ADD YOUR INFO:</label><br>
-      <a href="/auth/twitter"><button class="button">GET STARTED</button></a>
+		<% if session[:screen_name] == nil %>
+		  	<label class="searchlabel">ADD YOUR INFO:</label><br>
+			<a href="/auth/twitter"><button class="button">GET STARTED</button></a>
+		<% else %>
+		  	<label class="searchlabel"><%= session[:screen_name] %></label><br>
+			<a href="/users/<%= session[:screen_name] %>/edit"><button class="button">EDIT YOUR INFO</button></a>	
+	 	<% end %>
       <br><br><br><br>
     </div>
       <div class="whyinfo">

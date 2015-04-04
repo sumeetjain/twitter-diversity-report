@@ -38,7 +38,6 @@ class ResultsController < ApplicationController
   end
   
   def reroute
-    binding.pry
   end
   
 end

@@ -43,9 +43,13 @@ class ResultsController < ApplicationController
   end
   
   def reroute
+    binding.pry
     if session[:result].demo_hash = {}
       redirect_to "/"
       flash[:message] = "Oh no! @#{session[:searched_for]} is not following anyone who's filled out information with us. Try another search:" 
+      session[:searched_for] = nil
+      session[:result].destroy
+      session[:result] = nil
     else
       render "/results/reroute"
     end

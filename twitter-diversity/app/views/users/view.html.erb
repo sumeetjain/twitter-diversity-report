@@ -10,8 +10,6 @@
   <h2><a href="<%= "#{@user.id}" %>/edit"><img class="arrow" src="/assets/arrow1.png">Edit/update your information</a></h2>
   
   <h2><img class="arrow" src="/assets/arrow1.png"><%= link_to 'Delete your information', url_for(action: :delete,id: @user.id),method: :delete, data: {confirm: "Are you sure you want to remove your information? (Specifically-identifying information is encrypted.)"} %></h2>
-  <% if session[:result] != nil %>
-  	<%= link_to( "Looks good! Take me to my search result", 	"/results/#{session[:result].id}") %>
-  <% end %>
+
 </div>
 

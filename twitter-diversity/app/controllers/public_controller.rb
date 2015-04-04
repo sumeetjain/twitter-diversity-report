@@ -1,7 +1,6 @@
 class PublicController < ApplicationController
   
   def home
-    binding.pry
     render "/public/home"
   end
   

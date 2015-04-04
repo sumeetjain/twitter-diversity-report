@@ -2,7 +2,6 @@
   <h2>Add or update your information: <span class="bluetext"><%= session[:screen_name] -%></span></h2>
   <br><br>
   <%= form_for @user do |f| -%>
-  <% binding.pry %>
     <%= f.fields_for :user_answers do |u| %>
       <%= u.label :value, user_answer_field_label(u.object.field_value) %><br>
       <%= u.hidden_field :answer_type %>

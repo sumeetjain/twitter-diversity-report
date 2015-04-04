@@ -15,11 +15,11 @@ class Result < ActiveRecord::Base
   
 
   
-  def self.build_result_hash2(client, searched_twitter_handle)
+  def self.build_result_hash(client, searched_twitter_handle)
     
     twitter_ids = client.friend_ids(searched_twitter_handle).attrs[:ids]
 
-    demos = UserAnswer.joins(:user).where(users:{twitter_id: twitter_ids}).select("distinct answer_type").map{ |a| a.answer_type }
+    demos = UserAnswer.joins(:user).where(users:{twitterid: twitter_ids}).select("distinct answer_type").map{ |a| a.answer_type }
 
     result_hash = {}
 
@@ -27,7 +27,7 @@ class Result < ActiveRecord::Base
       demo_hash = {}
       d = demo.downcase.pluralize
 
-      answer_groups = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitter_id:twitter_ids}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
+      answer_groups = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitterid:twitter_ids}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
 
       answer_groups.each do |g|
         unless !/\A\d+\z/.match(g.answer_value)

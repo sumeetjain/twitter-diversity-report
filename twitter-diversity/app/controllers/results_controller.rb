@@ -19,7 +19,7 @@ class ResultsController < ApplicationController
     client = Result.client
     @twitter_handle = params[:twitter_handle]
 
-    demo_hash = Result.build_result_hash2(client, @twitter_handle)
+    demo_hash = Result.build_result_hash(client, @twitter_handle)
 
     result = Result.create(searched_handle: @twitter_handle,
                         demo_hash: demo_hash)

@@ -18,10 +18,22 @@ window.onload = function(){
   document.getElementById("searchinfo").addEventListener("click", function(){
     if (document.getElementById("searchinfobox").style.display === "none") {
       document.getElementById("searchinfobox").style.display = "block";
+      
+      if (window.matchMedia("(max-width: 850px)").matches) {
+          document.getElementById("searchbox").style.height = "670px";
+      } else {
       document.getElementById("searchbox").style.height = "585px";
-    } else {
+      }
+      
+      
+   } else {
       document.getElementById("searchinfobox").style.display = "none";
+      
+      if (window.matchMedia("(max-width: 840px)").matches) {
+          document.getElementById("searchbox").style.height = "350px";
+      } else {
       document.getElementById("searchbox").style.height = "300px";
+      }
     }
   });
   
@@ -40,14 +52,19 @@ window.onload = function(){
       } else if (window.matchMedia("(min-width: 770px)").matches) {
         document.getElementById("infobox").style.height = "975px"; 
       } else if (window.matchMedia("(min-width: 663px)").matches) {
-        document.getElementById("infobox").style.height = "1075px";
+        document.getElementById("infobox").style.height = "1130px";
       } else if (window.matchMedia("(min-width: 500px)").matches) {
-        document.getElementById("infobox").style.height = "1100px";
+        document.getElementById("infobox").style.height = "1230px";
       } 
       
   } else {
       document.getElementById("addinfobox").style.display = "none";
+      
+      if (window.matchMedia("(max-width: 840px)").matches) {
+          document.getElementById("infobox").style.height = "350px";
+      } else {
       document.getElementById("infobox").style.height = "300px";
+      }
     }
   });
   

@@ -4,6 +4,42 @@
     <li><strong>Education level:</strong> <%= @user.educations[0] ? @user.educations[0].value : "Unanswered"  %></li>
     <li><strong>Income level:</strong> <%= @user.incomes[0] ? @user.incomes[0].value : "Unanswered" %></li>    
     <li><strong>Birth year:</strong> <%= @user.ages[0] ? @user.ages[0].value : "Unanswered" %></li>
+    <li><strong>Ethnicity:</strong> 
+      <% if @user.ethnicities.length > 0 %>
+      <ul>
+        <% @user.ethnicities.each do |e| %>
+          <li><%= e.value.capitalize %></li>
+        <% end %>
+      </ul>
+      <% else %>
+        Unanswered
+      <% end %>
+    </li>
+
+    <li><strong>Gender:</strong> 
+      <% if @user.genders.length > 0 %>
+      <ul>
+        <% @user.genders.each do |g| %>
+          <li><%= g.value %></li>
+        <% end %>
+      </ul>
+      <% else %>
+        Unanswered
+      <% end %>
+    </li>
+
+    <li><strong>Orientation:</strong> 
+      <% if @user.orientations.length > 0 %>
+      <ul>
+        <% @user.orientations.each do |o| %>
+          <li><%= o.value %></li>
+        <% end %>
+      </ul>
+      <% else %>
+        Unanswered
+      <% end %>
+    </li>
+
   </ul> 
   
 

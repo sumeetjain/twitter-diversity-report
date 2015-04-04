@@ -36,20 +36,14 @@ class UsersController < ApplicationController
 
     @user = User.find_or_create_by_twitterid(session[:twitter_id])
     
-    user_answer_types = @user.user_answers.select("distinct answer_type")
+    user_answer_types = @user.user_answers.select("distinct answer_type").map { |a| a.answer_type }
     
     all_demos = UserAnswer.select("distinct answer_type").map{ |a| a.answer_type }
     
-    binding.pry
-    
-    if @user.user_answers == []
-      @user.user_answers.build(answer_type: "Education")
-      @user.user_answers.build(answer_type: "Age")
-      @user.user_answers.build(answer_type: "Income")
-      @user.user_answers.build(answer_type: "Gender")
-      @user.user_answers.build(answer_type: "Ethnicity")
-      @user.user_answers.build(answer_type: "Orientation")
-      binding.pry
+    all_demos.each do |d|
+      unless user_answer_types.include?(d)
+        @user.user_answers.build(answer_type: d)
+      end
     end
     
   end

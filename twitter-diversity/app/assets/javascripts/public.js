@@ -44,7 +44,7 @@ window.onload = function(){
       
  
       if (window.matchMedia("(min-width: 994px)").matches) {
-        document.getElementById("infobox").style.height = "670px";
+        document.getElementById("infobox").style.height = "815px";
       } else if (window.matchMedia("(min-width: 965px)").matches) {
         document.getElementById("infobox").style.height = "745px";
       } else if (window.matchMedia("(min-width: 814px)").matches) {

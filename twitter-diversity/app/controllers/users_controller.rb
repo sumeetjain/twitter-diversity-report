@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     @user.update_attributes(params[:user])
       
     flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
-
+    binding.pry
     if session[:searched_for] == nil
       redirect_to "/users/#{session[:screen_name]}" # To change to results.
     else

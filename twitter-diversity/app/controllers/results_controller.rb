@@ -32,8 +32,9 @@ class ResultsController < ApplicationController
   end
   
   def view
-    session[:searched_twitter_handle] = nil
-      @result = Result.find(params[:id])  
+      @result = Result.find(params[:id]) 
+    session[:searched_for] = nil
+    session[:result] = nil 
   end
   
   def reroute

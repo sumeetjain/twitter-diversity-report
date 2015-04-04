@@ -20,7 +20,7 @@ class Result < ActiveRecord::Base
     twitter_ids = client.friend_ids(searched_twitter_handle).attrs[:ids]
 
     demos = UserAnswer.joins(:user).where(users:{twitterid: twitter_ids}).select("distinct answer_type").map{ |a| a.answer_type }
-    binding.pry
+
     result_hash = {}
 
     demos.each do |demo|

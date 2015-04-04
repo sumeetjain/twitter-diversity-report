@@ -5,33 +5,27 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>  
 </head>
-<body>
-  
+<body>  
   <nav class="top-bar blue" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
         <h1><a href="/"><img class="logo" src="/assets/logo.png"></a></h1>
       </li>
     </ul>
-
-    <section class="top-bar-section" style="background-color:rgb(0, 204, 255)">
+    <section class="top-bar-section">
+    
       <!-- Right Nav Section -->
-      <ul class="right" style="background-color:rgb(0, 204, 255)">
-        <li class="has-dropdown" style="background-color:rgb(0, 204, 255)">
-          <a href="#" style="background-color:rgb(0, 204, 255)">MENU</a>
-          <ul class="dropdown">
-            <li><a href="/users/1">VIEW YOUR INFO</a></li>
-            <li><a href="/about">ABOUT</a></li>
-            <li><a href="/">HOME</a></li>
-          </ul>
-        </li>
+      <ul class="right greyhover">
+        <li><a href="/users/1" style="background-color:rgb(0, 204, 255);border-right:1px solid">VIEW YOUR INFO</a></li>
+        <!-- <li><a href="/about" style="background-color:rgb(0, 204, 255); border-right:1px solid; border-left: 1px solid">ABOUT</a></li> -->
+        <li><a href="/" style="background-color:rgb(0, 204, 255)">HOME</a></li>
       </ul>
+
 
     </section>
   </nav>
-  
 
   <%= yield %>
 

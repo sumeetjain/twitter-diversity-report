@@ -32,6 +32,8 @@ TwitterDiversity::Application.routes.draw do
   
   post "/results" => 'results#create' #generates results record to populate /:id, make sure to clear session after this loads
   
+  get "/reroute" => 'results#reroute' #TODO would like to change to a post route
+  
   get "/test" => "results#test"
   
   ######### OMNIAUTH ###########################

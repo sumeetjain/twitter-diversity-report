@@ -36,9 +36,15 @@ class UsersController < ApplicationController
     
 
   def edit
-    #@user = User.find_or_create_by_twitter_handle(session[:screen_name].downcase)
+
     @user = User.find_or_create_by_twitterid(session[:twitter_id])
-    binding.pry
+    
+    if @user.user_answers == nil
+      @user.user_answers.build(answer_type: "Education")
+      @user.user_answers.build(answer_type: "Age")
+      @user.user_answers.build(answer_type: "Income")
+    end
+    
   end
   
 
@@ -56,8 +62,9 @@ class UsersController < ApplicationController
       
     flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
     
+    binding.pry
     if session[:searched_for] == nil
-      redirect_to "/users/#{session[:username]}" # To change to results.
+      redirect_to "/users/#{session[:screen_name]}" # To change to results.
     else
       redirect_to "/user/#{session[:searched_for]}" # To change to results.
     end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :params_check, only: [:create]
+  before_filter :params_check, only: [:save]
   before_filter :validate_user_authorized
 
   
@@ -14,21 +14,18 @@ class UsersController < ApplicationController
   end
   
   def params_check
-    
      
-    if params["answers"]["education"] == ""
-      params["answers"]["education"] = params["education1"]
+    education_index = ""
+    params["user"]["user_answers_attributes"].each do |x, y|
+      if y["answer_type"] == "Education"
+        education_index = x
+      end
     end
     
-    if params["answers"]["education"] != nil
-      params["answers"]["education"].downcase!
-      params["answers"]["education"].strip!
+    binding.pry
+    if params["user"]["user_answers_attributes"][education_index]["value"] == ""
+      params["user"]["user_answers_attributes"][education_index]["value"] = params["education1"]
     end
-    
-    if params["answers"]["age"].length != 4
-      flash[:age_error] = "Looks like the format for your birth year was incorrect.  Please try again."
-      redirect_to "/users/new"
-    end 
     
   end 
     
@@ -50,6 +47,7 @@ class UsersController < ApplicationController
 
   def save
 
+    binding.pry
     #@user = User.find_by_twitter_handle(session[:screen_name].downcase)
     @user = User.find_by_twitterid(session[:twitter_id])
     
@@ -62,7 +60,6 @@ class UsersController < ApplicationController
       
     flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
     
-    binding.pry
     if session[:searched_for] == nil
       redirect_to "/users/#{session[:screen_name]}" # To change to results.
     else

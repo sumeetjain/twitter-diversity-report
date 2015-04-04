@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
     @user = User.find_or_create_by_twitterid(session[:twitter_id])
     
-    if @user.user_answers == nil
+    if @user.user_answers == []
       @user.user_answers.build(answer_type: "Education")
       @user.user_answers.build(answer_type: "Age")
       @user.user_answers.build(answer_type: "Income")

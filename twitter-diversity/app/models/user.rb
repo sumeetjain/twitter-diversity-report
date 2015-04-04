@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :twitter_handle, :user_answers_attributes, :twitterid
+  attr_accessible :user_answers_attributes, :twitterid
   
   #validates :twitter_handle, presence: true
   validates :twitterid, presence: true
-  validates :twitter_handle, uniqueness: {case_sensitive: false} 
   
   has_many :ages, through: :user_answers, 
                   source_type: "Age", 

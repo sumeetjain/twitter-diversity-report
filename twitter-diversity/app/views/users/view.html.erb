@@ -9,3 +9,8 @@
   <h2>Delete information:</h2>
   <%= button_to 'Delete',url_for(action: :delete,id: @user.id),method: :delete, data: {confirm: "Are you sure you want to remove your information? (Specifically-identifying information is encrypted.)"} %>
 </div>
+
+<% if session[:result] != nil %>
+	<%= link_to( "Looks good! Take me to my search result", 	"/results/#{session[:result].id}") %>
+<% end %>
+	

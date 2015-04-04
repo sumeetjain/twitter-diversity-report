@@ -36,6 +36,7 @@ class UsersController < ApplicationController
     
 
   def edit
+    binding.pry
     @user = User.find_or_create_by_twitter_handle(session[:screen_name].downcase)
   end
   

@@ -3,12 +3,10 @@
   <%= form_for @user do |f| -%>
   <% binding.pry %>
     <%= f.fields_for :user_answers do |u| %>
-	<% binding.pry %>
       <%= u.label :value, user_answer_field_label(u.object.field_value) %><br><br>
       <%= u.hidden_field :answer_type %>
   
       <% if u.object.answer_type == "Education" %>
-	  <% binding.pry %>
         <%= u.text_field :value, style: "width: 70%", autofocus: true %><br><br>
         <p><em>Or choose an option from below: </em></p>
         <input type="radio" name="education1" value="elementary">Elementary<br>
@@ -18,7 +16,6 @@
         <input type="radio" name="education1" value="post-graduate">Post-Graduate<br><br><br>
 
       <% else %>
-	  <% binding.pry %>
        <%= u.number_field :value %><br><br>
       
       <% end %>

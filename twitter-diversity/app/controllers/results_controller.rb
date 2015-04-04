@@ -24,6 +24,7 @@ class ResultsController < ApplicationController
     
     if session[:screen_name] == nil
       redirect_to "/reroute"
+      session[:searched_for] = params[:twitter_handle]
       session[:result] = result
     else
       redirect_to "/results/#{result.id}"

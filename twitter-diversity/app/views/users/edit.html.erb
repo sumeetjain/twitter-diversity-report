@@ -22,4 +22,13 @@
     
     <%= f.submit %>
   <% end %>
+  
+  <div>
+	  
+	  <% if session[:result] != nil %>
+	  	<p>OR</p>
+	  	<%= link_to("Looks good! Take me to my search result", "/results/#{session[:result].id}") %>
+	  <% end %>
+	  
+  </div>
 </div>  

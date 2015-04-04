@@ -6,7 +6,7 @@ class ResultsController < ApplicationController
     client = Result.client
     
     demo_hash = Result.build_result_hash2(client, @twitter_handle)
-
+    
     result = Result.create(searched_handle: @twitter_handle,
                         demo_hash: demo_hash)
     
@@ -37,7 +37,6 @@ class ResultsController < ApplicationController
   end
   
   def reroute
-    binding.pry
   end
   
 end

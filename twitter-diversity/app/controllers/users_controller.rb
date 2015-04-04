@@ -36,9 +36,8 @@ class UsersController < ApplicationController
     
 
   def edit
-    binding.pry
-    @user = User.find_or_create_by_twitter_handle(session[:screen_name].downcase)
-    #@user = User.find_or_create_by_twitter_id(session[:twitter_id])
+    #@user = User.find_or_create_by_twitter_handle(session[:screen_name].downcase)
+    @user = User.find_or_create_by_twitterid(session[:twitter_id])
     binding.pry
   end
   
@@ -46,7 +45,7 @@ class UsersController < ApplicationController
   def save
 
     #@user = User.find_by_twitter_handle(session[:screen_name].downcase)
-    @user = User.find_by_twitter_id(session[:twitter_id])
+    @user = User.find_by_twitterid(session[:twitter_id])
     
     # Add user ID to params, since we don't want users to be able to add it themselves in web inspector.
     params[:user][:user_answers_attributes].each do |k, h|
@@ -66,7 +65,7 @@ class UsersController < ApplicationController
 
   def delete    
     #user = User.find_by_twitter_handle(session[:screen_name].downcase)
-    user = User.find_by_twitter_id(session[:twitter_id])
+    user = User.find_by_twitterid(session[:twitter_id])
     
     UserAnswer.delete_all(["user_id = ?", user.id])
     
@@ -83,7 +82,7 @@ class UsersController < ApplicationController
   
   def view
     #@user = User.find_by_twitter_handle(session[:screen_name].downcase)
-    @user = User.find_by_twitter_id(session[:twitter_id])
+    @user = User.find_by_twitterid(session[:twitter_id])
   end
   
 end

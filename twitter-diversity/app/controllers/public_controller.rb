@@ -14,10 +14,9 @@ class PublicController < ApplicationController
   def return
     session[:screen_name] = oauth_hash['info']['nickname']
     session[:twitter_id] = oauth_hash['uid'].to_i
-    binding.pry
     
     #user = User.find_by_twitter_handle(session[:screen_name].downcase)
-    user = User.find_by_twitter_id(session[:twitter_id])
+    user = User.find_by_twitterid(session[:twitter_id])
 
     if user
       redirect_to "/users/#{user.id}"

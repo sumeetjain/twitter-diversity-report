@@ -31,6 +31,12 @@ h2 {
   padding-right: 4px;
 }
 
+.arrowmedium {
+  width: 26px;
+  padding-bottom: 8px;
+  padding-right: 3px;
+}
+
 .arrowsmall {
   width: 17px;
   padding-bottom: 3px;

@@ -28,7 +28,7 @@ class Result < ActiveRecord::Base
       user_array.push user_object.twitter_handle
     end
 
-    friend_array = client.friends(searched_twitter_handle).to_a # TODO change to get ids.
+    friend_array = client.friends(searched_twitter_handle).to_a ###############
     
     matching_array = []
 

@@ -28,8 +28,10 @@
   <div>
 	  
 	  <% if session[:result] != nil %>
-	  	<p>OR</p>
-	  	<%= link_to("Looks good! Take me to my search result", "/results/#{session[:result].id}") %>
+      <hr></hr>
+	  	<h2>Looks good?</h2>
+      <br>
+	  	<img class="arrowmedium" src="/assets/arrow1.png"><%= link_to("See your original search result", "/results/#{session[:result].id}", style: "font-size:24px") %>
 	  <% end %>
 	  
   </div>

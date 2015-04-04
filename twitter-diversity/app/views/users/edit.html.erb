@@ -1,6 +1,7 @@
 <div class="form">
   <h2>Add or update your information: <%= session[:screen_name] -%></h2>
   <%= form_for @user do |f| -%>
+  <% binding.pry %>
     <%= f.fields_for :user_answers do |u| %>
       <%= u.label :value, user_answer_field_label(u.object.field_value) %><br><br>
       <%= u.hidden_field :answer_type %>
@@ -22,4 +23,13 @@
     
     <%= f.submit %>
   <% end %>
+  
+  <div>
+	  
+	  <% if session[:result] != nil %>
+	  	<p>OR</p>
+	  	<%= link_to("Looks good! Take me to my search result", "/results/#{session[:result].id}") %>
+	  <% end %>
+	  
+  </div>
 </div>  

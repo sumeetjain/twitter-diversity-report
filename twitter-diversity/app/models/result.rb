@@ -5,6 +5,7 @@ class Result < ActiveRecord::Base
   
   serialize :demo_hash, Hash
   
+
   def self.client
     Twitter::REST::Client.new do |config|
       config.consumer_key = ENV["public"]  
@@ -12,100 +13,45 @@ class Result < ActiveRecord::Base
     end
   end
   
-  def self.build_result_hash(client, searched_twitter_handle)
-    matching_array = fetch_friend_matches(client, searched_twitter_handle)
-    friend_answers = get_friend_answers(matching_array)
-    demos = get_demo_types(friend_answers)
-    demo_hash = generate_demo_hash(demos, friend_answers)
-    return demo_hash
-  end
-  
-  def self.fetch_friend_matches(client, searched_twitter_handle)
-    
-    user_array = []
-    
-    User.select("twitter_handle").each do |user_object| 
-      user_array.push user_object.twitter_handle
-    end
 
-    friend_array = client.friends(searched_twitter_handle).to_a ###############
-    
-    matching_array = []
+  
+  def self.build_result_hash2(client, searched_twitter_handle)
 
-    friend_array.each do |friend_object|
-      if user_array.include?(friend_object.screen_name.downcase)
-        matching_array << friend_object
-      end
-    end
-    matching_array
-  end
-  
-  def self.get_friend_answers(m)
-    friend_answers = []
-    
-    m.each do |friend_obj|
-      matched_user = User.find_by_twitter_handle(friend_obj.screen_name.downcase)
-      friend_answers += matched_user.user_answers #SQL
-    end
-    friend_answers
-  end
-  
-  def self.get_demo_types(friend_answers)
-    demos = []
-    friend_answers.each do |a|
-      unless demos.include?(a.answer_type)
-        demos.push a.answer_type
-      end
-    end
-    demos
-  end
-  
-  def self.generate_demo_hash(demos, friend_answers)
-    demo_hash = {}
-    demos.each do |d|
-      sub_ans = subset_fa_by_demo(d,friend_answers)
-      unique_ans = get_unique_answers(sub_ans)
-      slice_hash = build_slice_hash(d, unique_ans, sub_ans)  #indirect SQL
-      demo_hash[d] = slice_hash
-    end
-    demo_hash
-  end
-  
-  def self.subset_fa_by_demo(d, friend_answers)
-    demo_ans_array = []
-    friend_answers.each do |a|
-      if a.answer_type == d
-        demo_ans_array.push a
-      end
-    end
-    demo_ans_array
-  end
+    names = client.friends(searched_twitter_handle).to_a
+    names = names.map{ |f| f.screen_name.downcase }
 
-  def self.get_unique_answers(sub_ans)
-    unique_ans = []
-    sub_ans.each do |a|
-      unless unique_ans.include?(a.answer_id)
-        unique_ans.push a.answer_id
+    #TODO change names, replace with client call for searched_handle(friend_ids)
+
+
+    #TODO twitter_handle in demos call below changed to new field name.
+    demos = UserAnswer.joins(:user).where(users:{twitter_handle: names}).select("distinct answer_type").map{ |a| a.answer_type }
+
+    result_hash = {}
+
+    demos.each do |demo|
+      demo_hash = {}
+      d = demo.downcase.pluralize
+      # TODO change {twitter_handle:names} to {new_id_field_name:id_array_var}
+      answer_groups = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitter_handle:names}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
+
+      answer_groups.each do |g|
+        unless !/\A\d+\z/.match(g.answer_value)
+          g.answer_value = g.answer_value.to_i
+        end
+        demo_hash[g.answer_value] = g.answer_count.to_i
       end
+      result_hash[demo] = demo_hash
     end
-    unique_ans
+    result_hash
   end
   
-  def self.build_slice_hash(d, unique_ans, sub_ans)
-    slice_hash = {}
-    unique_ans.each do |a|
-      count = sub_ans.count{ |b| b.answer_id == a }
-      answer = d.constantize.find(a).value #SQL
-      slice_hash[answer] = count
-    end
-    slice_hash
-  end
+ 
   
   def edu_chart
     @edu_chart_data = [["Level Attained", "Count"]]
-      self.demo_hash["Education"].each do |k,v|
-        @edu_chart_data.push [k,v]
-      end
+    self.demo_hash["Education"].each do |k,v|
+      @edu_chart_data.push [k,v]
+    end
   end
       
   def income_chart
@@ -175,5 +121,4 @@ class Result < ActiveRecord::Base
   end
   
   
-
 end

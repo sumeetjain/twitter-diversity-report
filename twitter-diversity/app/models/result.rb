@@ -115,21 +115,21 @@ class Result < ActiveRecord::Base
     age_buckets.each{ |bucket| @age_chart_data << bucket }
   end
   
-  
+ 
   def orientation_chart
     @orientation_chart_data = [["Orientation", "Count"]]
     self.demo_hash["Orientation"].each do |k,v|
       @orientation_chart_data.push [k,v]
     end
   end
-  
+
   def gender_chart
     @gender_chart_data = [["Gender", "Count"]]
     self.demo_hash["Gender"].each do |k,v|
       @gender_chart_data.push [k,v]
     end
   end
-  
+
   def ethnicity_chart
     @ethnicity_chart_data = [["Ethnicity", "Count"]]
     self.demo_hash["Ethnicity"].each do |k,v|

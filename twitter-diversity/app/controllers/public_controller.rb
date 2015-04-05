@@ -20,8 +20,6 @@ class PublicController < ApplicationController
     user = User.find_by_twitterid(session[:twitter_id])
 
     if user
-      redirect_to "/users/#{user.id}"
-    else
       redirect_to "/users/#{session[:screen_name]}/edit"  
     end
   end

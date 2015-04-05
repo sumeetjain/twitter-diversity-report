@@ -1,6 +1,8 @@
 <%= javascript_include_tag "//www.google.com/jsapi" %> 
 <%= javascript_include_tag "application", "chartkick" %>
 
+<% binding.pry %>
+
 <% pie_lib_vals = {fontName: "Times New Roman", colors:["#00ccff","#80E6FF", "#00A3CC","#005266","#3C3C3C","#A8A8A8","#E9E9E9","#262626","#CCF5FF","#005266"]} %>
 
 <% col_lib_vals = {colors:["#00CCFF"]} %>
@@ -11,8 +13,8 @@
 
 <%= column_chart @result.age_chart, {library: {title: "Age"}.merge(col_lib_vals)} %>
 
-<%= pie_chart @result.ethnicity_chart, {library: {title: "Ethnicity"}.merge(pie_lib_vals)} %>
+<%# pie_chart @result.ethnicity_chart, {library: {title: "Ethnicity"}.merge(pie_lib_vals)} %>
 
-<%= pie_chart @result.gender_chart, {library: {title: "Gender"}.merge(pie_lib_vals)} %>
+<%# pie_chart @result.gender_chart, {library: {title: "Gender"}.merge(pie_lib_vals)} %>
 
-<%= pie_chart @result.orientation_chart, {library: {title: "Orientation"}.merge(pie_lib_vals)} %>
+<%# pie_chart @result.orientation_chart, {library: {title: "Orientation"}.merge(pie_lib_vals)} %>

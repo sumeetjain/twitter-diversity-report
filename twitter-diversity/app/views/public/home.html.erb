@@ -44,11 +44,11 @@
   <div class="columns medium-6" id="searchbox">
     <div class="columns small-11 medium-10">
     <div class="form2">
-      <form action="/results" method="post">
+	<%= form_tag("/results", method: "post") do %>
         <label class="searchlabel">TWITTER HANDLE:</label><br>
       	<input type="text" name="twitter_handle" placeholder="ie: @barackobama"><br>
       	<input class="button" type="submit" value="SEE RESULTS">
-      </form>
+     <% end %>
     </div>
     <div class="whysearch">
       <hr></hr>

@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     
 
   def edit
-
+    
     @user = User.find_or_create_by_twitterid(session[:twitter_id])
     
     user_answer_types = @user.user_answers.select("distinct answer_type")
@@ -83,8 +83,9 @@ class UsersController < ApplicationController
     end
     
     #puts placeholder gender object back in
-    
-    @user.user_answers.push @placeholder_gender_object
+    if @placeholder_gender_object
+      @user.user_answers.push @placeholder_gender_object
+    end
             
     if @user.user_answers == []
       @user.user_answers.build(answer_type: "Education")
@@ -103,12 +104,16 @@ class UsersController < ApplicationController
     #@user = User.find_by_twitter_handle(session[:screen_name].downcase)
     @user = User.find_by_twitterid(session[:twitter_id])
     
+    
+    # deletes existing user gender answers from user_answers table so that doesn't make repeate entries
+    @user.user_answers.where(user_id: @user.id).where(answer_type: "Gender").each do |answer|
+      answer.destroy
+    end
+    
     # Add user ID to params, since we don't want users to be able to add it themselves in web inspector.
     params[:user][:user_answers_attributes].each do |k, h|
       h[:user_id] = @user.id
-    end
-    
-    # SOMEWHERE IN HERE NEED TO MAKE SO THAT DOESN'T CREATE MUTLIPLE ENTRIES FOR SAME USER - IE, IF HE OR SHE IS ALREADY TAGGED AN ITEM, DON'T RETAG THEM. 
+    end 
     
     @user.update_attributes(params[:user])
       

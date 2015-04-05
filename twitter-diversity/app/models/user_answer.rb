@@ -16,7 +16,6 @@ class UserAnswer < ActiveRecord::Base
   end
   
   def value=(form_value)
-    binding.pry
     answer_object = self.answer_type.constantize.find_or_create_by_value(form_value)
     self.answer_id = answer_object.id
   end

@@ -32,4 +32,6 @@ class User < ActiveRecord::Base
   has_many :user_answers
   
   accepts_nested_attributes_for :user_answers
+
+
 end

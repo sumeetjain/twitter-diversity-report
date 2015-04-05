@@ -4,6 +4,10 @@
     <li><strong>Education level:</strong> <%= @user.educations[0] ? @user.educations[0].value : "Unanswered"  %></li>
     <li><strong>Income level:</strong> <%= @user.incomes[0] ? @user.incomes[0].value : "Unanswered" %></li>    
     <li><strong>Birth year:</strong> <%= @user.ages[0] ? @user.ages[0].value : "Unanswered" %></li>
+    <li><strong>Gender/s:</strong> <% b = [] %> 
+                                   <% @user.genders.each do |object| b.push object.value end %>
+                                   <%= b.join(", ") %></li>
+    
   </ul> 
   
 

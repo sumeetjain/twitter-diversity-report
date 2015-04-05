@@ -83,7 +83,6 @@ class UsersController < ApplicationController
   end
   
   def view
-    binding.pry
     #@user = User.find_by_twitter_handle(session[:screen_name].downcase)
     @user = User.find_by_twitterid(session[:twitter_id])
   end

@@ -14,7 +14,6 @@ class ResultsController < ApplicationController
   end
 
   def create
-    binding.pry
     client = Result.client
     if params[:twitter_handle] == nil || params[:twitter_handle] == ""
       flash[:message] = "Oops. You didn't enter any information."
@@ -30,13 +29,11 @@ class ResultsController < ApplicationController
 
       result = Result.create(searched_handle: @twitter_handle,
                         demo_hash: demo_hash)
-      binding.pry
       if session[:screen_name] == nil
         session[:searched_for] = params[:twitter_handle]
         session[:result] = result
         redirect_to "/reroute"
       else
-        binding.pry
         session[:searched_for] = params[:twitter_handle]
         session[:result] = result
         redirect_to "/results/#{result.id}"

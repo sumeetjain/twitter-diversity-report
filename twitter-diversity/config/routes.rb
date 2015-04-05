@@ -37,15 +37,11 @@ TwitterDiversity::Application.routes.draw do
   
   get "/reroute" => 'results#reroute' #TODO would like to change to a post route
   
-  get "/test" => "results#test"
-  
   ######### OMNIAUTH ###########################
   
   get "/auth/twitter/callback" => "public#return"
 
   get "/auth/failure" => "public#failure"
-  
-  get "/test" => "results#test"
   
   
   # The priority is based upon order of creation:

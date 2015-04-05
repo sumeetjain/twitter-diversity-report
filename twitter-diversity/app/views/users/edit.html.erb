@@ -14,21 +14,23 @@
         <input type="radio" name="education1" value="post-secondary"> Post-Secondary<br>
         <input type="radio" name="education1" value="graduate"> Graduate<br>
         <input type="radio" name="education1" value="post-graduate"> Post-Graduate<br><br>
+        
+<!-- need just the first one to show and to ignore the others -->
 
       <% elsif u.object.answer_type == "Gender" %>
         <label><em>One entry per line:</em></label><br>
-        <%= u.text_area :value, style: "width: 70%" %><br>
+        <%= u.text_area :value, :value => @gender_answers, style: "width: 70%", :cols => 10, :rows => 5 %><br>
         
       <% elsif u.object.answer_type == "Orientation" %>
         <label><em>One entry per line:</em></label><br>
-        <%= u.text_area :value, style: "width: 70%" %><br>
+        <%= u.text_area :value, style: "width: 70%", :cols => 10, :rows => 5 %><br>
         
       <% elsif u.object.answer_type == "Ethnicity" %>
         <label><em>One entry per line:</em></label><br>
-        <%= u.text_area :value, style: "width: 70%" %><br>
+        <%= u.text_area :value, style: "width: 70%", :cols => 10, :rows => 5 %><br>
       
       <% else %>
-       <%= u.number_field :value %><br>
+       <%= u.number_field :value, style: "width: 70%" %><br>
       
       <% end %>
     <% end %>

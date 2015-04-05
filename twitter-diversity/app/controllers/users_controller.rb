@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
   
   def params_check
-    binding.pry
     education_index = ""
     params["user"]["user_answers_attributes"].each do |x, y|
       if y["answer_type"] == "Education"
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
         num += 1
         params["user"]["user_answers_attributes"]["#{num.to_s}"] = {"answer_type"=>"Gender", "value"=>"#{gender.to_s}"}
     end
-    
+        
     # Works, but gets messed up right now because of how repopulates the edit form. I think once I make that reconcatenate, it 'll work fine. 
     
     if params["user"]["user_answers_attributes"][education_index]["value"] == ""
@@ -61,7 +60,32 @@ class UsersController < ApplicationController
     user_answer_types = @user.user_answers.select("distinct answer_type")
     
     all_demos = UserAnswer.select("distinct answer_type").map{ |a| a.answer_type }
-        
+      
+    #creates array of strings of answers selected
+    
+    gender_answers_array = []
+    
+    @user.user_answers.each do |answerobject|
+      if answerobject.answer_type == "Gender"
+        gender_answers_array.push answerobject.answer.value
+        @placeholder_gender_object = answerobject
+      end
+    end
+    
+    #gets string of all answer values joined by newline
+    
+    @gender_answers = gender_answers_array.join("\r\n")
+    
+    #removes gender objects from array
+
+    @user.user_answers.delete_if do |answerobject|
+      answerobject.answer_type == "Gender"
+    end
+    
+    #puts placeholder gender object back in
+    
+    @user.user_answers.push @placeholder_gender_object
+            
     if @user.user_answers == []
       @user.user_answers.build(answer_type: "Education")
       @user.user_answers.build(answer_type: "Age")
@@ -83,6 +107,8 @@ class UsersController < ApplicationController
     params[:user][:user_answers_attributes].each do |k, h|
       h[:user_id] = @user.id
     end
+    
+    # SOMEWHERE IN HERE NEED TO MAKE SO THAT DOESN'T CREATE MUTLIPLE ENTRIES FOR SAME USER - IE, IF HE OR SHE IS ALREADY TAGGED AN ITEM, DON'T RETAG THEM. 
     
     @user.update_attributes(params[:user])
       

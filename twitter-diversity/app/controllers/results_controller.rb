@@ -1,17 +1,32 @@
 class ResultsController < ApplicationController
   
   def current
-    @twitter_handle = params[:screen_name]
-  
     client = Result.client
+    if params[:screen_name] == nil || params[:screen_name] == ""
+      flash[:message] = "Did you press enter too soon? We didn't see a Twitter handle. Try again below:"
+      redirect_to "/"
+    else
+      @twitter_handle = params[:screen_name]
     
-    demo_hash = Result.build_result_hash(client, @twitter_handle)
-
-    result = Result.create(searched_handle: @twitter_handle,
-                        demo_hash: demo_hash)
+      begin
+        demo_hash = Result.build_result_hash(client, @twitter_handle)
+      rescue Twitter::Error::NotFound
+        flash[:message] = "Hmmm...Twitter didn't recognize that handle. Try again
+                          here:"
+        return redirect_to "/"
+      end
     
-    redirect_to "/results/#{result.id}"
+      if demo_hash == {}
+        redirect_to "/"
+        flash[:message] = "Oh no! @#{params[:screen_name]} is not following anyone who's filled out information with us. Try another search:" 
+      else
+        result = Result.create(searched_handle: @twitter_handle,
+                             demo_hash: demo_hash)
+        redirect_to "/results/#{result.id}"
+      end
   end
+end
+
 
   def create
     client = Result.client

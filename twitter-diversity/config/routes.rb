@@ -27,6 +27,8 @@ TwitterDiversity::Application.routes.draw do
   
   ########## RESULTS ###########################
   
+  get "/current" => 'results#current'
+  
   get "/current/:screen_name" => 'results#current' #redirects to /:id
   
   get "/results/:id" => 'results#view' #pulls from results table

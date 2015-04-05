@@ -32,4 +32,5 @@ class PublicController < ApplicationController
     request.env['omniauth.auth']
   end
   
+  
 end

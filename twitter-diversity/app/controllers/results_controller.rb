@@ -11,8 +11,12 @@ class ResultsController < ApplicationController
       begin
         demo_hash = Result.build_result_hash(client, @twitter_handle)
       rescue Twitter::Error::NotFound
-        flash[:message] = "Hmmm...Twitter didn't recognize that handle. Try again
-                          here:"
+        flash[:message] = "Hmmm...Twitter didn't recognize that handle. Try
+                          again here:"
+        return redirect_to "/"
+      rescue Twitter::Error::Unauthorized
+        flash[:message] = "Something's wrong with that Twitter account. It may
+                          be suspended. Try another search here:"
         return redirect_to "/"
       end
     
@@ -39,6 +43,10 @@ end
         demo_hash = Result.build_result_hash(client, @twitter_handle)
       rescue Twitter::Error::NotFound
         flash[:message] = "Looks like that's one of the few handles that doesn't exist. Try another search:"
+        return redirect_to "/"
+      rescue Twitter::Error::Unauthorized
+        flash[:message] = "Something's wrong with that Twitter account. It may
+                          be suspended. Try another search here:"
         return redirect_to "/"
       end
 

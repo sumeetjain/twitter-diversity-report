@@ -43,6 +43,10 @@ TwitterDiversity::Application.routes.draw do
 
   get "/auth/failure" => "public#failure"
   
+  ######### BAD USER ENTRY REROUTING ###########
+  
+  get "/:screen_name" => 'results#current'
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -14,13 +14,36 @@ class UsersController < ApplicationController
   end
   
   def params_check
-     
+    binding.pry
     education_index = ""
     params["user"]["user_answers_attributes"].each do |x, y|
       if y["answer_type"] == "Education"
         education_index = x
       end
     end
+    
+    #makes array of strings of each gender entry
+    params["user"]["user_answers_attributes"].each do |x, y|
+      if y["answer_type"] == "Gender"
+        @gender_array = y["value"].split("\r\n")
+      end
+    end
+    
+    #removes gender entry from array
+    params["user"]["user_answers_attributes"].delete_if do |x, y|
+      y["answer_type"] == "Gender" && y["value"].include?("\r\n")
+    end
+    
+    
+    #will need to tweak for multiple ethnicites/orientations - just a test for now
+    num = params["user"]["user_answers_attributes"].keys.last.to_i
+
+    @gender_array.each do |gender|
+        num += 1
+        params["user"]["user_answers_attributes"]["#{num.to_s}"] = {"answer_type"=>"Gender", "value"=>"#{gender.to_s}"}
+    end
+    
+    # Works, but gets messed up right now because of how repopulates the edit form. I think once I make that reconcatenate, it 'll work fine. 
     
     if params["user"]["user_answers_attributes"][education_index]["value"] == ""
       params["user"]["user_answers_attributes"][education_index]["value"] = params["education1"]
@@ -38,9 +61,7 @@ class UsersController < ApplicationController
     user_answer_types = @user.user_answers.select("distinct answer_type")
     
     all_demos = UserAnswer.select("distinct answer_type").map{ |a| a.answer_type }
-    
-    binding.pry
-    
+        
     if @user.user_answers == []
       @user.user_answers.build(answer_type: "Education")
       @user.user_answers.build(answer_type: "Age")
@@ -48,7 +69,6 @@ class UsersController < ApplicationController
       @user.user_answers.build(answer_type: "Gender")
       @user.user_answers.build(answer_type: "Ethnicity")
       @user.user_answers.build(answer_type: "Orientation")
-      binding.pry
     end
     
   end
@@ -71,7 +91,7 @@ class UsersController < ApplicationController
     if session[:searched_for] == nil
       redirect_to "/users/#{session[:screen_name]}" # To change to results.
     else
-      redirect_to "/user/#{session[:searched_for]}" # To change to results.
+      redirect_to "/users/#{session[:searched_for]}" # To change to results.
     end
   end
 

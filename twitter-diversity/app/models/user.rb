@@ -15,7 +15,20 @@ class User < ActiveRecord::Base
   has_many :incomes, through: :user_answers,
                      source_type: "Income",
                      source: :answer
-                    
+                     
+  has_many :genders, through: :user_answers,
+                    source_type: "Gender",
+                    source: :answer
+
+  has_many :orientations, through: :user_answers,
+                     source_type: "Orientation",
+                     source: :answer
+  
+  
+  has_many :ethnicities, through: :user_answers,
+                    source_type: "Ethnicity",
+                    source: :answer
+  
   has_many :user_answers
   
   accepts_nested_attributes_for :user_answers

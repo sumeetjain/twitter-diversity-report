@@ -1,11 +1,18 @@
 <div class="form">
-  <h2>Your current information: <span class="bluetext"><%= session[:screen_name] -%></span></h2>
+  <h2>Your current information: <span class="bluetext"><%= session[:screen_name] -%></span></h2> 
+<!--make oswald all caps, make twitter username georgia -->
   <ul>
     <li><strong>Education level:</strong> <%= @user.educations[0] ? @user.educations[0].value : "Unanswered"  %></li>
     <li><strong>Income level:</strong> <%= @user.incomes[0] ? @user.incomes[0].value : "Unanswered" %></li>    
     <li><strong>Birth year:</strong> <%= @user.ages[0] ? @user.ages[0].value : "Unanswered" %></li>
     <li><strong>Gender/s:</strong> <% b = [] %> 
                                    <% @user.genders.each do |object| b.push object.value end %>
+                                   <%= b.join(", ") %></li>
+    <li><strong>Ethnicity/ies:</strong> <% b = [] %> 
+                                   <% @user.ethnicities.each do |object| b.push object.value end %>
+                                   <%= b.join(", ") %></li>
+    <li><strong>Orientation/s:</strong> <% b = [] %> 
+                                   <% @user.orientations.each do |object| b.push object.value end %>
                                    <%= b.join(", ") %></li>
     
   </ul> 

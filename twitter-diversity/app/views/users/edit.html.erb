@@ -2,8 +2,8 @@
   <h2>Add or update your information: <span class="bluetext"><%= session[:screen_name] -%></span></h2>
   <br><br>
   <%= form_for @user do |f| -%>
-    <%= f.fields_for :user_answers do |u| %>
-      <%= u.label :value, user_answer_field_label(u.object.field_value) %><br>
+    <%= f.fields_for :user_answers, @single_answers do |u| %>
+      <%= u.label :value, user_answer_field_label(u.object.field_value) %>
       <%= u.hidden_field :answer_type %>
   
       <% if u.object.answer_type == "Education" %>
@@ -19,23 +19,24 @@
 
       <% elsif u.object.answer_type == "Gender" %>
         <label><em>One entry per line:</em></label><br>
-        <%= u.text_area :value, :value => @gender_answers, style: "width: 70%", :cols => 10, :rows => 5 %><br>
+        <%= u.text_area :value, :value => @user.genders_as_array, style: "width: 70%", :cols => 10, :rows => 5 %><br>
         
       <% elsif u.object.answer_type == "Orientation" %>
         <label><em>One entry per line:</em></label><br>
         <%= u.text_area :value, style: "width: 70%", :cols => 10, :rows => 5 %><br>
-        
-      <% elsif u.object.answer_type == "Ethnicity" %>
-        <label><em>One entry per line:</em></label><br>
-        <%= u.text_area :value, style: "width: 70%", :cols => 10, :rows => 5 %><br>
-      
+              
       <% else %>
        <%= u.number_field :value, style: "width: 70%" %><br>
       
       <% end %>
     <% end %>
     
+    <%= f.label :ethnicities_text_area %>
+    <%= f.text_area :ethnicities_text_area %>
+    
     <%= f.submit "UPDATE USER", class: "button" %>
+    
+    
   <% end %>
   
   <div>

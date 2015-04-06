@@ -5,20 +5,22 @@
 
 <% col_lib_vals = {colors:["#00CCFF"]} %>
 
-<%# if @result.edu_chart != {} %>
+
+<% if @result.edu_chart != {} %>
 	<%= pie_chart @result.edu_chart, {library: {title:
 		"Education"}.merge(pie_lib_vals)} %>
-<%# end %>
+<% end %>
 
-<%# if @result.income_chart != {} %>
+<% if @result.income_chart != {} %>
 	<%= column_chart @result.income_chart, {library: {title:
 		"Income"}.merge(col_lib_vals)} %>
-<%# end %>
+<% end %>
 
-<%# if @result.age_chart != {} %>
+<% if @result.age_chart != {} %>
 	<%= column_chart @result.age_chart, {library: {title:
 		"Age"}.merge(col_lib_vals)} %>
-<%# end %>
+<% end %>
+
 
 <%# pie_chart @result.ethnicity_chart, {library: {title: "Ethnicity"}.merge(pie_lib_vals)} %>
 

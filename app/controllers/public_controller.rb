@@ -16,7 +16,7 @@ class PublicController < ApplicationController
     session[:twitter_id] = oauth_hash['uid'].to_i
 
     #user = User.find_by_twitter_handle(session[:screen_name].downcase)
-    user = User.find_by_twitterid(session[:twitter_id])
+    user = User.find_or_create_by_twitterid(session[:twitter_id])
 
     if user
       redirect_to "/users/#{session[:screen_name]}/edit"  

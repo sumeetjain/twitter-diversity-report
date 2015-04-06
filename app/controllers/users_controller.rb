@@ -38,11 +38,9 @@ class UsersController < ApplicationController
     
     all_demos = UserAnswer.select("distinct answer_type").map{ |a| a.answer_type }
 
-    if @user.user_answers.count == 0 #change in initial heroku deployment
-      @user.user_answers.build(answer_type: "Education")
-      @user.user_answers.build(answer_type: "Age")
-      @user.user_answers.build(answer_type: "Income")
-    end
+    @user.user_answers.build(answer_type: "Education") if @user.user_answers.where(answer_type: "Education").count == 0
+    @user.user_answers.build(answer_type: "Age") if @user.user_answers.where(answer_type: "Age").count == 0
+    @user.user_answers.build(answer_type: "Income") if @user.user_answers.where(answer_type: "Income").count == 0
     
     @single_answers = @user.user_answers.where(answer_type: ["Education", "Age", "Income"])
     

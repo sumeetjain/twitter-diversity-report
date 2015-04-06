@@ -14,7 +14,10 @@
         <input type="radio" name="education1" value="post-secondary"> <span style="font-family:georgia"> Post-secondary</span><br>
         <input type="radio" name="education1" value="graduate"> <span style="font-family:georgia"> Graduate</span><br>
         <input type="radio" name="education1" value="post-graduate"> <span style="font-family:georgia"> Post-graduate</span><br><br>
-              
+         
+       <% elsif u.object.answer_type == "Age" %>
+        <%= u.number_field :value, in: 1900..Time.current.year, style: "font-family:georgia;width: 70%" %><br>
+           
       <% else %>
        <%= u.number_field :value, style: "font-family:georgia;width: 70%" %><br>
       

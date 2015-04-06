@@ -6,6 +6,7 @@ class ResultsController < ApplicationController
       flash[:message] = "Did you press enter too soon? We didn't see a Twitter handle. Try again below:"
       redirect_to "/"
     else
+      params[:screen_name][0] = "" if params[:screen_name][0] == "@"
       @twitter_handle = params[:screen_name]
     
       begin
@@ -38,6 +39,7 @@ end
       flash[:message] = "Oops. You didn't enter any information."
       redirect_to "/"
     else
+      params[:twitter_handle][0] = "" if params[:twitter_handle][0] == "@"
       @twitter_handle = params[:twitter_handle]
       begin
         demo_hash = Result.build_result_hash(client, @twitter_handle)
@@ -52,7 +54,7 @@ end
       
       if demo_hash == {}
         redirect_to "/"
-        flash[:message] = "Oh no @#{params[:twitter_handle]} is not following anyone who's filled out information with us. Please try another search:"
+        flash[:message] = "Oh no! @#{params[:twitter_handle]} is not following anyone who's filled out information with us. Please try another search:"
       else
         result = Result.create(searched_handle: @twitter_handle,
                           demo_hash: demo_hash)

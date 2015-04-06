@@ -1,5 +1,5 @@
 class Result < ActiveRecord::Base
-  attr_accessible :searched_handle, :education, :income, :age, :demo_hash
+  attr_accessible :searched_handle, :education, :income, :age, :demo_hash, :gender, :orientation, :ethnicity
   
   validates :searched_handle, presence: true
   

@@ -14,14 +14,13 @@ class UsersController < ApplicationController
   end
   
   def params_check
-     
     education_index = ""
     params["user"]["user_answers_attributes"].each do |x, y|
       if y["answer_type"] == "Education"
         education_index = x
       end
     end
-    
+
     if params["user"]["user_answers_attributes"][education_index]["value"] == ""
       params["user"]["user_answers_attributes"][education_index]["value"] = params["education1"]
     end
@@ -32,14 +31,20 @@ class UsersController < ApplicationController
     
 
   def edit
-
+    
     @user = User.find_or_create_by_twitterid(session[:twitter_id])
     
+    user_answer_types = @user.user_answers.select("distinct answer_type")
+    
+    all_demos = UserAnswer.select("distinct answer_type").map{ |a| a.answer_type }
+
     if @user.user_answers == []
       @user.user_answers.build(answer_type: "Education")
       @user.user_answers.build(answer_type: "Age")
       @user.user_answers.build(answer_type: "Income")
     end
+    
+    @single_answers = @user.user_answers.where(answer_type: ["Education", "Age", "Income"])
     
   end
   
@@ -54,14 +59,18 @@ class UsersController < ApplicationController
       h[:user_id] = @user.id
     end
     
-    @user.update_attributes(params[:user])
+    if @user.update_attributes(params[:user]) #kicking up error: Couldn't find UserAnswer with ID=83 for User with ID=15
       
-    flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
+      flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
+    else 
+      flash[:errors] = @user.errors.to_a #add to page as if <ul> loop to show errors
+      binding.pry
+    end
 
     if session[:searched_for] == nil
       redirect_to "/users/#{session[:screen_name]}" # To change to results.
     else
-      redirect_to "/user/#{session[:searched_for]}" # To change to results.
+      redirect_to "/users/#{session[:searched_for]}" # To change to results.
     end
   end
 

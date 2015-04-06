@@ -50,12 +50,10 @@ end
         return redirect_to "/"
       end # of begin loop
       
-      binding.pry
       if demo_hash == {}
         redirect_to "/"
         flash[:message] = "Oh no @#{params[:twitter_handle]} is not following anyone who's filled out information with us. Please try another search:"
       else
-        binding.pry
         result = Result.create(searched_handle: @twitter_handle,
                           demo_hash: demo_hash)
         if session[:screen_name] == nil
@@ -65,7 +63,6 @@ end
         else
           session[:searched_for] = params[:twitter_handle]
           session[:result] = result
-          binding.pry
           redirect_to "/results/#{result.id}"
         end # if loop for redirect fill-out info prompt
       end # if loop for friend information (empty vs full demo_hash)

@@ -19,6 +19,12 @@ class ResultsController < ApplicationController
         flash[:message] = "Something's wrong with that Twitter account. It may
                           be suspended. Try another search here:"
         return redirect_to "/"
+      rescue Twitter::Error::EnhanceYourCalm, Twitter::Error::TooManyRequests,
+        Twitter::Error::InternalServiceError, Twitter::Error::BadGateway,
+        Twitter::Error::ServiceUnavailable, Twitter::Error::GatewayTimeout,
+        Twitter::Error::Forbidden 
+        flash[:message] = "Looks like something's wrong on Twitter's end. Try back in a few minutes."
+        return redirect_to "/"
       end
     
       if demo_hash == {}
@@ -49,6 +55,12 @@ end
       rescue Twitter::Error::Unauthorized
         flash[:message] = "Something's wrong with that Twitter account. It may
                           be suspended. Try another search here:"
+        return redirect_to "/"
+      rescue Twitter::Error::EnhanceYourCalm, Twitter::Error::TooManyRequests,
+        Twitter::Error::InternalServiceError, Twitter::Error::BadGateway,
+        Twitter::Error::ServiceUnavailable, Twitter::Error::GatewayTimeout,
+        Twitter::Error::Forbidden 
+        flash[:message] = "Looks like something's wrong on Twitter's end. Try back in a few minutes."
         return redirect_to "/"
       end # of begin loop
       

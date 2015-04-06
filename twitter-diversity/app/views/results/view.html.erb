@@ -21,9 +21,17 @@
 		"Age"}.merge(col_lib_vals)} %>
 <% end %>
 
+<% if @result.ethnicity_chart != {} %>
+	<% pie_chart @result.ethnicity_chart, {library: {title:
+		"Ethnicity"}.merge(pie_lib_vals)} %>
+<% end %>
 
-<%# pie_chart @result.ethnicity_chart, {library: {title: "Ethnicity"}.merge(pie_lib_vals)} %>
+<% if @result.gender_chart != {} %>
+	<% pie_chart @result.gender_chart, {library: {title:
+		"Gender"}.merge(pie_lib_vals)} %>
+<% end %>
 
-<%# pie_chart @result.gender_chart, {library: {title: "Gender"}.merge(pie_lib_vals)} %>
-
-<%# pie_chart @result.orientation_chart, {library: {title: "Orientation"}.merge(pie_lib_vals)} %>
+<% if @result.orientation_chart != {} %>
+	<% pie_chart @result.orientation_chart, {library: {title:
+		"Orientation"}.merge(pie_lib_vals)} %>
+<% end %>

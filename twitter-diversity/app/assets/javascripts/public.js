@@ -32,7 +32,7 @@ window.onload = function(){
       if (window.matchMedia("(max-width: 840px)").matches) {
           document.getElementById("searchbox").style.height = "350px";
       } else {
-      document.getElementById("searchbox").style.height = "300px";
+      document.getElementById("searchbox").style.height = "320px";
       }
     }
   });
@@ -63,7 +63,7 @@ window.onload = function(){
       if (window.matchMedia("(max-width: 840px)").matches) {
           document.getElementById("infobox").style.height = "350px";
       } else {
-      document.getElementById("infobox").style.height = "300px";
+      document.getElementById("infobox").style.height = "320px";
       }
     }
   });

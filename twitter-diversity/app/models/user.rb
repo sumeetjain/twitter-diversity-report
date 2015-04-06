@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :user_answers_attributes, :twitterid, :ethnicities_text_area
+  attr_accessible :user_answers_attributes, :twitterid, :ethnicities_text_area, :genders_text_area, :orientations_text_area
   
   validates :ethnicities_text_area, length: {maximum: 20}
   
@@ -35,12 +35,8 @@ class User < ActiveRecord::Base
   
   accepts_nested_attributes_for :user_answers
 
-  # Returns gender values for this user as an Array.
-  def genders_as_array
-    genders.map do |g|
-      g.value
-    end
-  end
+
+  ################### ETHNICITY METHODS ##############################
   
   # Returns ethnicity values for this user as an Array.
   def ethnicities_as_array
@@ -64,9 +60,56 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  ################### GENDER METHODS ##############################
   
-  def orientations_as_array
-    # TODO
+  # Returns gender values for this user as an Array.
+  def genders_as_array
+    genders.map do |g|
+      g.value
+    end
   end
+  
+  def genders_text_area
+    genders_as_array.join("\r\n")
+  end
+  
+  def genders_text_area=(text_from_form_field) #pull out method body into separate private method below and then call for each setter for respecitve categories
+    self.genders.delete_all
+    
+    users_inputs_array = text_from_form_field.split("\r\n")
+    
+    users_inputs_array.each do |e|
+      if !self.genders_as_array.include?(e)
+        self.genders << Gender.find_or_create_by_value(e)
+      end
+    end
+  end
+
+  ################### ORIENTATION METHODS ##############################
+  
+  # Returns orientation values for this user as an Array.
+  def orientations_as_array
+    orientations.map do |g|
+      g.value
+    end
+  end
+  
+  def orientations_text_area
+    orientations_as_array.join("\r\n")
+  end
+  
+  def orientations_text_area=(text_from_form_field) #pull out method body into separate private method below and then call for each setter for respecitve categories
+    self.orientations.delete_all
+    
+    users_inputs_array = text_from_form_field.split("\r\n")
+    
+    users_inputs_array.each do |e|
+      if !self.orientations_as_array.include?(e)
+        self.orientations << Orientation.find_or_create_by_value(e)
+      end
+    end
+  end
+
 
 end

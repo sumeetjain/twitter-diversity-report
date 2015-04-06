@@ -5,10 +5,24 @@
 
 .form {
   width: 70%;
-  max-width: 500px;
+  max-width: 700px;
   margin-left: 15%;
   margin-right: 15%;
+  padding: 15px 0px 0px 0px;
+  margin-bottom: 20px;
+  
 }
+
+.form2 {
+  width: 70%;
+  max-width: 700px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 20px;
+  padding: 10px 0px 0px 0px;
+}
+
+
 
 .error {
   color: red;

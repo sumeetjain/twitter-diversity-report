@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     
     all_demos = UserAnswer.select("distinct answer_type").map{ |a| a.answer_type }
 
-    if @user.user_answers == []
+    if @user.user_answers.count == 0 #change in initial heroku deployment
       @user.user_answers.build(answer_type: "Education")
       @user.user_answers.build(answer_type: "Age")
       @user.user_answers.build(answer_type: "Income")

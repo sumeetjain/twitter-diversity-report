@@ -45,7 +45,7 @@
     <div class="form2">
 	<%= form_tag("/results", method: "post") do %>
         <label class="searchlabel">TWITTER HANDLE:</label><br>
-      	<input type="text" name="twitter_handle" placeholder="ie: @barackobama"><br>
+      	<div style="display:inelin-block;float:left">@</div><div style="display:inline-block;float:left"><input type="text" name="twitter_handle" placeholder="ie: barackobama"></div><br>
       	<input class="button" type="submit" value="SEE RESULTS">
      <% end %>
     </div>
@@ -87,7 +87,7 @@
               The greater percentage of twitter users who participate, the more complete and meaningful the data. 
             </p>
             <p><strong><span style="font-family:oswald, sans-serif">IT’S KEPT ANONYMOUS</span></strong><br>
-              We encrypt any identifying information, meaning no one can look up your answers.
+              We keep any identifying information hidden in results; we're working to encrypt information for added security.
             </p>
             <p><strong><span style="font-family:oswald, sans-serif">ONLY SHARE WHAT YOU WANT</span></strong><br>
               Seriously, no pressure. Not comfortable answering a question? Just leave it blank.

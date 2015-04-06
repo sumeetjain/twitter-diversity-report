@@ -20,7 +20,7 @@
 
   <h2><a href="<%= "#{@user.id}" %>/edit"><img class="arrow" src="/assets/arrow1.png">EDIT/UPDATE YOUR INFORMATION</a></h2>
   
-  <h2><img class="arrow" src="/assets/arrow1.png"><%= link_to 'DELETE YOUR INFORMATION', url_for(action: :delete,id: @user.id),method: :delete, data: {confirm: "Are you sure you want to remove your information? (Specifically-identifying information is encrypted.)"} %></h2>
+  <h2><img class="arrow" src="/assets/arrow1.png"><%= link_to 'DELETE YOUR INFORMATION', url_for(action: :delete,id: @user.id),method: :delete, data: {confirm: "Are you sure you want to remove your information?"} %></h2>
 
 </div>
 

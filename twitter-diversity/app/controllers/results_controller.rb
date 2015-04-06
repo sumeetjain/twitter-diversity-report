@@ -48,21 +48,29 @@ end
         flash[:message] = "Something's wrong with that Twitter account. It may
                           be suspended. Try another search here:"
         return redirect_to "/"
-      end
-
-      result = Result.create(searched_handle: @twitter_handle,
-                        demo_hash: demo_hash)
-      if session[:screen_name] == nil
-        session[:searched_for] = params[:twitter_handle]
-        session[:result] = result
-        redirect_to "/reroute"
+      end # of begin loop
+      
+      binding.pry
+      if demo_hash == {}
+        redirect_to "/"
+        flash[:message] = "Oh no @#{params[:twitter_handle]} is not following anyone who's filled out information with us. Please try another search:"
       else
-        session[:searched_for] = params[:twitter_handle]
-        session[:result] = result
-        redirect_to "/results/#{result.id}"
-      end
-    end
-  end
+        binding.pry
+        result = Result.create(searched_handle: @twitter_handle,
+                          demo_hash: demo_hash)
+        if session[:screen_name] == nil
+          session[:searched_for] = params[:twitter_handle]
+          session[:result] = result
+          redirect_to "/reroute"
+        else
+          session[:searched_for] = params[:twitter_handle]
+          session[:result] = result
+          binding.pry
+          redirect_to "/results/#{result.id}"
+        end # if loop for redirect fill-out info prompt
+      end # if loop for friend information (empty vs full demo_hash)
+    end # if loop for empty query vs full query
+  end # method
   
   def view
       @result = Result.find(params[:id]) 
@@ -70,7 +78,7 @@ end
     session[:result] = nil 
   end
   
-  def reroute
+  def reroute # TODO check if lines 81-86 are even needed.
     if session[:result].demo_hash == {}
       redirect_to "/"
       flash[:message] = "Oh no! @#{session[:searched_for]} is not following anyone who's filled out information with us. Try another search:" 

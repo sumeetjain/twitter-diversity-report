@@ -14,12 +14,14 @@
 
 <% col_lib_vals = {fontName: "Georgia", colors:["#00CCFF"]} %>
 
+<% total_friends = @result.demo_hash["total_friend_count"] %>
+<% num_age_friends = @result.demo_hash["Age"]["ans_p_friend"].keys.length %>
+
 <div class="results">
   <h2>DEMOGRAPHICS FOR: <span class="bluetext" style="font-family:georgia"><%= @result.searched_handle -%></span></h2> 
   <ul>
-    <li><strong>DATE RETRIEVED:</strong><span style="font-family:georgia"> <%= @result.created_at.to_s.to_time.strftime('%b %d, %Y') -%></span></li>
-    <li><strong>NUMBER OF FOLLOWERS INCLUDED:</strong> <span style="font-family:georgia">COMING SOON</span></li>
-    <li><strong>PERCENTAGE OF FOLLOWERS INCLUDED:</strong><span style="font-family:georgia"> COMING SOON</span></li>
+    <li><strong>DATE RETRIEVED:</strong><span style="font-family:georgia"> <%= @result.created_at.strftime('%b %d, %Y') -%></span></li>
+    <li><strong>NUMBER OF FOLLOWERS INCLUDED:</strong> <span style="font-family:georgia"><%= num_age_friends %> of <%= total_friends %>, or <%= num_age_friends/total_friends.to_f*100 %>%</span></li>
   </ul>
 
   <div class="fb-share-button" data-href="http://twitter-diversity-project.herokuapp.com/results/<%= @result.id %>" data-layout="button">

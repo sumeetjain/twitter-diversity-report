@@ -63,12 +63,12 @@ class UsersController < ApplicationController
       flash[:errors] = @user.errors.to_a #add to page as if <ul> loop to show errors
     end
 
-    if session[:searched_for] == nil
-      redirect_to "/users/#{session[:screen_name]}" # To change to results.
-    else
-      result = Result.find_by_searched_handle(session[:searched_for])
-      redirect_to "/results/#{result.id.to_s}" # To change to results.
-    end
+    # if session[:searched_for] == nil
+      redirect_to "/users/#{session[:screen_name]}" # viewp page
+    # else
+    #   result = Result.find_by_searched_handle(session[:searched_for])
+    #   redirect_to "/results/#{result.id.to_s}" # To change to results.
+    # end
   end
 
   def delete    

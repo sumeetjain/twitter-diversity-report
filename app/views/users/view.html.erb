@@ -1,26 +1,50 @@
 <div class="form">
-  <h2>CURRENT INFORMATION FOR: <span class="bluetext" style="font-family:georgia"><%= session[:screen_name] -%></span></h2> 
-
+  <h2>Your current information: <span class="bluetext"><%= session[:screen_name] -%></span></h2>
   <ul>
-    <li><strong>EDUCATION LEVEL:</strong><span style="font-family:georgia"> <%= @user.educations[0] ? @user.educations[0].value : "Unanswered"  %></span></li>
-    <li><strong>INCOME LEVEL:</strong><span style="font-family:georgia"> <%= @user.incomes[0] ? @user.incomes[0].value : "Unanswered" %></span></li>    
-    <li><strong>BIRTH YEAR:</strong><span style="font-family:georgia"> <%= @user.ages[0] ? @user.ages[0].value : "Unanswered" %></span></li>
-    <li><strong>GENDER/S:</strong><span style="font-family:georgia"> <% b = [] %> 
-                                   <% @user.genders.each do |object| b.push object.value end %>
-                                   <%= b.join(", ") %></span></li>
-    <li><strong>ETHNICITY/IES:</strong><span style="font-family:georgia"> <% b = [] %> 
-                                   <% @user.ethnicities.each do |object| b.push object.value end %>
-                                   <%= b.join(", ") %></span></li>
-    <li><strong>ORIENTATION/S:</strong><span style="font-family:georgia"> <% b = [] %> 
-                                   <% @user.orientations.each do |object| b.push object.value end %>
-                                   <%= b.join(", ") %></span></li>
-    
+    <li><strong>Education level:</strong> <%= @user.educations[0] ? @user.educations[0].value : "Unanswered"  %></li>
+    <li><strong>Income level:</strong> <%= @user.incomes[0] ? @user.incomes[0].value : "Unanswered" %></li>    
+    <li><strong>Birth year:</strong> <%= @user.ages[0] ? @user.ages[0].value : "Unanswered" %></li>
+    <li><strong>Ethnicity:</strong> 
+      <% if @user.ethnicities.length > 0 %>
+      <ul>
+        <% @user.ethnicities.each do |e| %>
+          <li><%= e.value.capitalize %></li>
+        <% end %>
+      </ul>
+      <% else %>
+        Unanswered
+      <% end %>
+    </li>
+
+    <li><strong>Gender:</strong> 
+      <% if @user.genders.length > 0 %>
+      <ul>
+        <% @user.genders.each do |g| %>
+          <li><%= g.value %></li>
+        <% end %>
+      </ul>
+      <% else %>
+        Unanswered
+      <% end %>
+    </li>
+
+    <li><strong>Sexual Orientation:</strong> 
+      <% if @user.orientations.length > 0 %>
+      <ul>
+        <% @user.orientations.each do |o| %>
+          <li><%= o.value %></li>
+        <% end %>
+      </ul>
+      <% else %>
+        Unanswered
+      <% end %>
+    </li>
+
   </ul> 
   
 
-  <h2><a href="<%= "#{@user.id}" %>/edit"><img class="arrow" src="/assets/arrow1.png">EDIT/UPDATE YOUR INFORMATION</a></h2>
+  <h2><a href="<%= "#{@user.id}" %>/edit"><img class="arrow" src="/assets/arrow1.png">Edit/update your information</a></h2>
   
-  <h2><img class="arrow" src="/assets/arrow1.png"><%= link_to 'DELETE YOUR INFORMATION', url_for(action: :delete,id: @user.id),method: :delete, data: {confirm: "Are you sure you want to remove your information?"} %></h2>
+  <h2><img class="arrow" src="/assets/arrow1.png"><%= link_to 'Delete your information', url_for(action: :delete,id: @user.id),method: :delete, data: {confirm: "Are you sure you want to remove your information? (Specifically-identifying information is encrypted.)"} %></h2>
 
 </div>
-

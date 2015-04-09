@@ -52,16 +52,16 @@ class UsersController < ApplicationController
     @user = User.find_by_twitterid(session[:twitter_id])
     
     # Add user ID to params, since we don't want users to be able to add it themselves in web inspector.
+    
     params[:user][:user_answers_attributes].each do |k, h|
       h[:user_id] = @user.id
     end
     
+    
     if @user.update_attributes(params[:user]) #kicking up error: Couldn't find UserAnswer with ID=83 for User with ID=15
-      
       flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
     else 
       flash[:errors] = @user.errors.to_a #add to page as if <ul> loop to show errors
-      binding.pry
     end
 
     if session[:searched_for] == nil

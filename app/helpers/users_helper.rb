@@ -12,7 +12,7 @@ module UsersHelper
     when "Gender"
       "Gender"
     when "Orientation"
-      "Orientation"
+      "Sexual Orientation"
     end
   end
 end

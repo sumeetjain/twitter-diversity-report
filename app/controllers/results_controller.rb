@@ -89,7 +89,6 @@ end
       @result = Result.find(params[:id]) 
     session[:searched_for] = nil
     session[:result] = nil 
-    binding.pry
   end
   
   def reroute # TODO check if lines 81-86 are even needed.

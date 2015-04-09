@@ -31,7 +31,6 @@ class UsersController < ApplicationController
     
 
   def edit
-    
     @user = User.find_or_create_by_twitterid(session[:twitter_id])
    
        user_answer_types = @user.user_answers.select("distinct answer_type").map { |a| a.answer_type }
@@ -52,9 +51,9 @@ class UsersController < ApplicationController
     @user = User.find_by_twitterid(session[:twitter_id])
     
     # Add user ID to params, since we don't want users to be able to add it themselves in web inspector.
-    
     params[:user][:user_answers_attributes].each do |k, h|
       h[:user_id] = @user.id
+      h[:value] = h[:value].downcase
     end
     
     

@@ -1,7 +1,17 @@
 <div class="form">
- <h2>Add or update your information: <span class="bluetext"><%= session[:screen_name] -%></span></h2>
- <br><br>
- <%= form_for @user do |f| -%>
+  <p class="error">
+    <% if flash[:errors] %>
+    ERROR
+    <ul class="error">
+      <% flash[:errors].each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </p>
+    <h2>Add or update your information: <span class="bluetext" font-family="georgia"><%= session[:screen_name] -%></span></h2>
+  <br><br>
+  <%= form_for @user do |f| -%>
    <%= f.fields_for :user_answers do |u| %>
      <%= u.label :value, user_answer_field_label(u.object.field_value) %><br>
      <%= u.hidden_field :answer_type %>
@@ -36,14 +46,4 @@
    <%= f.submit "UPDATE USER", class: "button" %>
  <% end %>
  
- <div>
-      
-      <% if session[:result] != nil %>
-     <hr></hr>
-          <h2>Looks good?</h2>
-     <br>
-          <img class="arrowmedium" src="/assets/arrow1.png"><%= link_to("See your original search result", "/results/#{session[:result].id}", style: "font-size:24px") %>
-      <% end %>
-      
- </div>
 </div>

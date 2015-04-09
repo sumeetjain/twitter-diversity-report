@@ -57,8 +57,10 @@ end
                           be suspended. Try another search here:"
         return redirect_to "/"
       rescue Twitter::Error::EnhanceYourCalm, Twitter::Error::TooManyRequests,
-        Twitter::Error::InternalServiceError, Twitter::Error::BadGateway,
-        Twitter::Error::ServiceUnavailable, Twitter::Error::GatewayTimeout,
+        Twitter::Error::InternalServiceError, 
+        Twitter::Error::BadGateway,
+        Twitter::Error::ServiceUnavailable, 
+        Twitter::Error::GatewayTimeout,
         Twitter::Error::Forbidden 
         flash[:message] = "Looks like something's wrong on Twitter's end. Try back in a few minutes."
         return redirect_to "/"
@@ -87,6 +89,7 @@ end
       @result = Result.find(params[:id]) 
     session[:searched_for] = nil
     session[:result] = nil 
+    binding.pry
   end
   
   def reroute # TODO check if lines 81-86 are even needed.

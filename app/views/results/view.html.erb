@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=275052925858908";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <%= javascript_include_tag "//www.google.com/jsapi" %> 
 <%= javascript_include_tag "application", "chartkick" %>
 
@@ -5,6 +14,21 @@
 
 <% col_lib_vals = {fontName: "Georgia", colors:["#00CCFF"]} %>
 
+<div class="results">
+  <h2>DEMOGRAPHICS FOR: <span class="bluetext" style="font-family:georgia"><%= @result.searched_handle -%></span></h2> 
+  <ul>
+    <li><strong>DATE RETRIEVED:</strong><span style="font-family:georgia"> <%= @result.created_at.to_s.to_time.strftime('%b %d, %Y') -%></span></li>
+    <li><strong>NUMBER OF FOLLOWERS INCLUDED:</strong> <span style="font-family:georgia">COMING SOON</span></li>
+    <li><strong>PERCENTAGE OF FOLLOWERS INCLUDED:</strong><span style="font-family:georgia"> COMING SOON</span></li>
+  </ul>
+
+  <div class="fb-share-button" data-href="http://twitter-diversity-project.herokuapp.com/results/<%= @result.id %>" data-layout="button">
+  </div>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-hashtags="twitterdiversityproject">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+</div>
+  <hr></hr>
 
 <% if @result.edu_chart != {} %>
 	<%= pie_chart @result.edu_chart, {library: {title:

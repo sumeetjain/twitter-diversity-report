@@ -15,13 +15,22 @@
 <% col_lib_vals = {fontName: "Georgia", colors:["#00CCFF"]} %>
 
 <% total_friends = @result.demo_hash["total_friend_count"] %>
-<% num_age_friends = @result.demo_hash["Age"]["ans_p_friend"].keys.length %>
+
+<% if @result.demo_hash["Age"] %>
+  <% num_age_friends = @result.demo_hash["Age"]["ans_p_friend"].keys.length %>
+<% else %>
+  <% num_age_friends = 0 %>
+<% end %>
 
 <div class="results">
   <h2>DEMOGRAPHICS FOR: <span class="bluetext" style="font-family:georgia"><%= @result.searched_handle -%></span></h2> 
   <ul>
     <li><strong>DATE RETRIEVED:</strong><span style="font-family:georgia"> <%= @result.created_at.strftime('%b %d, %Y') -%></span></li>
-    <li><strong>NUMBER OF FOLLOWERS INCLUDED:</strong> <span style="font-family:georgia"><%= num_age_friends %> of <%= total_friends %>, or <%= num_age_friends/total_friends.to_f*100 %>%</span></li>
+    <li><strong>NUMBER OF FOLLOWERS INCLUDED:</strong> <span style="font-family:georgia"><%= num_age_friends %> of <%= total_friends %>
+      <% if num_age_friends > 0 %>
+        , or <%= num_age_friends/total_friends.to_f*100 %>%
+      <% end %>
+      </span></li>
   </ul>
 
   <div class="fb-share-button" data-href="http://twitter-diversity-project.herokuapp.com/results/<%= @result.id %>" data-layout="button">
@@ -32,32 +41,34 @@
 </div>
   <hr></hr>
 
-<% if @result.edu_chart != {} %>
+
+
+<% if @result.demo_hash["Education"] #!= {} %>
 	<%= pie_chart @result.edu_chart, {library: {title:
 		"Education"}.merge(pie_lib_vals)} %>
 <% end %>
 
-<% if @result.income_chart != {} %>
+<% if @result.demo_hash["Income"] #.income_chart != {} %>
 	<%= column_chart @result.income_chart, {library: {title:
 		"Income"}.merge(col_lib_vals)} %>
 <% end %>
 
-<% if @result.age_chart != {} %>
+<% if @result.demo_hash["Age"] #age_chart != {} %>
 	<%= column_chart @result.age_chart, {library: {title:
 		"Age"}.merge(col_lib_vals)} %>
 <% end %>
 
-<% if @result.ethnicity_chart != {} %>
+<% if @result.demo_hash["Ethnicity"] #ethnicity_chart #!= {} %>
 	<%= pie_chart @result.ethnicity_chart, {library: {title:
 		"Ethnicity"}.merge(pie_lib_vals)} %>
 <% end %>
 
-<% if @result.gender_chart != {} %>
+<% if @result.demo_hash["Gender"] #gender_chart #!= {} %>
 	<%= pie_chart @result.gender_chart, {library: {title:
 		"Gender"}.merge(pie_lib_vals)} %>
 <% end %>
 
-<% if @result.orientation_chart != {} %>
+<% if @result.demo_hash["Orientation"] #orientation_chart #!= {} %>
 	<%= pie_chart @result.orientation_chart, {library: {title:
 		"Orientation"}.merge(pie_lib_vals)} %>
 <% end %>

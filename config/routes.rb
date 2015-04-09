@@ -16,6 +16,8 @@ TwitterDiversity::Application.routes.draw do
   #
   # post "/users" =>'users#create'
   
+  post "/logout" => 'users#logout', as: :logout
+  
   get "/users/:screen_name/edit" => 'users#edit' #protected
   
   put "/users/:id" => 'users#save', as: :user

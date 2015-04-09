@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   before_filter :params_check, only: [:save]
-  before_filter :validate_user_authorized
+  before_filter :validate_user_authorized, except: [:logout]
 
   
   ########### Before Filters #############
@@ -58,16 +58,18 @@ class UsersController < ApplicationController
     
     
     if @user.update_attributes(params[:user]) #kicking up error: Couldn't find UserAnswer with ID=83 for User with ID=15
-      flash[:message] = "Your information has been added to our files; Any identifying information has been encrypted."
+      flash[:add_message] = "Your information has been added to our files; Any identifying information has been encrypted."
+
     else 
       flash[:errors] = @user.errors.to_a #add to page as if <ul> loop to show errors
     end
 
-    if session[:searched_for] == nil
-      redirect_to "/users/#{session[:screen_name]}" # To change to results.
-    else
-      redirect_to "/users/#{session[:searched_for]}" # To change to results.
-    end
+    # if session[:searched_for] == nil
+      redirect_to "/users/#{session[:screen_name]}" # viewp page
+    # else
+    #   result = Result.find_by_searched_handle(session[:searched_for])
+    #   redirect_to "/results/#{result.id.to_s}" # To change to results.
+    # end
   end
 
   def delete    
@@ -90,6 +92,11 @@ class UsersController < ApplicationController
   def view
     #@user = User.find_by_twitter_handle(session[:screen_name].downcase)
     @user = User.find_by_twitterid(session[:twitter_id])
+  end
+  
+  def logout
+    session.clear
+    redirect_to "/"
   end
   
 end

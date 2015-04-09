@@ -8,7 +8,6 @@ TwitterDiversity::Application.routes.draw do
   ########### PUBLIC ############################
   
   get "/" => 'public#home' #if they click search, sends that name to post:results
-  get "/test/foundation" => 'test#test'
   
   ########## USERS ##############################
   
@@ -16,6 +15,8 @@ TwitterDiversity::Application.routes.draw do
   # get "/users/new" => 'users#new'
   #
   # post "/users" =>'users#create'
+  
+  post "/logout" => 'users#logout', as: :logout
   
   get "/users/:screen_name/edit" => 'users#edit' #protected
   

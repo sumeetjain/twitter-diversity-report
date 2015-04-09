@@ -3,3 +3,25 @@
   They will automatically be included in application.css.
 */
 
+.results {
+  width: 500px;
+/*  max-width: 700px;
+*/  margin-left: 12%;
+/*  margin-right: 12.5%;
+*/  padding: 15px 0px 0px 0px;
+    margin-bottom: 100px;
+  
+}
+
+.twitter-share-button {
+  margin-left: 20px;
+  display: inline-block;
+  float: left;
+  position: relative;
+  margin-top: 3px;
+}
+
+.fb-share-button {
+  margin-bottom: 20px;
+  float: left;
+}

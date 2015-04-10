@@ -8,7 +8,6 @@ TwitterDiversity::Application.routes.draw do
   ########### PUBLIC ############################
   
   get "/" => 'public#home' #if they click search, sends that name to post:results
-  get "/test/foundation" => 'test#test'
   
   ########## USERS ##############################
   

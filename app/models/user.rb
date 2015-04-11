@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
     end
 
 
+
   ################### ETHNICITY METHODS ##############################
   
   # Returns ethnicity values for this user as an Array.

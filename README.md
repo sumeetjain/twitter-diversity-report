@@ -5,6 +5,10 @@ Version 1.0
 
 Welcome to our repository! This is an open-source project that originated as a group project for the  [Omaha Code School](http://www.omahacodeschool.com) Spring 2015 class.
 
+**If you're here to submit feedback on the website, [please submit a new Issue](https://github.com/omahacodeschool/twitter-diversity-report/issues).** _Please know that if you do not already have a Github account, you will be prompted to sign up. If you don't wish to do so, you can always reach out to us on Twitter.__
+
+If you'd like to contribute to the project, read on!
+
 ---
 
 Team:
@@ -16,9 +20,9 @@ Team:
 
 ---
 
-#To Get Started
+#To Contribute
 
-##Cloning the Repository
+##Clone the Repository
 
 Create a folder for the project and change to that directory in Terminal.
 

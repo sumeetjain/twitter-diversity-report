@@ -1,6 +1,7 @@
 # Twitter Diversity Report
 
-Version 1.0 04/09/2015
+04/14/2015
+Version 1.0
 
 Welcome to our repository! This is an open-source project that originated as a group project for the  [Omaha Code School](http://www.omahacodeschool.com) Spring 2015 class.
 
@@ -8,10 +9,10 @@ Welcome to our repository! This is an open-source project that originated as a g
 
 Team:
 
-- [Andrew Strovers](http://github.com/ADStrovers) [@MidwestBoardGam](http://twitter.com/midwestboardgam)
-- [Alexandra Millatmal](http://github.com/halfghaninne) [@halfghaninNE](http://twitter.com/halfghaninne)
-- [Crystal Cooling](http://github.com/coolingcza) [@cza_dev](http://twitter.com/cza_dev)
-- [Hilary Stohs-Krause](http://github.com/hilarysk) [@hilarysk](http://twitter.com/hilarysk)
+- [Andrew Strovers](http://github.com/ADStrovers) ([@MidwestBoardGam](http://twitter.com/midwestboardgam))
+- [Alexandra Millatmal](http://github.com/halfghaninne) ([@halfghaninNE](http://twitter.com/halfghaninne))
+- [Crystal Cooling](http://github.com/coolingcza) ([@cza_dev](http://twitter.com/cza_dev))
+- [Hilary Stohs-Krause](http://github.com/hilarysk) ([@hilarysk](http://twitter.com/hilarysk))
 
 ---
 
@@ -19,15 +20,59 @@ Team:
 
 ##Cloning the Repository
 
+Create a folder for the project and change to that directory in Terminal.
+
+Copy the SSH clone URL (located in the right-hand column of this screen) into Terminal.
+
 ##Prepare Your Local Environment
 
+This program was built with Ruby on Rails 3.2.21. *Please ensure that you have at least this version of Rails*, as some methods may not be earlier in other versions.
+
+*Install gems* included in the Gemfile you just cloned by running `bundle install` in Terminal.
+
+*Create a .env file.* This is a file that will be specific to your local environment and contains 
+
+In Terminal, in the parent project folder, create the file with `touch .env`
+
+Open the file with `mate .env`
+
 ##Get an API Key
+
+Using your personal Twitter account, [register a new application](https://apps.twitter.com/app/new) to access API credentials for Twitter.
+
+These free applications give developers access to the Twitter API and are meant for development purposes. As such do have limits, which you can [read about here](https://dev.twitter.com/rest/public/rate-limiting). 
+
+The registration process will prompt you for application details, including a name for the application, description, and website. These can be filler information. 
+
+The form will also ask you for a Callback URL. _In order for Twitter authentication to redirect to the application in local development the Callback URL *must be*:_ `http://127.0.0.1:3000/auth/twitter/callback` 
+
+Once you've registered your application, you will be able to access its API keys under Keys and Access Tokens. You will use two seperate keys for this application, the *Consumer Key (API Key)* and the *Consumer Secret (API Secret)*. 
+
+In your *.env* file, set those keys equal to the variables `public` and `secret`, like so:
+
+```
+public =  _[Consumer Key (API Key)]_
+secret = _[Consumer Secret (API Secret)]_
+```
+
+
+You can also change your application's Permissions like so:
+
+(screenshot/gif)
+
+We initially wrote this application with a Read Only permission. But if you want to develop a great new feature that allows users to tweet from the web app, you would use a Read and Write permission.
+
 
 ---
 
 #Sitemap
 
 ---
+
+# More About the Twitter API
+
+---
+
 # More About the Project (the User Story)
 The web application allows a user to search for a Twitter account, and then provides the user with demographic insights of people/accounts that account follows. 
 

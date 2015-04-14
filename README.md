@@ -5,7 +5,7 @@ Version 1.0
 
 Welcome to our repository! This is an open-source project that originated as a group project for the  [Omaha Code School](http://www.omahacodeschool.com) Spring 2015 class.
 
-**If you're here to submit feedback on the website, [please submit a new Issue](https://github.com/omahacodeschool/twitter-diversity-report/issues).** _Please know that if you do not already have a Github account, you will be prompted to sign up. If you don't wish to do so, you can always reach out to us on Twitter.__
+**If you're here to submit feedback on the website, [please submit a new Issue](https://github.com/omahacodeschool/twitter-diversity-report/issues).** _Please know that if you do not already have a Github account, you will be prompted to sign up. If you don't wish to do so, you can always reach out to us on Twitter._
 
 If you'd like to contribute to the project, read on!
 
@@ -38,7 +38,7 @@ Next:
 
 * **Install gems** included in the Gemfile you just cloned by running `bundle install` in Terminal.
 
-* **Prepare your local database** This application relies on users providing information to our database, and checks a given user's Twitter 'friends' against the records in that database. Our seed file contains dummy information for our team members. 
+* **Prepare your local database.** This application relies on users providing information to our database, and checks a given user's Twitter 'friends' against the records in that database. Our seed file contains dummy information for our team members. 
   * Run `rake db:migrate` to set up your local database structure
   * Run `rake db:seed` to populate the database with our dummy information
   * Follow any/all of us on Twitter! [Here](http://twitter.com/midwestboardgam), [here](http://twitter.com/halfghaninne), [here](http://twitter.com/cza_dev), or [here](http://twitter.com/hilarysk). This:
@@ -55,38 +55,38 @@ Next:
 
 ##Get an API Key
 
-Using your personal Twitter account, [register a new application](https://apps.twitter.com/app/new) to access API credentials for Twitter.
+* Using your personal Twitter account, [register a new application](https://apps.twitter.com/app/new) to access API credentials for Twitter.
+	
+	These applications allow you free access to the Twitter API and are meant for development purposes. As such they do have usage limits, which you can [read about here](https://dev.twitter.com/rest/public/rate-limiting).
 
-These applications allow you free access to the Twitter API and are meant for development purposes. As such they do have usage limits, which you can [read about here](https://dev.twitter.com/rest/public/rate-limiting). 
+* The registration process will prompt you for details about your new app, including a name for the application, description, and website. These can be filler information.
 
-The registration process will prompt you for details about your new app, including a name for the application, description, and website. These can be filler information. 
+	[SCREENSHOT/GIF HERE]
 
-[SCREENSHOT/GIF HERE]
+* The form will also ask you for a Callback URL. **In order for Twitter authentication to redirect to the correct path in the application** during local development, the Callback URL **must be:** `http://127.0.0.1:3000/auth/twitter/callback` 
 
-The form will also ask you for a Callback URL. **In order for Twitter authentication to redirect to the application in local development the Callback URL must be:** `http://127.0.0.1:3000/auth/twitter/callback` 
+* Once you've registered your application, you will be able to access its API keys under Keys and Access Tokens. You will use two seperate keys for this application, the **Consumer Key (API Key)** and the **Consumer Secret (API Secret)**.
+	
+	[SCREENSHOT HERE]
+	
+	In your **.env** file, set those keys equal to the variables `public` and `secret`, like so:
 
-Once you've registered your application, you will be able to access its API keys under Keys and Access Tokens. You will use two seperate keys for this application, the **Consumer Key (API Key)** and the **Consumer Secret (API Secret)**. 
+	```
+	public =  _[Consumer Key (API Key)]_
+	secret = _[Consumer Secret (API Secret)]_
+	```
+	
+	These variables are referenced throughout the program to call on the Twitter API without revealing your sensitive API information.
 
-[SCREENSHOT HERE]
-
-In your **.env** file, set those keys equal to the variables `public` and `secret`, like so:
-
-```
-public =  _[Consumer Key (API Key)]_
-secret = _[Consumer Secret (API Secret)]_
-```
-
-These variables are referenced throughout the program to call on the Twitter API without revealing your sensitive API information.
-
-When someone using the Twitter Diversity web app authorizes it to authenticate with their Twitter account, they see a variety of permissions they will be granting the app. 
-
-[SCREENSHOT HERE]
-
-We initially wrote this application with a Read Only permission, but if you want to develop a great new feature (say something that allows Twitter users to tweet from the site) you might use a different permission.
-
-You can change Permissions for the application in its settings:
-
-[SCREENSHOT/GIF HERE]
+* When someone using the Twitter Diversity web app authorizes it to authenticate with their Twitter account, they see a variety of permissions they will be granting the app. 
+	
+	[SCREENSHOT HERE]
+	
+	We initially wrote this application with a Read Only permission, but if you want to develop a great new feature (say something that allows Twitter users to tweet from the site) you might use a different permission.
+	
+	You can change Permissions for the application in its settings:
+	
+	[SCREENSHOT/GIF HERE]
 
 
 

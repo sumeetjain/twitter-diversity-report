@@ -24,13 +24,25 @@ Create a folder for the project and change to that directory in Terminal.
 
 Copy the SSH clone URL (located in the right-hand column of this screen) into Terminal.
 
+(gif)
+
 ##Prepare Your Local Environment
 
 This program was built with Ruby on Rails 3.2.21. **Please ensure that you have at least this version of Rails**, as some methods may not be earlier in other versions.
 
+Then:
+
 * **Install gems** included in the Gemfile you just cloned by running `bundle install` in Terminal.
 
-* **Create a .env file.** This is a file that will be specific to your local environment and contains sensitive API information, accessed throughout the rest of the code.
+* **Prepare your local database** This application relies on users providing information to our database, and checks a given user's 'friends' against the records in that database. Our seed file contains dummy information for our team members. 
+  * Run `rake db:migrate` to set up your local database structure
+  * Run `rake db:seed` to populate the database with our dummy information
+  * Follow any/all of us on Twitter! [Here](http://twitter.com/midwestboardgam), [here](http://twitter.com/halfghaninne), [here](http://twitter.com/cza_dev), or [here](http://twitter.com/hilarysk). This:
+    * Ensures that if you search for yourself, the records in the database will be associated with your 'friends' return from Twitter
+	* Allows you to be more readily in contact with us if you have questions about our code.
+	* Is awesome because we would love to meet you!
+
+* **Create an .env file.** This is a file that will be specific to your local environment and contains sensitive API information, accessed throughout the rest of the code.
 
   * In Terminal, in the parent project folder, create the file with `touch .env`
 

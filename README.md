@@ -28,43 +28,46 @@ Create a folder for the project and change to that directory in Terminal.
 
 Copy the SSH clone URL (located in the right-hand column of this screen) into Terminal.
 
-(gif)
+[GIF HERE]
 
 ##Prepare Your Local Environment
 
 This program was built with Ruby on Rails 3.2.21. **Please ensure that you have at least this version of Rails**, as some methods may not be earlier in other versions.
 
-Then:
+Next:
 
 * **Install gems** included in the Gemfile you just cloned by running `bundle install` in Terminal.
 
-* **Prepare your local database** This application relies on users providing information to our database, and checks a given user's 'friends' against the records in that database. Our seed file contains dummy information for our team members. 
+* **Prepare your local database** This application relies on users providing information to our database, and checks a given user's Twitter 'friends' against the records in that database. Our seed file contains dummy information for our team members. 
   * Run `rake db:migrate` to set up your local database structure
   * Run `rake db:seed` to populate the database with our dummy information
   * Follow any/all of us on Twitter! [Here](http://twitter.com/midwestboardgam), [here](http://twitter.com/halfghaninne), [here](http://twitter.com/cza_dev), or [here](http://twitter.com/hilarysk). This:
-    * Ensures that if you search for yourself, the records in the database will be associated with your 'friends' return from Twitter
+    * Ensures that if you search for yourself, our records in the database will be associated with your 'friends' return from Twitter
 	* Allows you to be more readily in contact with us if you have questions about our code.
 	* Is awesome because we would love to meet you!
 
-* **Create an .env file.** This is a file that will be specific to your local environment and contains sensitive API information, accessed throughout the rest of the code.
+* **Create an .env file.** This is a file that will be specific to your local environment and contains sensitive API information, accessed throughout the rest of the code. It is [referenced](https://github.com/omahacodeschool/twitter-diversity-report/blob/master/.gitignore#L18) in this project's .gitignore file, which means it's ignored when you push updates to your own Github repository -- no API keys out in the wild!
 
   * In Terminal, in the parent project folder, create the file with `touch .env`
 
   * Open the file with `mate .env` 
 
-* GIT IGNORE 
 
 ##Get an API Key
 
 Using your personal Twitter account, [register a new application](https://apps.twitter.com/app/new) to access API credentials for Twitter.
 
-These free applications give developers access to the Twitter API and are meant for development purposes. As such do have limits, which you can [read about here](https://dev.twitter.com/rest/public/rate-limiting). 
+These applications allow you free access to the Twitter API and are meant for development purposes. As such they do have usage limits, which you can [read about here](https://dev.twitter.com/rest/public/rate-limiting). 
 
-The registration process will prompt you for application details, including a name for the application, description, and website. These can be filler information. 
+The registration process will prompt you for details about your new app, including a name for the application, description, and website. These can be filler information. 
 
-The form will also ask you for a Callback URL. _In order for Twitter authentication to redirect to the application in local development the Callback URL **must be**:_ `http://127.0.0.1:3000/auth/twitter/callback` 
+[SCREENSHOT/GIF HERE]
+
+The form will also ask you for a Callback URL. **In order for Twitter authentication to redirect to the application in local development the Callback URL must be:** `http://127.0.0.1:3000/auth/twitter/callback` 
 
 Once you've registered your application, you will be able to access its API keys under Keys and Access Tokens. You will use two seperate keys for this application, the **Consumer Key (API Key)** and the **Consumer Secret (API Secret)**. 
+
+[SCREENSHOT HERE]
 
 In your **.env** file, set those keys equal to the variables `public` and `secret`, like so:
 
@@ -73,12 +76,18 @@ public =  _[Consumer Key (API Key)]_
 secret = _[Consumer Secret (API Secret)]_
 ```
 
+These variables are referenced throughout the program to call on the Twitter API without revealing your sensitive API information.
 
-You can also change your application's Permissions like so:
+When someone using the Twitter Diversity web app authorizes it to authenticate with their Twitter account, they see a variety of permissions they will be granting the app. 
 
-(screenshot/gif)
+[SCREENSHOT HERE]
 
-We initially wrote this application with a Read Only permission. But if you want to develop a great new feature that allows users to tweet from the web app, you would use a Read and Write permission.
+We initially wrote this application with a Read Only permission, but if you want to develop a great new feature (say something that allows Twitter users to tweet from the site) you might use a different permission.
+
+You can change Permissions for the application in its settings:
+
+[SCREENSHOT/GIF HERE]
+
 
 
 ---

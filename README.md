@@ -1,3 +1,4 @@
+<a name="greeting"></a>
 # Twitter Diversity Report
 
 04/14/2015
@@ -77,13 +78,11 @@ Next:
 
 * The registration process will prompt you for details about your new app, including a name for the application, description, and website. These can be filler information.
 
-	[SCREENSHOT/GIF HERE]
-
 * The form will also ask you for a Callback URL. **In order for Twitter authentication to redirect to the correct path in the application** during local development, the Callback URL **must be:** `http://127.0.0.1:3000/auth/twitter/callback` 
 
 * Once you've registered your application, you will be able to access its API keys under Keys and Access Tokens. You will use two seperate keys for this application, the **Consumer Key (API Key)** and the **Consumer Secret (API Secret)**.
 	
-	[SCREENSHOT HERE]
+	![alt text](http://i.imgur.com/I5otjKT.jpg "get api keys")
 	
 	In your **.env** file, set those keys equal to the variables `public` and `secret`, like so:
 

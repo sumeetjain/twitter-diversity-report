@@ -8,11 +8,12 @@ Welcome to our repository! This is an open-source project that originated as a g
 **If you're here to submit feedback on the website, [please submit a new Issue](https://github.com/omahacodeschool/twitter-diversity-report/issues).** _Please know that if you do not already have a Github account, you will be prompted to sign up. If you don't wish to do so, you can always reach out to us on Twitter._
 
 If you'd like to contribute to the project, read on!
+
 [The Team](#team)
 [To Contribute](#contribute)
-- [Clone the Repository](#clone)
-- [Prepare Your Local Environment](#localenv)
-- [Get an API Key](#apikey)
+  * [Clone the Repository](#clone)
+  * [Prepare Your Local Environment](#localenv)
+  * [Get an API Key](#apikey)
 [More About the Twitter API](#more)
 [Sitemap](#sitemap)
 [Original Project Specs/User Story](#specs)
@@ -37,7 +38,7 @@ In your parent folder, copy the SSH clone URL (located in the right-hand column 
 
 This will create a project folder called **twitter-diversity-report** that is intialized to this very Github repository
 
-[GIF HERE]
+![alt text](http://i.imgur.com/oFbi7Y9.gif "how to clone the repository")
 
 ##Prepare Your Local Environment<a name="localenv"></a>
 
@@ -95,7 +96,8 @@ Next:
 	
 	You can change Permissions for the application in its settings:
 	
-	[SCREENSHOT/GIF HERE]
+	![alt text](http://i.imgur.com/jqIVBfF.gif "change app permissions")
+  
 
 
 ---

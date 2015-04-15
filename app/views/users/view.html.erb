@@ -57,15 +57,5 @@
        <% end %>
       
   </div>
-  <div>
-      
-       <% if session[:result] == nil %>
-      <hr></hr>
-           <h2>Looks good?</h2>
-      <br>
-           <img class="arrowmedium" src="/assets/arrow1.png"><%= link_to("See your results", "/current/#{session[:screen_name]}", style: "font-size:24px") %>
-       <% end %>
-      
-  </div>
 
 </div>

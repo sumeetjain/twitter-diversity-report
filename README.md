@@ -94,6 +94,8 @@ Next:
 
 #Sitemap
 
+![alt text](http://i.imgur.com/8bzl2of.jpg "sitemap")
+
 ---
 
 # More About the Twitter API

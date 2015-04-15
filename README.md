@@ -26,7 +26,7 @@ Team:
 
 In your parent folder, copy the SSH clone URL (located in the right-hand column of this screen) into Terminal.
 
-This will create a project folder called twitter-diversity-report that is intialized to this very Github repository
+This will create a project folder called **twitter-diversity-report** that is intialized to this very Github repository
 
 [GIF HERE]
 
@@ -46,7 +46,7 @@ Next:
 	* Allows you to be more readily in contact with us if you have questions about our code.
 	* Is awesome because we would love to meet you!
 
-* **Create an .env file.** This is a file that will be specific to your local environment and contains sensitive API information, accessed throughout the rest of the code. It is [referenced](https://github.com/omahacodeschool/twitter-diversity-report/blob/master/.gitignore#L18) in this project's .gitignore file, which means it's ignored when you push updates to your own Github repository -- no API keys out in the wild!
+* **Create an .env file.** This is a file that will be specific to your local environment and contains sensitive API information, accessed throughout the rest of the code. It is [referenced](https://github.com/omahacodeschool/twitter-diversity-report/blob/master/.gitignore#L18) in this project's **.gitignore** file, which means it's ignored when you push updates to your own Github repository -- no API keys out in the wild!
 
   * In Terminal, in the parent project folder, create the file with `touch .env`
 
@@ -92,6 +92,12 @@ Next:
 ---
 
 # More About the Twitter API
+
+The Twitter API is [extensively documented](https://dev.twitter.com/rest/public). 
+
+Below are the calls that we used in our application and any helpful advice we figured out along the way:
+
+
 
 ---
 

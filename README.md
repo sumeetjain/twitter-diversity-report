@@ -14,7 +14,8 @@ If you'd like to contribute to the project, read on!
 * [Clone the Repository](#clone)
 * [Prepare Your Local Environment](#localenv)
 * [Get an API Key](#apikey)<br>
-[More About the Twitter API](#more)><br>
+
+[More About the Twitter API](#more)<br>
 [Sitemap](#sitemap)<br>
 [Original Project Specs/User Story](#specs)<br>
 
@@ -39,7 +40,7 @@ If you'd like to contribute to the project, read on!
 
 In your parent folder, copy the SSH clone URL (located in the right-hand column of this screen) into Terminal.
 
-This will create a project folder called **twitter-diversity-report** that is intialized to this very Github repository
+This will create a project folder called **twitter-diversity-report** that is intialized to this very Github repository.
 
 ![alt text](http://i.imgur.com/oFbi7Y9.gif "how to clone the repository")
 
@@ -110,10 +111,13 @@ Next:
 <a name="more"></a>
 # More About the Twitter API
 
-The Twitter API is [extensively documented](https://dev.twitter.com/rest/public). 
+The Ruby interface for the Twitter API is [extensively documented](https://github.com/sferik/twitter), as is the [API itself](https://dev.twitter.com/rest/public). 
 
 Below are the calls that we used in our application and any helpful advice we figured out along the way:
 
+`Twitter::REST::Client.new` [makes a new request](https://github.com/omahacodeschool/twitter-diversity-report/blob/master/app/models/result.rb#L9-L14) to the Twitter client using the access keys you establish in your local .env file. If the keys are accurate and the configuration is successful, this give us access to make further calls to the API. 
+
+On the `client` configured above, you can call a variety of functions. We [exclusively used](https://github.com/omahacodeschool/twitter-diversity-report/blob/master/app/models/result.rb#L19) `client.friend_ids(searched_twitter_handle)` which instructed the call to read through the 'friends' return for a searched for Twitter user, specifically reading/returning their Twitter IDs. IDs are a faster search for the API, and this search returns more information per search than does a search for user names. This is important when considering the API's usage limits.
 
 
 ---

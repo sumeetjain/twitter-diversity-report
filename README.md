@@ -24,9 +24,9 @@ Team:
 
 ##Clone the Repository
 
-Create a folder for the project and change to that directory in Terminal.
+In your parent folder, copy the SSH clone URL (located in the right-hand column of this screen) into Terminal.
 
-Copy the SSH clone URL (located in the right-hand column of this screen) into Terminal.
+This will create a project folder called twitter-diversity-report that is intialized to this very Github repository
 
 [GIF HERE]
 
@@ -89,16 +89,15 @@ Next:
 	[SCREENSHOT/GIF HERE]
 
 
+---
+
+# More About the Twitter API
 
 ---
 
 #Sitemap
 
 ![alt text](http://i.imgur.com/8bzl2of.jpg "sitemap")
-
----
-
-# More About the Twitter API
 
 ---
 

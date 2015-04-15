@@ -102,13 +102,10 @@ Next:
 
 ---
 
-# More About the Project (the User Story)
+# Project Specs / User Story
 The web application allows a user to search for a Twitter account, and then provides the user with demographic insights of people/accounts that account follows. 
 
-To accomplish this, the program has two main pieces of functionality:
-
-1. **Self-identifying** -- A way for people to indicate their Twitter username and define their personal demographic information. They would self-identify.
-2. **Reporting** -- A way for a person to visit the site and get a report of the demographics of the people they follow on Twitter.
+To accomplish this, the program has two main pieces of functionality: **Self-identifying** -- A way for people to indicate their Twitter username and volunteer and self-define their personal demographic information; **Reporting** -- A way for a person to visit the site and get a report of the demographics of the people they follow on Twitter.
 
 ## Self-identifying
 
@@ -121,7 +118,7 @@ The story goes like this:
 5. I type my identity for some/all questions and submit the form.
 6. The application records my answers and associates them with my Twitter username.
 
-## Reporting
+##  Reporting
 
 The story goes like this:
 

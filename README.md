@@ -95,8 +95,6 @@ Next:
 
 * When someone using the Twitter Diversity web app authorizes it to authenticate with their Twitter account, they see a variety of permissions they will be granting the app. 
 	
-	[SCREENSHOT HERE]
-	
 	We initially wrote this application with a Read Only permission, but if you want to develop a great new feature (say something that allows Twitter users to tweet from the site) you might use a different permission.
 	
 	You can change Permissions for the application in its settings:
@@ -114,7 +112,7 @@ The Ruby interface for the Twitter API is [extensively documented](https://githu
 
 Below are the calls that we used in our application and any helpful advice we figured out along the way:
 
-`Twitter::REST::Client.new` [makes a new request](https://github.com/omahacodeschool/twitter-diversity-report/blob/master/app/models/result.rb#L9-L14) to the Twitter client using the access keys you establish in your local .env file. If the keys are accurate and the configuration is successful, this give us access to make further calls to the API. 
+`Twitter::REST::Client.new` [makes a new request](https://github.com/omahacodeschool/twitter-diversity-report/blob/master/app/models/result.rb#L9-L14) to the Twitter client using the access keys you establish in your local **.env** file. If the keys are accurate and the configuration is successful, this give us access to make further calls to the API. 
 
 On the `client` configured above, you can call a variety of functions. We [exclusively used](https://github.com/omahacodeschool/twitter-diversity-report/blob/master/app/models/result.rb#L19) `client.friend_ids(searched_twitter_handle)` which instructed the call to read through the 'friends' return for a searched for Twitter user, specifically reading/returning their Twitter IDs. IDs are a faster search for the API, and this search returns more information per search than does a search for user names. This is important when considering the API's usage limits.
 

@@ -8,10 +8,19 @@ Welcome to our repository! This is an open-source project that originated as a g
 **If you're here to submit feedback on the website, [please submit a new Issue](https://github.com/omahacodeschool/twitter-diversity-report/issues).** _Please know that if you do not already have a Github account, you will be prompted to sign up. If you don't wish to do so, you can always reach out to us on Twitter._
 
 If you'd like to contribute to the project, read on!
+[The Team](#team)
+[To Contribute](#contribute)
+- [Clone the Repository](#clone)
+- [Prepare Your Local Environment](#localenv)
+- [Get an API Key](#apikey)
+[More About the Twitter API](#more)
+[Sitemap](#sitemap)
+[Original Project Specs/User Story](#specs)
+
 
 ---
 
-Team:
+#The Team:<a name="team"></a>
 
 - [Andrew Strovers](http://github.com/ADStrovers) ([@MidwestBoardGam](http://twitter.com/midwestboardgam))
 - [Alexandra Millatmal](http://github.com/halfghaninne) ([@halfghaninNE](http://twitter.com/halfghaninne))
@@ -20,9 +29,9 @@ Team:
 
 ---
 
-#To Contribute
+#To Contribute<a name="contribute"></a>
 
-##Clone the Repository
+##Clone the Repository<a name="clone"></a>
 
 In your parent folder, copy the SSH clone URL (located in the right-hand column of this screen) into Terminal.
 
@@ -30,7 +39,7 @@ This will create a project folder called **twitter-diversity-report** that is in
 
 [GIF HERE]
 
-##Prepare Your Local Environment
+##Prepare Your Local Environment<a name="localenv"></a>
 
 This program was built with Ruby on Rails 3.2.21. **Please ensure that you have at least this version of Rails**, as some methods may not be earlier in other versions.
 
@@ -53,7 +62,7 @@ Next:
   * Open the file with `mate .env` 
 
 
-##Get an API Key
+##Get an API Key<a name="apikey"></a>
 
 * Using your personal Twitter account, [register a new application](https://apps.twitter.com/app/new) to access API credentials for Twitter.
 	
@@ -91,7 +100,7 @@ Next:
 
 ---
 
-# More About the Twitter API
+# More About the Twitter API<a name="more"></a>
 
 The Twitter API is [extensively documented](https://dev.twitter.com/rest/public). 
 
@@ -101,13 +110,13 @@ Below are the calls that we used in our application and any helpful advice we fi
 
 ---
 
-#Sitemap
+#Sitemap<a name="sitemap"></a>
 
 ![alt text](http://i.imgur.com/8bzl2of.jpg "sitemap")
 
 ---
 
-# Project Specs / User Story
+# Project Specs / User Story<a name="specs"></a>
 The web application allows a user to search for a Twitter account, and then provides the user with demographic insights of people/accounts that account follows. 
 
 To accomplish this, the program has two main pieces of functionality: **Self-identifying** -- A way for people to indicate their Twitter username and volunteer and self-define their personal demographic information; **Reporting** -- A way for a person to visit the site and get a report of the demographics of the people they follow on Twitter.

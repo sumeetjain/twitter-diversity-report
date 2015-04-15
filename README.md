@@ -11,17 +11,18 @@ If you'd like to contribute to the project, read on!
 
 [The Team](#team)<br>
 [To Contribute](#contribute)
-  * [Clone the Repository](#clone)
-  * [Prepare Your Local Environment](#localenv)
-  * [Get an API Key](#apikey)<br>
-[More About the Twitter API](#more)
-[Sitemap](#sitemap)
-[Original Project Specs/User Story](#specs)
+* [Clone the Repository](#clone)
+* [Prepare Your Local Environment](#localenv)
+* [Get an API Key](#apikey)<br>
+[More About the Twitter API](#more)><br>
+[Sitemap](#sitemap)<br>
+[Original Project Specs/User Story](#specs)<br>
 
 
 ---
 
-#The Team:<a name="team"></a>
+<a name="team"></a>
+#The Team:
 
 - [Andrew Strovers](http://github.com/ADStrovers) ([@MidwestBoardGam](http://twitter.com/midwestboardgam))
 - [Alexandra Millatmal](http://github.com/halfghaninne) ([@halfghaninNE](http://twitter.com/halfghaninne))

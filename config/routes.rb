@@ -5,12 +5,7 @@ TwitterDiversity::Application.routes.draw do
   get "/" => 'public#home' #if they click search, sends that name to post:results
   
   ########## USERS ##############################
-  
-
-  # get "/users/new" => 'users#new'
-  #
-  # post "/users" =>'users#create'
-  
+    
   post "/logout" => 'users#logout', as: :logout
   
   get "/users/:screen_name/edit" => 'users#edit' #protected

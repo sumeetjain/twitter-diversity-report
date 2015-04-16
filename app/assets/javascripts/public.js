@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-window.onload = function(){
+window.addEventListener("load", function(){
   
   // document.getElementById("menu").addEventListener("click", function(){
   //   if (document.getElementById("menuList").style.display === "none") {
@@ -69,5 +69,5 @@ window.onload = function(){
   });
   
   
-}
+});
 

@@ -37,11 +37,25 @@
   </div>
   <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-hashtags="twitterdiversityproject">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
+<br>
+<br>
+  <div class="methodology">
+    <p><a href="#" id="methodology"><em><img class="arrowsmall" src="/assets/arrow1.png">How do you calculate results?</em></a></p>
+    <div id="methodologyinfobox" style="display: none">
+      <p><strong><span style="font-family:oswald, sans-serif">BLAH</span></strong><br>
+        Blah Blah blah. Lorem ipsum foxtrot charlie.
+      </p>
+      <p><strong><span style="font-family:oswald, sans-serif">SUPER BLAH</span></strong><br>
+        All the blah blah blahies. This text is here to take up space. Blahdey blah blah blah blahhhh.
+      </p>
+      <p><strong><span style="font-family:oswald, sans-serif">BOOP.</span></strong><br>
+        Beep boop boop boop beep bop. Booop beep bop bop booooooop. Beeeeeep. Beep beep bop.
+      </p>
+    </div>
+  </div>
 </div>
-  <hr></hr>
 
-
+<hr></hr>
 
 <% if @result.demo_hash["Education"] #!= {} %>
 	<%= pie_chart @result.edu_chart, {library: {title:

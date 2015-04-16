@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  obfuscatable
+  
   attr_accessible :user_answers_attributes, :twitterid, :ethnicities_text_area, :genders_text_area, :orientations_text_area, :encrypted_id
   
   validates :ethnicities_text_area, length: {maximum: 20}
@@ -34,20 +36,6 @@ class User < ActiveRecord::Base
   has_many :user_answers
   
   accepts_nested_attributes_for :user_answers
-
-  #################### BCRYPT METHODS ##################################
-  
-  include BCrypt
-
-    def encrypted_id
-      @encrypted_id ||= Password.new(twitterid)
-    end
-
-    def encrypted_id=(new_password)
-      @encrypted_id = Password.create(new_password)
-      self.twitterid = @encrypted_id
-    end
-
 
 
   ################### ETHNICITY METHODS ##############################

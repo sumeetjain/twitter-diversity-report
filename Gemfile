@@ -12,7 +12,7 @@ gem 'twitter'
 gem 'omniauth-twitter', '~> 1.1.0'
 gem 'dotenv-rails', '~> 2.0.0'
 gem 'chartkick', '~> 1.3.2'
-gem 'bcrypt'
+gem 'obfuscate'
 
 group :development do
   gem 'pry'

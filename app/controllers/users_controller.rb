@@ -35,7 +35,7 @@ class UsersController < ApplicationController
    
        user_answer_types = @user.user_answers.select("distinct answer_type").map { |a| a.answer_type }
    
-       all_demos = UserAnswer.select("distinct answer_type").map{ |a| a.answer_type }
+       all_demos = UserAnswer.answer_types
    
        all_demos.each do |d|
          unless user_answer_types.include?(d)

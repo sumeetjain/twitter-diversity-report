@@ -20,4 +20,7 @@ class UserAnswer < ActiveRecord::Base
     self.answer_id = answer_object.id
   end
   
+  def self.answer_types
+    ["Age", "Education", "Ethnicity", "Gender", "Income", "Orientation"]
+  end
 end

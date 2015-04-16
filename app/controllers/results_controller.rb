@@ -20,7 +20,7 @@ class ResultsController < ApplicationController
                           be suspended. Try another search here:"
         return redirect_to "/"
       rescue Twitter::Error::EnhanceYourCalm, Twitter::Error::TooManyRequests,
-        Twitter::Error::InternalServiceError, Twitter::Error::BadGateway,
+        Twitter::Error::InternalServerError, Twitter::Error::BadGateway,
         Twitter::Error::ServiceUnavailable, Twitter::Error::GatewayTimeout,
         Twitter::Error::Forbidden 
         flash[:message] = "Looks like something's wrong on Twitter's end. Try back in a few minutes."
@@ -57,7 +57,7 @@ end
                           be suspended. Try another search here:"
         return redirect_to "/"
       rescue Twitter::Error::EnhanceYourCalm, Twitter::Error::TooManyRequests,
-        Twitter::Error::InternalServiceError, 
+        Twitter::Error::InternalServerError, 
         Twitter::Error::BadGateway,
         Twitter::Error::ServiceUnavailable, 
         Twitter::Error::GatewayTimeout,

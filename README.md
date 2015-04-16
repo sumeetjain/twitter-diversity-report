@@ -10,6 +10,7 @@ Welcome to our repository! This is an open-source project that originated as a g
 
 If you'd like to contribute to the project, read on!
 
+Shortcuts:
 [The Team](#team)<br>
 [To Contribute](#contribute)
 * [Clone the Repository](#clone)
@@ -48,7 +49,7 @@ This will create a project folder called **twitter-diversity-report** that is in
 <a name="localenv"></a>
 ##Prepare Your Local Environment
 
-This program was built with Ruby on Rails 3.2.21. **Please ensure that you have at least this version of Rails**, as some methods may not be earlier in other versions.
+This program was built with Ruby on Rails 3.2.21. **Please ensure that you have at least this version of Rails**, as some methods may not be available in other versions.
 
 Next:
 

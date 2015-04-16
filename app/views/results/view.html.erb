@@ -8,7 +8,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <%= javascript_include_tag "//www.google.com/jsapi" %> 
-<%= javascript_include_tag "application", "chartkick" %>
+<%= javascript_include_tag "chartkick" %>
 
 <% pie_lib_vals = {fontName: "Georgia", colors:["#00ccff","#00A3CC","#80E6FF","#005266","#A8A8A8","#3C3C3C"]} %>
 
@@ -42,14 +42,14 @@
   <div class="methodology">
     <p><a href="#" id="methodology"><em><img class="arrowsmall" src="/assets/arrow1.png">How do you calculate results?</em></a></p>
     <div id="methodologyinfobox" style="display: none">
-      <p><strong><span style="font-family:oswald, sans-serif">BLAH</span></strong><br>
-        Blah Blah blah. Lorem ipsum foxtrot charlie.
+      <p><strong><span style="font-family:oswald, sans-serif">SELF-IDENTIFYING</span></strong><br>
+        Results depend on users volunteering their demographic information. Answers are optional, and all questions contain free-form fields that allow users to self-define their information. The more users who fill out information with our site, the more accurate the search results.
       </p>
-      <p><strong><span style="font-family:oswald, sans-serif">SUPER BLAH</span></strong><br>
-        All the blah blah blahies. This text is here to take up space. Blahdey blah blah blah blahhhh.
+      <p><strong><span style="font-family:oswald, sans-serif">SECURITY</span></strong><br>
+        When we store user information, we encrypt any identifiers that link answers to a specific Twitter account. We also ensure users cannot access or edit other users' information. 
       </p>
-      <p><strong><span style="font-family:oswald, sans-serif">BOOP.</span></strong><br>
-        Beep boop boop boop beep bop. Booop beep bop bop booooooop. Beeeeeep. Beep beep bop.
+      <p><strong><span style="font-family:oswald, sans-serif">MATH!</span></strong><br>
+        When a user searches for a specific Twitter account, we make a request through Twitter that returns the Twitter IDs of the most-recent 5,000 people that account is following. Then, we check those IDs against the encrypted identifiers stored in our database. For each matching user, we pool their unique answers for each demographic question.<br><br>Some charts may not contain answers for all users (as each question is optional). Other categories allow for multiple answers, and their cooresponding charts might show more answers than there are total respondents. We are working to clarify for users how many people responded to each demographic question.
       </p>
     </div>
   </div>

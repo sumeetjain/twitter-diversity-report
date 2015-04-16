@@ -3,12 +3,13 @@
 
 window.addEventListener("load", function(){
   
-  document.getElementById("methodology").addEventListener("click", function(){
-    if (document.getElementById("methodologyinfobox").style.display === "none") {
-      document.getElementById("methodologyinfobox").style.display = "block";
-    } else {
-      document.getElementById("methodologyinfobox").style.display = "none";
-    }
-  });
-  
+  if (document.getElementById("methodology")) {
+    document.getElementById("methodology").addEventListener("click", function(){
+      if (document.getElementById("methodologyinfobox").style.display === "none") {
+        document.getElementById("methodologyinfobox").style.display = "block";
+      } else {
+        document.getElementById("methodologyinfobox").style.display = "none";
+      }
+    });
+  }
 });

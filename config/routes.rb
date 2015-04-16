@@ -1,10 +1,5 @@
 TwitterDiversity::Application.routes.draw do
-  
-  # sessions params:
-  # searched_for -> when you click search button on home, who you want to see pre: filling in your info
-  # ask_info -> false if they said no/have already filled out, otherwise nil
-  # screen_name -> grab from oauth, has to match route if they want to edit/delete
-  
+    
   ########### PUBLIC ############################
   
   get "/" => 'public#home' #if they click search, sends that name to post:results

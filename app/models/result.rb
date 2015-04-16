@@ -34,20 +34,6 @@ class Result < ActiveRecord::Base
       answer_groups = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitterid:twitter_ids}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
       
       num_user_ans = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitterid:twitter_ids}).select("user_id AS ans_user, COUNT(answer_id) AS user_answer_count").group("user_id")
-      
-      # [29] pry(main)> ua[0].ans_user
-      # => "3"
-      # [30] pry(main)> ua[0].user_answer_count
-      # => "1"
-      # [31] pry(main)> ua[1].ans_user
-      # => "1"
-      # [32] pry(main)> ua[1].user_answer_count
-      # => "1"
-      # [33] pry(main)> ua[2].ans_user
-      # => "2"
-      # [34] pry(main)> ua[2].user_answer_count
-      # => "1"
-      
 
       answer_groups.each do |g|
         unless !/\A\d+\z/.match(g.answer_value)

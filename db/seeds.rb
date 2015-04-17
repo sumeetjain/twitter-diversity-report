@@ -31,4 +31,3 @@ UserAnswer.create(user_id: 1, answer_type: "Education", answer_id: 2)
 UserAnswer.create(user_id: 1, answer_type: "Gender", answer_id: 1) 
 UserAnswer.create(user_id: 1, answer_type: "Ethnicity", answer_id: 1)
 UserAnswer.create(user_id: 1, answer_type: "Orientation", answer_id: 1)
-#Right now I think the last three lines are actually causing problems. When I did a search for Crystal, who is following Andrew and I - the only two people in my database - her results show 2 afghan people, 2 woman friends, 2 bisexual friends. Those values should be 1.

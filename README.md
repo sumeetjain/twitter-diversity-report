@@ -8,12 +8,15 @@ Welcome to our repository! This is an open-source project that originated as a g
 
 **If you're here to submit feedback on the website, [please submit a new Issue](https://github.com/omahacodeschool/twitter-diversity-report/issues).** _Please know that if you do not already have a Github account, you will be prompted to sign up. If you don't wish to do so, you can always reach out to us on Twitter._
 
+- Andrew Strovers  -  [GitHub](http://github.com/ADStrovers)  -   [@MidwestBoardGam](http://twitter.com/midwestboardgam)
+- Alexandra Millatmal  -  [GitHub](http://github.com/halfghaninne)  -   [@halfghaninNE](http://twitter.com/halfghaninne)
+- Crystal Cooling  -  [GitHub](http://github.com/coolingcza)  -  [@cza_dev](http://twitter.com/cza_dev)
+- Hilary Stohs-Krause  -  [GitHub](http://github.com/hilarysk)  -  [@hilarysk](http://twitter.com/hilarysk)
+
 If you'd like to contribute to the project, read on!
 
-Shortcuts:
-[The Team](#team)<br>
-[To Contribute](#contribute)
-* [Clone the Repository](#clone)
+[How To Contribute](#contribute)
+* [Fork and Clone the Repository](#clone)
 * [Prepare Your Local Environment](#localenv)
 * [Get an API Key](#apikey)<br>
 
@@ -24,27 +27,25 @@ Shortcuts:
 
 ---
 
-<a name="team"></a>
-#The Team:
-
-- [Andrew Strovers](http://github.com/ADStrovers) ([@MidwestBoardGam](http://twitter.com/midwestboardgam))
-- [Alexandra Millatmal](http://github.com/halfghaninne) ([@halfghaninNE](http://twitter.com/halfghaninne))
-- [Crystal Cooling](http://github.com/coolingcza) ([@cza_dev](http://twitter.com/cza_dev))
-- [Hilary Stohs-Krause](http://github.com/hilarysk) ([@hilarysk](http://twitter.com/hilarysk))
-
----
-
 <a name="contribute"></a>
 #To Contribute
 
 <a name="clone"></a>
-##Clone the Repository
+##Fork and Clone the Project
 
-In your parent folder, copy the SSH clone URL (located in the right-hand column of this screen) into Terminal.
+1. [Fork this repository]( https://github.com/omahacodeschool/twitter-diversity-report/fork )
 
-This will create a project folder called **twitter-diversity-report** that is intialized to this very Github repository.
+2. In your parent folder in Terminal, copy the SSH clone URL (located in the right-hand column of this screen).
+    
+    This will create a project folder called **twitter-diversity-report** that is intialized to your forked repository.
+    
+    ![alt text](http://i.imgur.com/oFbi7Y9.gif "how to clone the repository")
+    
+3. [Prepare your local environment](#localenv) and [get a Twitter API key](#apikey) before starting to develop!
+4. In your local project folder, create a branch for the features you want to work on (`git checkout -b my-new-feature`)
+5. Commit changes as you go (`git commit -am 'Add some feature'`) and push commits to that branch (`git push origin my-new-feature`)
 
-![alt text](http://i.imgur.com/oFbi7Y9.gif "how to clone the repository")
+6. When you're finished, create a new Pull Request for us to review.
 
 <a name="localenv"></a>
 ##Prepare Your Local Environment

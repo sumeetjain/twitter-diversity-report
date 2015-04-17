@@ -22,7 +22,9 @@ class UsersController < ApplicationController
     end
 
     if params["user"]["user_answers_attributes"][education_index]["value"] == ""
-      params["user"]["user_answers_attributes"][education_index]["value"] = params["education1"]
+      params["user"]["user_answers_attributes"][education_index]["value"] = params["education1"].downcase
+    else
+      params["user"]["user_answers_attributes"][education_index]["value"].downcase!
     end
     
   end 
@@ -53,7 +55,7 @@ class UsersController < ApplicationController
     # Add user ID to params, since we don't want users to be able to add it themselves in web inspector.
     params[:user][:user_answers_attributes].each do |k, h|
       h[:user_id] = @user.id
-      h[:value] = h[:value].downcase
+      h[:value] = h[:value]
     end
     
     

@@ -33,14 +33,22 @@ class Result < ActiveRecord::Base
       d = demo.downcase.pluralize
 
       answer_groups = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitterid:twitter_ids}).select("#{d}.value AS answer_value, COUNT(user_answers.id) AS answer_count").group("#{d}.value")
-      
+
       num_user_ans = UserAnswer.joins("INNER JOIN #{d} ON user_answers.answer_id = #{d}.id").joins("INNER JOIN users ON user_answers.user_id = users.id").where({answer_type: demo}).where(users:{twitterid:twitter_ids}).select("user_id AS ans_user, COUNT(answer_id) AS user_answer_count").group("user_id")
 
       answer_groups.each do |g|
         unless !/\A\d+\z/.match(g.answer_value)
           g.answer_value = g.answer_value.to_i
         end
-        demo_hash["values"][g.answer_value] = g.answer_count.to_i
+        if demo == "Gender" || demo == "Ethnicity" || demo == "Orientation" || demo == "Education"
+          if demo_hash["values"].has_key?(g.answer_value.upcase)
+            demo_hash["values"][g.answer_value.upcase] += g.answer_count.to_i
+          else 
+            demo_hash["values"][g.answer_value.upcase] = g.answer_count.to_i
+          end
+        else
+          demo_hash["values"][g.answer_value] = g.answer_count.to_i
+        end
       end
       
       num_user_ans.each do |u|

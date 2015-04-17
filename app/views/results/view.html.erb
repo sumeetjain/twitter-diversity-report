@@ -10,9 +10,9 @@
 <%= javascript_include_tag "//www.google.com/jsapi" %> 
 <%= javascript_include_tag "chartkick" %>
 
-<% pie_lib_vals = {fontName: "Georgia", colors:["#00ccff","#00A3CC","#80E6FF","#005266","#A8A8A8","#3C3C3C"]} %>
+<% pie_lib_vals = {fontName: "'Oswald', sans-serif", colors:["#00ccff","#00A3CC","#80E6FF","#005266","#A8A8A8","#3C3C3C"]} %>
 
-<% col_lib_vals = {fontName: "Georgia", colors:["#00CCFF"]} %>
+<% col_lib_vals = {fontName: "'Oswald', sans-serif", colors:["#00CCFF"]} %>
 
 <% total_friends = @result.demo_hash["total_friend_count"] %>
 
@@ -59,30 +59,30 @@
 
 <% if @result.demo_hash["Education"] #!= {} %>
 	<%= pie_chart @result.edu_chart, {library: {title:
-		"Education"}.merge(pie_lib_vals)} %>
+		"EDUCATION"}.merge(pie_lib_vals)} %>
 <% end %>
 
 <% if @result.demo_hash["Income"] #.income_chart != {} %>
 	<%= column_chart @result.income_chart, {library: {title:
-		"Income"}.merge(col_lib_vals)} %>
+		"INCOME"}.merge(col_lib_vals)} %>
 <% end %>
 
 <% if @result.demo_hash["Age"] #age_chart != {} %>
 	<%= column_chart @result.age_chart, {library: {title:
-		"Age"}.merge(col_lib_vals)} %>
+		"AGE"}.merge(col_lib_vals)} %>
 <% end %>
 
 <% if @result.demo_hash["Ethnicity"] #ethnicity_chart #!= {} %>
 	<%= pie_chart @result.ethnicity_chart, {library: {title:
-		"Ethnicity"}.merge(pie_lib_vals)} %>
+		"ETHNICITY"}.merge(pie_lib_vals)} %>
 <% end %>
 
 <% if @result.demo_hash["Gender"] #gender_chart #!= {} %>
 	<%= pie_chart @result.gender_chart, {library: {title:
-		"Gender"}.merge(pie_lib_vals)} %>
+		"GENDER"}.merge(pie_lib_vals)} %>
 <% end %>
 
 <% if @result.demo_hash["Orientation"] #orientation_chart #!= {} %>
 	<%= pie_chart @result.orientation_chart, {library: {title:
-		"Orientation"}.merge(pie_lib_vals)} %>
+		"ORIENTATION"}.merge(pie_lib_vals)} %>
 <% end %>

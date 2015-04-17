@@ -41,9 +41,11 @@ If you'd like to contribute to the project, read on!
     
     ![alt text](http://i.imgur.com/oFbi7Y9.gif "how to clone the repository")
     
-3. Create a branch for the features you want to work on (`git checkout -b my-new-feature`)
-3. Commit changes as you go (`git commit -am 'Add some feature'`) and push commits to that branch (`git push origin my-new-feature`)
-4. When you're finished, create a new Pull Request for us to review.
+3. [Prepare your local environment](#localenv) and [get a Twitter API key](#apikey) before starting to develop!
+4. In your local project folder, create a branch for the features you want to work on (`git checkout -b my-new-feature`)
+5. Commit changes as you go (`git commit -am 'Add some feature'`) and push commits to that branch (`git push origin my-new-feature`)
+
+6. When you're finished, create a new Pull Request for us to review.
 
 <a name="localenv"></a>
 ##Prepare Your Local Environment

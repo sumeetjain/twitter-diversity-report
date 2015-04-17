@@ -8,10 +8,10 @@ Welcome to our repository! This is an open-source project that originated as a g
 
 **If you're here to submit feedback on the website, [please submit a new Issue](https://github.com/omahacodeschool/twitter-diversity-report/issues).** _Please know that if you do not already have a Github account, you will be prompted to sign up. If you don't wish to do so, you can always reach out to us on Twitter._
 
-- Andrew Strovers  |  [GitHub](http://github.com/ADStrovers)  |   ([@MidwestBoardGam](http://twitter.com/midwestboardgam))
-- Alexandra Millatmal  |  [GitHub](http://github.com/halfghaninne)  |   ([@halfghaninNE](http://twitter.com/halfghaninne))
-- Crystal Cooling  |  [GitHub](http://github.com/coolingcza)  |  ([@cza_dev](http://twitter.com/cza_dev))
-- Hilary Stohs-Krause  |  [GitHub](http://github.com/hilarysk)  |  ([@hilarysk](http://twitter.com/hilarysk))
+- Andrew Strovers  -  [GitHub](http://github.com/ADStrovers)  -   [@MidwestBoardGam](http://twitter.com/midwestboardgam)
+- Alexandra Millatmal  -  [GitHub](http://github.com/halfghaninne)  -   [@halfghaninNE](http://twitter.com/halfghaninne)
+- Crystal Cooling  -  [GitHub](http://github.com/coolingcza)  -  [@cza_dev](http://twitter.com/cza_dev)
+- Hilary Stohs-Krause  -  [GitHub](http://github.com/hilarysk)  -  [@hilarysk](http://twitter.com/hilarysk)
 
 If you'd like to contribute to the project, read on!
 

@@ -56,33 +56,44 @@
 </div>
 
 <hr></hr>
-
+<div class="chart">
 <% if @result.demo_hash["Education"] #!= {} %>
 	<%= pie_chart @result.edu_chart, {library: {title:
 		"EDUCATION"}.merge(pie_lib_vals)} %>
 <% end %>
-
+</div>
+<hr></hr>
+<div class="chart">
 <% if @result.demo_hash["Income"] #.income_chart != {} %>
 	<%= column_chart @result.income_chart, {library: {title:
 		"INCOME"}.merge(col_lib_vals)} %>
 <% end %>
-
+</div>
+<hr></hr>
+<div class="chart">
 <% if @result.demo_hash["Age"] #age_chart != {} %>
 	<%= column_chart @result.age_chart, {library: {title:
 		"AGE"}.merge(col_lib_vals)} %>
 <% end %>
-
+</div>
+<hr></hr>
+<div class="chart">
 <% if @result.demo_hash["Ethnicity"] #ethnicity_chart #!= {} %>
 	<%= pie_chart @result.ethnicity_chart, {library: {title:
 		"ETHNICITY"}.merge(pie_lib_vals)} %>
 <% end %>
-
+</div>
+<hr></hr>
+<div class="chart">
 <% if @result.demo_hash["Gender"] #gender_chart #!= {} %>
 	<%= pie_chart @result.gender_chart, {library: {title:
 		"GENDER"}.merge(pie_lib_vals)} %>
 <% end %>
-
+</div>
+<hr></hr>
+<div class="chart">
 <% if @result.demo_hash["Orientation"] #orientation_chart #!= {} %>
 	<%= pie_chart @result.orientation_chart, {library: {title:
 		"ORIENTATION"}.merge(pie_lib_vals)} %>
 <% end %>
+</div>

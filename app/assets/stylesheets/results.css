@@ -30,3 +30,8 @@
   font-family: Georgia, serif;
   vertical-align: baseline;
 }
+
+.chart {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

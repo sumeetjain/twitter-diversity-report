@@ -1,4 +1,5 @@
-<div class="error"><%= flash[:add_message] %></div>
+<div class="form">
+  <div class="error"><%= flash[:add_message] %></div>
   <h2>CURRENT INFORMATION FOR: <span class="bluetext" style="font-family:georgia"><%= session[:screen_name] -%></span></h2> 
 
   <ul>
@@ -44,7 +45,7 @@
   </ul> 
   
 
-  <h2><a href="<%= "#{@user.id}" %>/edit"><img class="arrow" src="/assets/arrow1.png">Edit/update your information</a></h2>
+  <h2><a href="<%= "#{@user.id}" %>/edit"><img class="arrow" src="/assets/arrow1.png">EDIT/UPDATE YOUR INFORMATION</a></h2>
   
   <h2><img class="arrow" src="/assets/arrow1.png"><%= link_to 'DELETE YOUR INFORMATION', url_for(action: :delete,id: @user.id),method: :delete, data: {confirm: "Are you sure you want to remove your information?"} %></h2>
   <div>

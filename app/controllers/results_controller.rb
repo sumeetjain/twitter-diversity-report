@@ -92,10 +92,11 @@ end
   end
   
   def reroute # TODO check if lines 81-86 are even needed.
+    # TODO - This entire check may be unnecessary.
     if session[:result].demo_hash == {}
       redirect_to "/"
       flash[:message] = "Oh no! @#{session[:searched_for]} is not following anyone who's filled out information with us. Try another search:" 
-      session[:searched_for] = nil
+      session[:searched_for] = nil # TODO Might be unnecessary.
       session[:result].destroy
       session[:result] = nil
     else

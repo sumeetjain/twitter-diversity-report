@@ -17,18 +17,18 @@
 <% total_friends = @result.demo_hash["total_friend_count"] %>
 
 <% if @result.demo_hash["Age"] %>
-  <% num_age_friends = @result.demo_hash["Age"]["ans_p_friend"].keys.length %>
+  <% friends_who_answered = @result.demo_hash["friends_who_answered"] %>
 <% else %>
-  <% num_age_friends = 0 %>
+  <% friends_who_answered = 0 %>
 <% end %>
 
 <div class="results">
   <h2>DEMOGRAPHICS FOR: <span class="bluetext" style="font-family:georgia"><%= @result.searched_handle -%></span></h2> 
   <ul>
     <li><strong>DATE RETRIEVED:</strong><span style="font-family:georgia"> <%= @result.created_at.strftime('%b %d, %Y') -%></span></li>
-    <li><strong>NUMBER OF FOLLOWERS INCLUDED:</strong> <span style="font-family:georgia"><%= num_age_friends %> of <%= total_friends %>
-      <% if num_age_friends > 0 %>
-        , or <%= num_age_friends/total_friends.to_f*100 %>%
+    <li><strong>NUMBER OF FOLLOWERS INCLUDED:</strong> <span style="font-family:georgia"><%= friends_who_answered %> of <%= total_friends %>
+      <% if friends_who_answered > 0 %>
+        , or <%= friends_who_answered/total_friends.to_f*100 %>%
       <% end %>
       </span></li>
   </ul>

@@ -44,6 +44,8 @@ class UsersController < ApplicationController
            @user.user_answers.build(answer_type: d)
          end
        end
+       
+       @single_answers = @user.user_answers.where(answer_type: ["Education", "Age", "Income"])
   end
   
 
@@ -60,7 +62,7 @@ class UsersController < ApplicationController
     
     
     if @user.update_attributes(params[:user]) #kicking up error: Couldn't find UserAnswer with ID=83 for User with ID=15
-      flash[:add_message] = "Your information has been added to our files; Any identifying information has been encrypted."
+      flash[:add_message] = "Your information has been updated in our system."
 
     else 
       flash[:errors] = @user.errors.to_a #add to page as if <ul> loop to show errors

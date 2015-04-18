@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form">  
   <p class="error">
     <% if flash[:errors] %>
     ERROR
@@ -9,44 +9,42 @@
     </ul>
     <% end %>
   </p>
+  
     <h2>Add or update your information: <span class="bluetext" font-family="georgia"><%= session[:screen_name] -%></span></h2>
   <br><br>
+  
   <%= form_for @user do |f| -%>
-   <%= f.fields_for :user_answers do |u| %>
-     <%= u.label :value, user_answer_field_label(u.object.field_value) %><br>
-     <%= u.hidden_field :answer_type %>
+     <%= f.fields_for :user_answers, @single_answers do |u| %>
+       <%= u.label :value, user_answer_field_label(u.object.field_value).upcase %>
+       <%= u.hidden_field :answer_type %>
  
-     <% if u.object.answer_type == "Education" %>
-       <%= u.text_field :value, style: "width: 70%", autofocus: true %><br>
-       <label><em>Or choose an option from below: </em></label><br>
-       <input type="radio" name="education1" value="elementary"> Elementary<br>
-       <input type="radio" name="education1" value="secondary"> Secondary<br>
-       <input type="radio" name="education1" value="post-secondary"> Post-Secondary<br>
-       <input type="radio" name="education1" value="graduate"> Graduate<br>
-       <input type="radio" name="education1" value="post-graduate"> Post-Graduate<br><br>
-       
-     <% elsif u.object.answer_type == "Age" %>
-       <%= u.number_field :value, in: 1900..Time.current.year, style: "font-family:georgia;width: 70%" %><br>
-
-     <% elsif u.object.answer_type == "Gender" %>
-       <label><em>One entry per line:</em></label><br>
-       <%= u.text_area :value, style: "width: 70%" %><br>
-       
-     <% elsif u.object.answer_type == "Orientation" %>
-       <label><em>One entry per line:</em></label><br>
-       <%= u.text_area :value, style: "width: 70%" %><br>
-       
-     <% elsif u.object.answer_type == "Ethnicity" %>
-       <label><em>One entry per line:</em></label><br>
-       <%= u.text_area :value, style: "width: 70%" %><br>
+       <% if u.object.answer_type == "Education" %>
+         <%= u.text_field :value, style: "font-family:georgia;width: 70%", autofocus: true %><br>
+         <label><em>OR CHOOSE AN OPTION FROM BELOW </em></label><br>
+         <input type="radio" name="education1" value="elementary"> <span style="font-family:georgia"> Elementary</span><br>
+         <input type="radio" name="education1" value="secondary"> <span style="font-family:georgia"> Secondary</span><br>
+         <input type="radio" name="education1" value="post-secondary"> <span style="font-family:georgia"> Post-secondary</span><br>
+         <input type="radio" name="education1" value="graduate"> <span style="font-family:georgia"> Graduate</span><br>
+         <input type="radio" name="education1" value="post-graduate"> <span style="font-family:georgia"> Post-graduate</span><br><br>
+             
+       <% else %>
+        <%= u.number_field :value, style: "font-family:georgia;width: 70%" %><br>
      
-     <% else %>
-      <%= u.number_field :value %><br>
-     
+       <% end %>
      <% end %>
-   <% end %>
+
+     <label>ETHNICITY/IES:</label>
+     <%= f.text_area :ethnicities_text_area, style: "font-family:georgia; width: 70%", :cols => 10, :rows => 5 %><br>
    
-   <%= f.submit "UPDATE USER", class: "button" %>
- <% end %>
+     <label>GENDER/S:</label>
+     <%= f.text_area :genders_text_area, style: "font-family:georgia; width: 70%", :cols => 10, :rows => 5 %><br>
+   
+     <label>ORIENTATION/S:</label>
+     <%= f.text_area :orientations_text_area, style: "font-family:georgia; width: 70%", :cols => 10, :rows => 5 %><br>
+   
+     <%= f.submit "UPDATE USER", class: "button" %>
+   
+   
+   <% end %>
  
 </div>

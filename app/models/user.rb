@@ -50,13 +50,12 @@ class User < ActiveRecord::Base
   end
   
   def ethnicities_text_area=(text_from_form_field) #pull out method body into separate private method below and then call for each setter for respecitve categories
-    self.ethnicities.delete_all
-    
+    UserAnswer.delete_all("user_id = #{self.id} AND answer_type = 'Ethnicity'")
     users_inputs_array = text_from_form_field.split("\r\n")
-    
     users_inputs_array.each do |e|
       if !self.ethnicities_as_array.include?(e)
-        self.ethnicities << Ethnicity.find_or_create_by_value(e)
+        value = Ethnicity.find_or_create_by_value(e)
+        UserAnswer.create({user_id: self.id, answer_id: value.id, answer_type: value.class.to_s})
       end
     end
   end
@@ -75,13 +74,14 @@ class User < ActiveRecord::Base
   end
   
   def genders_text_area=(text_from_form_field) #pull out method body into separate private method below and then call for each setter for respecitve categories
-    self.genders.delete_all
+    UserAnswer.delete_all("user_id = #{self.id} AND answer_type = 'Gender'")
     
     users_inputs_array = text_from_form_field.split("\r\n")
     
-    users_inputs_array.each do |e|
-      if !self.genders_as_array.include?(e)
-        self.genders << Gender.find_or_create_by_value(e)
+    users_inputs_array.each do |g|
+      if !self.genders_as_array.include?(g)
+        value = Gender.find_or_create_by_value(g)
+        UserAnswer.create({user_id: self.id, answer_id: value.id, answer_type: value.class.to_s})
       end
     end
   end
@@ -100,13 +100,14 @@ class User < ActiveRecord::Base
   end
   
   def orientations_text_area=(text_from_form_field) #pull out method body into separate private method below and then call for each setter for respecitve categories
-    self.orientations.delete_all
+    UserAnswer.delete_all("user_id = #{self.id} AND answer_type = 'Orientation'")
     
     users_inputs_array = text_from_form_field.split("\r\n")
     
-    users_inputs_array.each do |e|
-      if !self.orientations_as_array.include?(e)
-        self.orientations << Orientation.find_or_create_by_value(e)
+    users_inputs_array.each do |o|
+      if !self.orientations_as_array.include?(o)
+        value = Orientation.find_or_create_by_value(o)
+        UserAnswer.create({user_id: self.id, answer_id: value.id, answer_type: value.class.to_s})
       end
     end
   end

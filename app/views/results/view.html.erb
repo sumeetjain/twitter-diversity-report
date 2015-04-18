@@ -16,11 +16,7 @@
 
 <% total_friends = @result.demo_hash["total_friend_count"] %>
 
-<% if @result.demo_hash["Age"] %>
-  <% friends_who_answered = @result.demo_hash["friends_who_answered"] %>
-<% else %>
-  <% friends_who_answered = 0 %>
-<% end %>
+<% friends_who_answered = @result.demo_hash["friends_who_answered"] %>
 
 <div class="results">
   <h2>DEMOGRAPHICS FOR: <span class="bluetext" style="font-family:georgia"><%= @result.searched_handle -%></span></h2> 

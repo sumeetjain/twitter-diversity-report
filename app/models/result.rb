@@ -24,7 +24,7 @@ class Result < ActiveRecord::Base
       "total_friend_count" => twitter_ids.length,
       "friends_who_answered" => UserAnswer.joins(:user).where(users:{twitterid: twitter_ids}).select("distinct user_id").length
     }
-
+    
     demos.each do |demo|
       demo_hash = {
         "values" => {},

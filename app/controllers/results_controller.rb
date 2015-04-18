@@ -66,7 +66,8 @@ end
         return redirect_to "/"
       end # of begin loop
       
-      if demo_hash == {}
+      binding.pry
+      if demo_hash["friends_who_answered"] == 0
         redirect_to "/"
         flash[:message] = "Oh no! @#{params[:twitter_handle]} is not following anyone who's filled out information with us. Please try another search:"
       else

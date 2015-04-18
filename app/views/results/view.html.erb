@@ -23,8 +23,10 @@
   <ul>
     <li><strong>DATE RETRIEVED:</strong><span style="font-family:georgia"> <%= @result.created_at.strftime('%b %d, %Y') -%></span></li>
     <li><strong>NUMBER OF FOLLOWERS INCLUDED:</strong> <span style="font-family:georgia"><%= friends_who_answered %> of <%= total_friends %>
-      <% if friends_who_answered > 0 %>
-        , or <%= friends_who_answered/total_friends.to_f*100 %>%
+      <% if friends_who_answered/total_friends.to_f*100 < 1 %>
+        , or < 1%
+      <% else %>
+        , or <%= (friends_who_answered/total_friends.to_f*100).round %>%
       <% end %>
       </span></li>
   </ul>

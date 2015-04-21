@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       end
     end
        
-    @single_answers = @user.user_answers.where(answer_type: ["Education", "Age", "Income"])
+    @single_answers = @user.user_answers.map {|ua| ua if ua.single_answer_question?}.compact
   end
   
 

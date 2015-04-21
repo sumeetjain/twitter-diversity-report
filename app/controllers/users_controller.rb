@@ -35,17 +35,17 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_or_create_by_twitterid(session[:twitter_id])
    
-       user_answer_types = @user.user_answers.select("distinct answer_type").map { |a| a.answer_type }
+    user_answer_types = @user.user_answers.select("distinct answer_type").map { |a| a.answer_type }
    
-       all_demos = UserAnswer.answer_types
+    all_demos = UserAnswer.answer_types
    
-       all_demos.each do |d|
-         unless user_answer_types.include?(d)
-           @user.user_answers.build(answer_type: d)
-         end
-       end
+    all_demos.each do |d|
+      unless user_answer_types.include?(d)
+        @user.user_answers.build(answer_type: d)
+      end
+    end
        
-       @single_answers = @user.user_answers.where(answer_type: ["Education", "Age", "Income"])
+    @single_answers = @user.user_answers.where(answer_type: ["Education", "Age", "Income"])
   end
   
 

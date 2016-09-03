@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  validates :twitter_id, presence: true
+  validates :twitter_id, presence: true, uniqueness: true
 end

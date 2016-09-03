@@ -7,18 +7,6 @@ class PublicController < ApplicationController
   end
 
   def return
-  end
-end
-
-
-class PublicController < ApplicationController
-
-
-
-
-
-
-  def return
     session[:screen_name] = oauth_hash['info']['nickname']
     session[:twitter_id] = oauth_hash['uid'].to_i
 
@@ -34,10 +22,8 @@ class PublicController < ApplicationController
   end
 
   protected
-
-  def oauth_hash
-    request.env['omniauth.auth']
-  end
-
+    def oauth_hash
+      request.env['omniauth.auth']
+    end
 
 end

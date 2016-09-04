@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-      
+
     ########### PUBLIC ############################
 
     get "/" => 'public#home' #if they click search, sends that name to post:results
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
     ######### OMNIAUTH ###########################
 
-    get "/auth/twitter/callback" => "public#return"
+    get "/auth/twitter/callback" => "public#returnFromAuth"
 
     get "/auth/failure" => "public#failure"
 

@@ -6,7 +6,7 @@ class PublicController < ApplicationController
     redirect_to "/auth/twitter"
   end
 
-  def return
+  def returnFromAuth
     session[:screen_name] = oauth_hash['info']['nickname']
     session[:twitter_id] = oauth_hash['uid'].to_i
 

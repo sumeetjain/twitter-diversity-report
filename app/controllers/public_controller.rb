@@ -6,6 +6,9 @@ class PublicController < ApplicationController
     redirect_to "/auth/twitter"
   end
 
+#Upon returning from Twitter authentication, finds or creates user id in database
+#
+#If user id in database, redirects to profile edit
   def returnFromAuth
     session[:screen_name] = oauth_hash['info']['nickname']
     session[:twitter_id] = oauth_hash['uid'].to_i

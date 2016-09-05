@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
     ########### PUBLIC ############################
 
-    get "/" => 'public#home' #if they click search, sends that name to post:results
+    get "/" => 'public#index' #if they click search, sends that name to post:results
 
     ########## USERS ##############################
 

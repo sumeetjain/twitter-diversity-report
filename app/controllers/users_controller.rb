@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @gender_chart = User.where.not(gender: '').group(:gender).count
+    @ethnicity_chart = User.where.not(ethnicity: '').group(:ethnicity).count
+    @education_chart = User.where.not(education: '').group(:education).count
+    @orientation_chart = User.where.not(orientation: '').group(:orientation).count
   end
 
   def new

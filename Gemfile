@@ -33,6 +33,8 @@ gem 'awesome_print'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'chartkick'
+
 group :development, :test do
   gem "dotenv-rails"
   gem "pry-byebug"

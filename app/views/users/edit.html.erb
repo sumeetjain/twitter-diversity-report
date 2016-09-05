@@ -1,0 +1,7 @@
+<h1>Update User Survey</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Remove Your Data', user_path(@user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>

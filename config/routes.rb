@@ -6,13 +6,15 @@ Rails.application.routes.draw do
 
     ########## USERS ##############################
 
+    resources :users
+
     post "/logout" => 'users#logout', as: :logout
 
     get "/users/:screen_name/edit" => 'users#edit' #protected
 
     put "/users/:id" => 'users#save', as: :user
 
-    delete "/users/:id" => 'users#delete' #protected
+    # delete "/users/:id" => 'users#delete' #protected
 
     get "/users/:id" => 'users#view' #protected
 

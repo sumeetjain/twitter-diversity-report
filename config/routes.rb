@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
     get "/" => 'public#index' #if they click search, sends that name to post:results
 
+    post "/logout" => 'public#logout'
+
     ########## USERS ##############################
 
     resources :users
-
-    # post "/logout" => 'users#logout', as: :logout
 
     # get "/users/:screen_name/edit" => 'users#edit' #protected
 
@@ -20,15 +20,15 @@ Rails.application.routes.draw do
 
     ########## RESULTS ###########################
 
-    get "/current" => 'results#current'
-
-    get "/current/:screen_name" => 'results#current' #redirects to /:id
-
-    get "/results/:id" => 'results#view' #pulls from results table
-
-    post "/results" => 'results#create' #generates results record to populate /:id, make sure to clear session after this loads
-
-    get "/reroute" => 'results#reroute' #TODO would like to change to a post route
+    # get "/current" => 'results#current'
+    #
+    # get "/current/:screen_name" => 'results#current' #redirects to /:id
+    #
+    # get "/results/:id" => 'results#view' #pulls from results table
+    #
+    # post "/results" => 'results#create' #generates results record to populate /:id, make sure to clear session after this loads
+    #
+    # get "/reroute" => 'results#reroute' #TODO would like to change to a post route
 
     ######### OMNIAUTH ###########################
 

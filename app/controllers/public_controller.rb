@@ -13,6 +13,7 @@ class PublicController < ApplicationController
   def returnFromAuth
     session[:screen_name] = oauth_hash['info']['nickname']
     session[:twitter_id] = oauth_hash['uid'].to_i
+    binding.pry
 
     user = User.find_or_create_by(twitter_id:(session[:twitter_id]))
 
@@ -23,6 +24,12 @@ class PublicController < ApplicationController
 
   def result
   end
+
+  def logout
+    session.clear
+    redirect_to "/"
+  end
+
 
   protected
     def oauth_hash

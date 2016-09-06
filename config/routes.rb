@@ -8,15 +8,15 @@ Rails.application.routes.draw do
 
     resources :users
 
-    post "/logout" => 'users#logout', as: :logout
+    # post "/logout" => 'users#logout', as: :logout
 
-    get "/users/:screen_name/edit" => 'users#edit' #protected
+    # get "/users/:screen_name/edit" => 'users#edit' #protected
 
-    put "/users/:id" => 'users#save', as: :user
+    # put "/users/:id" => 'users#save', as: :user
 
     # delete "/users/:id" => 'users#delete' #protected
 
-    get "/users/:id" => 'users#view' #protected
+    # get "/users/:id" => 'users#view' #protected
 
     ########## RESULTS ###########################
 

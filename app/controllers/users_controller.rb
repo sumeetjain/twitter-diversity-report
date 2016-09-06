@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_twitter_id(session[:twitterid])
   end
 
   def create

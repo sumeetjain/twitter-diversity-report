@@ -1,0 +1,102 @@
+<!-- TODO - move styling to separate stylesheet -->
+<style type="text/css">
+
+  #infobox {
+    display: inline-block;
+    height: 320px;
+    background-color: #EBEBEB;
+    float: left;
+    margin-top: 30px;
+  }
+
+  #searchbox {
+    display: inline-block;
+    height: 320px;
+    background-color: #EBEBEB;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 840px){
+    #infobox {
+      display: inline-block;
+      height: 350px;
+      background-color: #EBEBEB;
+      float: left;
+      margin-top: 30px;
+    }
+
+    #searchbox {
+      display: inline-block;
+      height: 350px;
+      background-color: #EBEBEB;
+      margin-top: 30px;
+    }
+  }
+
+</style>
+
+<div class="error" style="margin-left:10px">
+  <%= flash[:message] %>
+</div>
+
+<div class="row">
+    <div class="columns small-0 medium-1" style="height:500px"> </div>
+  <div class="columns medium-6" id="searchbox">
+    <div class="columns small-11 medium-10">
+    <div class="form2">
+	<%= form_tag("/results", method: "post") do %>
+        <label class="searchlabel">TWITTER HANDLE:</label><br>
+      	<div style="display:inelin-block;float:left">@</div><div style="display:inline-block;float:left"><input type="text" name="twitter_handle" placeholder="ie: barackobama"></div><br>
+      	<input class="button" type="submit" value="SEE RESULTS">
+     <% end %>
+    </div>
+    <div class="whysearch">
+      <hr></hr>
+      <p><a href="#" id="searchinfo"><em><img class="arrowsmall" src="/assets/arrow1.png">Who should I search for?</em></a></p>
+      <div id="searchinfobox" style="display: none">
+        <p><strong><span style="font-family:oswald, sans-serif">YOURSELF</span></strong><br>
+          How diverse is your feed? Are you exposed primarily to viewpoints similar to yours?
+        </p>
+        <p><strong><span style="font-family:oswald, sans-serif">ELECTED OFFICIALS</span></strong><br>
+          Are your representatives paying attention to the myriad of voices that comprise their constituency?
+        </p>
+        <p><strong><span style="font-family:oswald, sans-serif">YOUR FAVORITE JOURNALIST</span></strong><br>
+          Are they seeking information from a wide variety of people?
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="columns small-0 medium-1" style="height:500px"> </div>
+  <div class="columns medium-3" id="infobox">
+    <div class="columns small-12 medium-12">
+      <div class="form2">
+		<% if session[:screen_name] == nil %>
+        <label class="searchlabel">ADD YOUR INFO:</label><br>
+        <a href="/auth/twitter"><button class="button">GET STARTED</button></a>
+		<% else %>
+        <label class="searchlabel">@<%= session[:screen_name].upcase %></label><br>
+        <a href="/users/<%= session[:screen_name] %>/edit"><button class="button">EDIT YOUR INFO</button></a>
+		<% end %>
+        <br><br><br>
+      </div>
+        <div class="whysearch">
+          <hr></hr>
+          <p><a href="#" id="addinfo"><em><img class="arrowsmall" src="/assets/arrow1.png">What happens to my data?</em></a></p>
+          <div id="addinfobox" style="display: none">
+            <p><strong><span style="font-family:oswald, sans-serif">MORE ACCURATE DATA</span></span></strong><br>
+              The greater percentage of twitter users who participate, the more complete and meaningful the data.
+            </p>
+            <p><strong><span style="font-family:oswald, sans-serif">IT’S KEPT ANONYMOUS</span></strong><br>
+              We keep any identifying information hidden in results; we're working to encrypt information for added security.
+            </p>
+            <p><strong><span style="font-family:oswald, sans-serif">ONLY SHARE WHAT YOU WANT</span></strong><br>
+              Seriously, no pressure. Not comfortable answering a question? Just leave it blank.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="columns small-0 medium-1" style="height:500px"> </div>
+</div>

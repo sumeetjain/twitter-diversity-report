@@ -1,56 +1,42 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+    ########### PUBLIC ############################
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+    get "/" => 'public#index' #if they click search, sends that name to post:results
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+    get "/logout" => 'public#logout'
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    ########## USERS ##############################
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+    resources :users
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+    get "/users/:screen_name/edit" => 'users#edit' #protected
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+    # put "/users/:id" => 'users#save', as: :user
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+    # delete "/users/:id" => 'users#delete' #protected
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+    # get "/users/:id" => 'users#view' #protected
+
+    ########## RESULTS ###########################
+
+    # get "/current" => 'results#current'
+    #
+    # get "/current/:screen_name" => 'results#current' #redirects to /:id
+    #
+    # get "/results/:id" => 'results#view' #pulls from results table
+    #
+    # post "/results" => 'results#create' #generates results record to populate /:id, make sure to clear session after this loads
+    #
+    # get "/reroute" => 'results#reroute' #TODO would like to change to a post route
+
+    ######### OMNIAUTH ###########################
+
+    get "/auth/twitter/callback" => "public#returnFromAuth"
+
+    get "/auth/failure" => "public#failure"
+
+    ######### BAD USER ENTRY REROUTING ###########
+
+    # get "/:screen_name" => 'results#current'
 end

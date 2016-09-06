@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
     ########## USERS ##############################
 
-    # resources :users
+    resources :users
 
     get "/users/:screen_name/edit" => 'users#edit' #protected
 

@@ -76,7 +76,7 @@
         <a href="/auth/twitter"><button class="button">GET STARTED</button></a>
 		<% else %>
         <label class="searchlabel">@<%= session[:screen_name].upcase %></label><br>
-        <a href="/auth/twitter"><button class="button">EDIT YOUR INFO</button></a>
+        <a href="/users/<%= session[:screen_name] %>/edit"><button class="button">EDIT YOUR INFO</button></a>
 		<% end %>
         <br><br><br>
       </div>

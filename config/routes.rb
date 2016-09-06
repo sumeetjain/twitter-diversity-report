@@ -4,13 +4,13 @@ Rails.application.routes.draw do
 
     get "/" => 'public#index' #if they click search, sends that name to post:results
 
-    post "/logout" => 'public#logout'
+    get "/logout" => 'public#logout'
 
     ########## USERS ##############################
 
-    resources :users
+    # resources :users
 
-    # get "/users/:screen_name/edit" => 'users#edit' #protected
+    get "/users/:screen_name/edit" => 'users#edit' #protected
 
     # put "/users/:id" => 'users#save', as: :user
 
@@ -38,5 +38,5 @@ Rails.application.routes.draw do
 
     ######### BAD USER ENTRY REROUTING ###########
 
-    get "/:screen_name" => 'results#current'
+    # get "/:screen_name" => 'results#current'
 end

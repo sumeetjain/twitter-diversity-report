@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.integer :twitter_id
+      t.integer :twitter_id, limit: 8
       t.integer :age
       t.integer :income
       t.string :education

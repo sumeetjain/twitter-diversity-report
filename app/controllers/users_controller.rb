@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
     if @user.save
       redirect_to "/users/#{session[:screen_name]}/edit"
+
     else
       render 'new'
     end
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
     redirect_to "/users/#{session[:screen_name]}/edit"
+
   end
 
   def destroy

@@ -6,7 +6,11 @@ class Searchresult < ActiveRecord::Base
     end
   end
 
-
+  def self.testedfriends(client, searched_twitter_handle)
+    twitter_ids = client.friend_ids(searched_twitter_handle).attrs[:ids]
+    friendresults = User.where(twitter_id: twitter_ids)
+    return friendresults
+  end
 
 
 

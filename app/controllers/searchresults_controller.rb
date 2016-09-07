@@ -1,8 +1,8 @@
 class SearchresultsController < ApplicationController
   def index
     client = Searchresult.client
-    @friends = client.friend_ids("noto-alex-j")
-    binding.pry
+    @testedfriends = Searchresult.testedfriends(client, 'hul')
+    # binding.pry
   end
 
 end

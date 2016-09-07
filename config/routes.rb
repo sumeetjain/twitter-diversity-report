@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
     get "/logout" => 'public#logout'
 
+    get "/result" => 'searchresults#index'
+
     ########## USERS ##############################
 
     resources :users

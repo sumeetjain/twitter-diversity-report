@@ -12,19 +12,13 @@ class UsersController < ApplicationController
     }
     @age_chart = {
       '<18' => User.where('age < 18').count,
-      '< 25000' => User.where('income < 25000').count,
-      '< 50000' => User.where('income >= 25000 AND income < 50000').count,
-      '< 100000' => User.where('income >= 50000 AND income < 100000').count,
-      '>= 100000' => User.where('income >= 100000').count
-    }
-    @age_chart = {
-      '<18' => User.where('age < 18').count,
       '18-24' => User.where('age >= 18 AND age < 25').count,
       '25-34' => User.where('age >= 25 AND age < 35').count,
       '35-44' => User.where('age >= 35 AND age < 45').count, 
       '45-54' => User.where('age >= 45 AND age < 55').count, 
       '55+' => User.where('age >= 55').count
     }
+  end
 
   def new
     @user = User.new

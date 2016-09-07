@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def selfresult
+    @user = User.find_by twitter_id: (session[:twitter_id])
+  end
+
   def new
     @user = User.new
   end
@@ -21,7 +25,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
-    redirect_to "/users/#{session[:screen_name]}/edit"
+    redirect_to "/user/self/result"
 
   end
 

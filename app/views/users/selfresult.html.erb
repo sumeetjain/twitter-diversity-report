@@ -1,0 +1,16 @@
+<h1>Current information for <%= session[:screen_name] %></h1>
+<ul>
+<li>Education level: <%= @user.education %></li>
+<li>Income level <%= @user.income %></li>
+<li>Birth year <%= @user.age %></li>
+<li>Ethnicity: <%= @user.ethnicity %></li>
+<li>Gender: <%= @user.gender %></li>
+<li>Sexual Orientation: <%= @user.orientation %></li>
+</ul>
+<%= link_to "Edit/Update your information", "/users/:screen_name/edit" %>
+<br>
+<%= link_to "Delete your information", "/users/delete" %>
+<hr></hr>
+<h2>Looks good?</h2>
+<br>
+<%= link_to("See your results", "/user/self") %>

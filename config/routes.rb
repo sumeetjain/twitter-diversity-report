@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
     get "/user/self" => 'searchresults#showself'
 
+    get "/user/self/result" => 'users#selfresult'
+
     # put "/users/:id" => 'users#save', as: :user
 
     # delete "/users/:id" => 'users#delete' #protected

@@ -5,3 +5,11 @@
 <%= link_to 'Remove Your Data', user_path(@user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
+
+<% if session[:twitter_handle] != nil %>
+<hr></hr>
+<h2>Looks good?</h2>
+<br>
+<%= link_to("See your search result for #{session[:twitter_handle]}", "/result") %>
+
+<% end %>

@@ -1,7 +1,14 @@
 class SearchresultsController < ApplicationController
+  def reroute
+    session[:twitter_handle] = params[:twitter_handle]
+    if session[:screen_name] != nil
+      redirect_to '/result'
+    end
+  end
+
   def index
     client = Searchresult.client
-    @testedfriends = Searchresult.testedfriends(client, params[:twitter_handle])
+    @testedfriends = Searchresult.testedfriends(client, session[:twitter_handle])
     @ethnicity_chart = @testedfriends.where.not(ethnicity: '').group(:ethnicity).count
     @education_chart = @testedfriends.where.not(education: '').group(:education).count
     @orientation_chart = @testedfriends.where.not(orientation: '').group(:orientation).count
@@ -19,6 +26,7 @@ class SearchresultsController < ApplicationController
       '45-54' => @testedfriends.where('age >= 45 AND age < 55').count,
       '55+' => @testedfriends.where('age >= 55').count
     }
+    session[:twitter_handle] = ""
   end
 
 end

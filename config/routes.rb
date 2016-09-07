@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
     get "/logout" => 'public#logout'
 
-    post "/result" => 'searchresults#index'
-
     ########## USERS ##############################
 
     resources :users
@@ -21,6 +19,9 @@ Rails.application.routes.draw do
     # get "/users/:id" => 'users#view' #protected
 
     ########## RESULTS ###########################
+    post "/reroute" => 'searchresults#reroute'
+
+    get "/result" => 'searchresults#index'
 
     # get "/current" => 'results#current'
     #

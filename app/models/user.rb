@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   validates :twitter_id, presence: true, uniqueness: true
   has_many :ethnicities, dependent: :destroy
+  has_many :genders, dependent: :destroy
+  accepts_nested_attributes_for :ethnicities
+  accepts_nested_attributes_for :genders
 
   def ethnicities_textarea
     set_textarea("ethnicities")
@@ -8,6 +11,14 @@ class User < ActiveRecord::Base
 
   def ethnicities_textarea=(text)
     get_textarea("ethnicities", text)
+  end
+
+  def genders_textarea
+    set_textarea("genders")
+  end
+
+  def genders_textarea=(text)
+    get_textarea("genders", text)
   end
 
   private

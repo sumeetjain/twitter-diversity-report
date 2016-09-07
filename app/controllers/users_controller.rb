@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.find_by twitter_id: (session[:twitter_id])
   end
   def index
-    @gender_chart = User.where.not(gender: '').group(:gender).count
+    @gender_chart = Gender.where.not(value: '').group(:value).count
     @ethnicity_chart = Ethnicity.where.not(value: '').group(:value).count
     @education_chart = User.where.not(education: '').group(:education).count
     @orientation_chart = User.where.not(orientation: '').group(:orientation).count
@@ -58,6 +58,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:twitter_id, :age, :income, :education, :gender, :orientation, :ethnicities_textarea)
+      params.require(:user).permit(:twitter_id, :age, :income, :education, :orientation, :ethnicities_textarea, :genders_textarea)
     end
 end

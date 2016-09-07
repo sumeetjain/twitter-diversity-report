@@ -12,7 +12,7 @@ User.create(
   income: 0,
   education: 'high school degree',
   ethnicities_attributes: [{value: 'white'}],
-  gender: 'male',
+  genders_attributes: [{value: 'male'}],
   orientation: 'homosexual'
 )
 
@@ -22,7 +22,7 @@ User.create(
   income: 50000,
   education: 'college degree',
   ethnicities_attributes: [{value: 'white'}, {value: 'hispanic'}],
-  gender: 'male',
+  genders_attributes: [{value: 'female'}],
   orientation: 'heterosexual'
 )
 
@@ -32,7 +32,7 @@ User.create(
   income: 28000,
   education: 'college degree',
   ethnicities_attributes: [{value: 'african american'}],
-  gender: 'male',
+  genders_attributes: [{value: 'genderqueer'}, {value: 'nonbinary'}],
   orientation: 'heterosexual'
 )
 
@@ -42,7 +42,7 @@ User.create(
   income: 37500,
   education: 'graduate degree',
   ethnicities_attributes: [{value: 'asian'}],
-  gender: 'female',
+  genders_attributes: [{value: 'female'}],
   orientation: 'bisexual'
 )
 
@@ -52,7 +52,7 @@ User.create(
   income: 120000,
   education: 'some college',
   ethnicities_attributes: [{value: 'hispanic'}],
-  gender: 'male',
+  genders_attributes: [{value: 'male'}],
   orientation: 'heterosexual'
 )
 
@@ -62,6 +62,6 @@ User.create(
   income: 83000,
   education: 'graduate degree',
   ethnicities_attributes: [{value: 'white'}],
-  gender: 'female',
+  genders_attributes: [{value: 'female'}],
   orientation: 'homosexual'
 )

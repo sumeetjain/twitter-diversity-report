@@ -1,7 +1,7 @@
 class SearchresultsController < ApplicationController
   def index
     client = Searchresult.client
-    @testedfriends = Searchresult.testedfriends(client, 'rallsyart')
+    @testedfriends = Searchresult.testedfriends(client, params[:twitter_handle])
     @ethnicity_chart = @testedfriends.where.not(ethnicity: '').group(:ethnicity).count
     @education_chart = @testedfriends.where.not(education: '').group(:education).count
     @orientation_chart = @testedfriends.where.not(orientation: '').group(:orientation).count

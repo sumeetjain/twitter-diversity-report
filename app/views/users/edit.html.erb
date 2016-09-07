@@ -6,10 +6,13 @@
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
 
-<% if session[:twitter_handle] != nil %>
+
 <hr></hr>
 <h2>Looks good?</h2>
 <br>
-<%= link_to("See your search result for #{session[:twitter_handle]}", "/result") %>
+<% if session[:twitter_handle] != nil %>
+  <%= link_to("See your search result for #{session[:twitter_handle]}", "/result") %>
+<% else %>
+  <% if session[:twitter_handle] != nil %>
 
 <% end %>

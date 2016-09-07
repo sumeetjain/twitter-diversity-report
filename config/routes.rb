@@ -39,4 +39,5 @@ Rails.application.routes.draw do
     ######### BAD USER ENTRY REROUTING ###########
 
     # get "/:screen_name" => 'results#current'
+
 end

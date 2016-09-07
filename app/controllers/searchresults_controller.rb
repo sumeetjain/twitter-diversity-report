@@ -6,7 +6,7 @@ class SearchresultsController < ApplicationController
     end
   end
 
-  def self
+  def showself
     session[:twitter_handle] = session[:screen_name]
     redirect_to '/result'
   end

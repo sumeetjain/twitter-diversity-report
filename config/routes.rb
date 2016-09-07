@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
     get "/users/:screen_name/edit" => 'users#edit' #protected
 
+    get "/user/self" => 'searchresults#self'
+
     # put "/users/:id" => 'users#save', as: :user
 
     # delete "/users/:id" => 'users#delete' #protected

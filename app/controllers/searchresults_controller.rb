@@ -6,6 +6,11 @@ class SearchresultsController < ApplicationController
     end
   end
 
+  def self
+    session[:twitter_handle] = session[:screen_name]
+    redirect_to '/result'
+  end
+
   def index
     client = Searchresult.client
     @testedfriends = Searchresult.testedfriends(client, session[:twitter_handle])
@@ -26,7 +31,7 @@ class SearchresultsController < ApplicationController
       '45-54' => @testedfriends.where('age >= 45 AND age < 55').count,
       '55+' => @testedfriends.where('age >= 55').count
     }
-    session[:twitter_handle] = ""
+    session[:twitter_handle] = nil
   end
 
 end

@@ -11,7 +11,7 @@ User.create(
   age: 18,
   income: 0,
   education: 'high school degree',
-  ethnicity: 'white',
+  ethnicities_attributes: [{value: 'white'}],
   gender: 'male',
   orientation: 'homosexual'
 )
@@ -21,7 +21,7 @@ User.create(
   age: 25,
   income: 50000,
   education: 'college degree',
-  ethnicity: 'white',
+  ethnicities_attributes: [{value: 'white'}, {value: 'hispanic'}],
   gender: 'male',
   orientation: 'heterosexual'
 )
@@ -31,7 +31,7 @@ User.create(
   age: 28,
   income: 28000,
   education: 'college degree',
-  ethnicity: 'african american',
+  ethnicities_attributes: [{value: 'african american'}],
   gender: 'male',
   orientation: 'heterosexual'
 )
@@ -41,7 +41,7 @@ User.create(
   age: 34,
   income: 37500,
   education: 'graduate degree',
-  ethnicity: 'asian',
+  ethnicities_attributes: [{value: 'asian'}],
   gender: 'female',
   orientation: 'bisexual'
 )
@@ -51,7 +51,7 @@ User.create(
   age: 22,
   income: 120000,
   education: 'some college',
-  ethnicity: 'hispanic',
+  ethnicities_attributes: [{value: 'hispanic'}],
   gender: 'male',
   orientation: 'heterosexual'
 )
@@ -61,7 +61,7 @@ User.create(
   age: 47,
   income: 83000,
   education: 'graduate degree',
-  ethnicity: 'asian',
+  ethnicities_attributes: [{value: 'white'}],
   gender: 'female',
   orientation: 'homosexual'
 )

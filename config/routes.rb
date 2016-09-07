@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     get "/users/:screen_name/edit" => 'users#edit' #protected
 
-    get "/user/showself" => 'searchresults#self'
+    get "/user/self" => 'searchresults#showself'
 
     # put "/users/:id" => 'users#save', as: :user
 

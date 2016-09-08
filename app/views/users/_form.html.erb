@@ -30,18 +30,21 @@
   </p>
 
   <p>
-    <%= f.label :ethnicity %><br>
-    <%= f.text_field :ethnicity %>
+    <label>Ethnicity</label>
+    <br>
+    <%= f.text_area :ethnicities_textarea %>
   </p>
 
   <p>
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <label>Gender</label>
+    <br>
+    <%= f.text_area :genders_textarea %>
   </p>
 
   <p>
-    <%= f.label :orientation %><br>
-    <%= f.text_field :orientation %>
+    <label>Sexual Orientation</label>
+    <br>
+    <%= f.text_area :orientations_textarea %>
   </p>
 
   <%= f.submit %>

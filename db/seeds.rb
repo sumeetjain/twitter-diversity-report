@@ -11,9 +11,9 @@ User.create(
   age: 18,
   income: 0,
   education: 'high school degree',
-  ethnicity: 'white',
-  gender: 'male',
-  orientation: 'homosexual'
+  ethnicities_attributes: [{value: 'white'}],
+  genders_attributes: [{value: 'male'}],
+  orientations_attributes: [{value: 'homosexual'}]
 )
 
 User.create(
@@ -21,9 +21,9 @@ User.create(
   age: 25,
   income: 50000,
   education: 'college degree',
-  ethnicity: 'white',
-  gender: 'male',
-  orientation: 'heterosexual'
+  ethnicities_attributes: [{value: 'white'}, {value: 'hispanic'}],
+  genders_attributes: [{value: 'female'}],
+  orientations_attributes: [{value: 'heterosexual'}]
 )
 
 User.create(
@@ -31,9 +31,9 @@ User.create(
   age: 28,
   income: 28000,
   education: 'college degree',
-  ethnicity: 'african american',
-  gender: 'male',
-  orientation: 'heterosexual'
+  ethnicities_attributes: [{value: 'african american'}],
+  genders_attributes: [{value: 'genderqueer'}, {value: 'nonbinary'}],
+  orientations_attributes: [{value: 'heterosexual'}]
 )
 
 User.create(
@@ -41,9 +41,9 @@ User.create(
   age: 34,
   income: 37500,
   education: 'graduate degree',
-  ethnicity: 'asian',
-  gender: 'female',
-  orientation: 'bisexual'
+  ethnicities_attributes: [{value: 'asian'}],
+  genders_attributes: [{value: 'female'}],
+  orientations_attributes: [{value: 'bisexual'}, {value: 'queer'}]
 )
 
 User.create(
@@ -51,9 +51,9 @@ User.create(
   age: 22,
   income: 120000,
   education: 'some college',
-  ethnicity: 'hispanic',
-  gender: 'male',
-  orientation: 'heterosexual'
+  ethnicities_attributes: [{value: 'hispanic'}],
+  genders_attributes: [{value: 'male'}],
+  orientations_attributes: [{value: 'heterosexual'}]
 )
 
 User.create(
@@ -61,7 +61,7 @@ User.create(
   age: 47,
   income: 83000,
   education: 'graduate degree',
-  ethnicity: 'asian',
-  gender: 'female',
-  orientation: 'homosexual'
+  ethnicities_attributes: [{value: 'white'}],
+  genders_attributes: [{value: 'female'}],
+  orientations_attributes: [{value: 'homosexual'}]
 )

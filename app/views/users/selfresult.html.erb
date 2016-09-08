@@ -3,9 +3,9 @@
 <li>Education level: <%= @user.education %></li>
 <li>Income level <%= @user.income %></li>
 <li>Birth year <%= @user.age %></li>
-<li>Ethnicity: <%= @user.ethnicity %></li>
-<li>Gender: <%= @user.gender %></li>
-<li>Sexual Orientation: <%= @user.orientation %></li>
+<li>Ethnicity: <%= @user.ethnicities.map { |x| x.value }.join(", ") %></li>
+<li>Gender: <%= @user.genders.map { |x| x.value }.join(", ")  %></li>
+<li>Sexual Orientation: <%= @user.orientations.map { |x| x.value }.join(", ")  %></li>
 </ul>
 <%= link_to "Edit/Update your information", "/users/:screen_name/edit" %>
 <br>

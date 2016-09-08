@@ -38,6 +38,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:twitter_id, :age, :income, :education, :ethnicity, :gender, :orientation)
+      params.require(:user).permit(:twitter_id, :age, :income, :education, :orientations_textarea, :ethnicities_textarea, :genders_textarea)
     end
 end

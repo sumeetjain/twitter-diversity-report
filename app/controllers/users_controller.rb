@@ -1,23 +1,6 @@
 class UsersController < ApplicationController
-  def index
-    @gender_chart = User.where.not(gender: '').group(:gender).count
-    @ethnicity_chart = User.where.not(ethnicity: '').group(:ethnicity).count
-    @education_chart = User.where.not(education: '').group(:education).count
-    @orientation_chart = User.where.not(orientation: '').group(:orientation).count
-    @income_chart = {
-      'Less than $25k per year' => User.where('income < 25000').count,
-      'Between $25k and $50k per year' => User.where('income >= 25000 AND income < 50000').count,
-      'Between $50k and $100k per year' => User.where('income >= 50000 AND income < 100000').count,
-      'More than $100k per year' => User.where('income >= 100000').count
-    }
-    @age_chart = {
-      '<18' => User.where('age < 18').count,
-      '18-24' => User.where('age >= 18 AND age < 25').count,
-      '25-34' => User.where('age >= 25 AND age < 35').count,
-      '35-44' => User.where('age >= 35 AND age < 45').count, 
-      '45-54' => User.where('age >= 45 AND age < 55').count, 
-      '55+' => User.where('age >= 55').count
-    }
+  def selfresult
+    @user = User.find_by twitter_id: (session[:twitter_id])
   end
 
   def new
@@ -42,7 +25,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
-    redirect_to "/users/#{session[:screen_name]}/edit"
+    redirect_to "/user/self/result"
 
   end
 

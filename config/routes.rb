@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
     get "/users/:screen_name/edit" => 'users#edit' #protected
 
+    get "/user/self" => 'searchresults#showself'
+
+    get "/user/self/result" => 'users#selfresult'
+
     # put "/users/:id" => 'users#save', as: :user
 
     # delete "/users/:id" => 'users#delete' #protected
@@ -19,6 +23,9 @@ Rails.application.routes.draw do
     # get "/users/:id" => 'users#view' #protected
 
     ########## RESULTS ###########################
+    post "/reroute" => 'searchresults#reroute'
+
+    get "/result" => 'searchresults#index'
 
     # get "/current" => 'results#current'
     #

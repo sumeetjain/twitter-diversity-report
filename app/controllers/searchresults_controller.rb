@@ -14,9 +14,10 @@ class SearchresultsController < ApplicationController
   def index
     client = Searchresult.client
     @testedfriends = Searchresult.testedfriends(client, session[:twitter_handle])
-    @ethnicity_chart = @testedfriends.where.not(ethnicity: '').group(:ethnicity).count
+    @ethnicity_chart = @testedfriends.joins(:ethnicities).select("ethnicities.value").group("ethnicities.value").count
+    @gender_chart = @testedfriends.joins(:genders).select("genders.value").group("genders.value").count
+    @orientation_chart = @testedfriends.joins(:orientations).select("orientations.value").group("orientations.value").count
     @education_chart = @testedfriends.where.not(education: '').group(:education).count
-    @orientation_chart = @testedfriends.where.not(orientation: '').group(:orientation).count
     @income_chart = {
       'Less than $25k per year' => @testedfriends.where('income < 25000').count,
       'Between $25k and $50k per year' => @testedfriends.where('income >= 25000 AND income < 50000').count,

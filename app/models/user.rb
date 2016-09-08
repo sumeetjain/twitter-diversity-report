@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates :twitter_id, presence: true, uniqueness: true
+  validates_inclusion_of :education, in: ["Elementary", "Secondary", "Post-secondary", "Graduate", "Post-graduate", nil], allow_nil: true
   has_many :ethnicities, dependent: :destroy
   has_many :genders, dependent: :destroy
   has_many :orientations, dependent: :destroy

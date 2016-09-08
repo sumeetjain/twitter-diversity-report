@@ -38,6 +38,9 @@ class UsersController < ApplicationController
 
   private
     def user_params
+      if params[:user][:education] == ""
+        params[:user][:education] = nil
+      end
       params.require(:user).permit(:twitter_id, :age, :income, :education, :orientations_textarea, :ethnicities_textarea, :genders_textarea)
     end
 end

@@ -26,7 +26,18 @@
 
   <p>
     <%= f.label :education %><br>
-    <%= f.text_field :education %>
+    <%= f.label :education, value: "No Answer" %>
+    <%= f.radio_button :education, "" %><br>
+    <%= f.label :education, value: "Elementary" %>
+    <%= f.radio_button :education, "Elementary" %><br>
+    <%= f.label :education, value: "Secondary" %>
+    <%= f.radio_button :education, "Secondary" %><br>
+    <%= f.label :education, value: "Post-secondary" %>
+    <%= f.radio_button :education, "Post-secondary" %><br>
+    <%= f.label :education, value: "Graduate" %>
+    <%= f.radio_button :education, "Graduate" %><br>
+    <%= f.label :education, value: "Post-graduate" %>
+    <%= f.radio_button :education, "Post-graduate" %><br>
   </p>
 
   <p>

@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
     get "/result" => 'searchresults#index'
 
+    get "/result/:twitter_handle" => 'searchresults#reroute'
+
     # get "/current" => 'results#current'
     #
     # get "/current/:screen_name" => 'results#current' #redirects to /:id

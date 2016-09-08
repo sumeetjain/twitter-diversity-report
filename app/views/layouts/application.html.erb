@@ -7,9 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to("Home", '/') %>
-<%= link_to("Logout", '/logout') %>
+
+ <div class="container">
+      <div class="twelve columns header">  
+        <div class="three columns logo">
+          <a href="/"><img class="twitterDiversityLogo" src="/assets/blue_twitter_bird.png" alt="Twitter Diversity Logo"><%= link_to("Twitter Diversity", '/') %></a>
+        </div>
+
+        <div class="four columns header-right offset-by-five">
+          <!-- <div class="header-link">Give Us Feedback</div> -->
+          <div class="header-link left-border">View Your Info</div>
+          <div class="header-link left-border"><%= link_to("Logout", '/logout') %></div>
+        </div>
+
+      </div>
+
 <%= yield %>
 
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>

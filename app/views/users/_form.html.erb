@@ -1,6 +1,6 @@
 <%= form_for @user do |f| %>
 
-<% if @user.errors.any? %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@user.errors.count, "error") %> prohibited
@@ -29,20 +29,36 @@
     <%= f.text_field :education %>
   </div>
 
+<!--   <%= f.label :education %><br>
+  <%= f.label :education, value: "No Answer" %>
+  <%= f.radio_button :education, "" %><br>
+  <%= f.label :education, value: "Elementary" %>
+  <%= f.radio_button :education, "Elementary" %><br>
+  <%= f.label :education, value: "Secondary" %>
+  <%= f.radio_button :education, "Secondary" %><br>
+  <%= f.label :education, value: "Post-secondary" %>
+  <%= f.radio_button :education, "Post-secondary" %><br>
+  <%= f.label :education, value: "Graduate" %>
+  <%= f.radio_button :education, "Graduate" %><br>
+  <%= f.label :education, value: "Post-graduate" %>
+  <%= f.radio_button :education, "Post-graduate" %><br> -->
+
   <div class="twelve columns center">
-    <%= f.label :ethnicity %>
-    <%= f.text_field :ethnicity %>
+    <%= f.label :ethnicities_textarea, "Ethnicity" %>
+    <%= f.text_area :ethnicities_textarea %>
   </div>
 
   <div class="twelve columns center">
-    <%= f.label :gender %>
-    <%= f.text_field :gender %>
+    <%= f.label :genders_textarea, "Gender" %>
+    <%= f.text_area :genders_textarea %>
   </div>
 
   <div class="twelve columns center">
-    <%= f.label :orientation %>
-    <%= f.text_field :orientation %>
+    <%= f.label :orientations_textarea, "Sexual Orientation" %>
+    <%= f.text_area :orientations_textarea %>
   </div>
+
+  <%= f.submit %>
 
   <div class="twelve columns center">
     <%= f.submit %>

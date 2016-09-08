@@ -13,7 +13,7 @@ User.create(
   education: 'high school degree',
   ethnicities_attributes: [{value: 'white'}],
   genders_attributes: [{value: 'male'}],
-  orientation: 'homosexual'
+  orientations_attributes: [{value: 'homosexual'}]
 )
 
 User.create(
@@ -23,7 +23,7 @@ User.create(
   education: 'college degree',
   ethnicities_attributes: [{value: 'white'}, {value: 'hispanic'}],
   genders_attributes: [{value: 'female'}],
-  orientation: 'heterosexual'
+  orientations_attributes: [{value: 'heterosexual'}]
 )
 
 User.create(
@@ -33,7 +33,7 @@ User.create(
   education: 'college degree',
   ethnicities_attributes: [{value: 'african american'}],
   genders_attributes: [{value: 'genderqueer'}, {value: 'nonbinary'}],
-  orientation: 'heterosexual'
+  orientations_attributes: [{value: 'heterosexual'}]
 )
 
 User.create(
@@ -43,7 +43,7 @@ User.create(
   education: 'graduate degree',
   ethnicities_attributes: [{value: 'asian'}],
   genders_attributes: [{value: 'female'}],
-  orientation: 'bisexual'
+  orientations_attributes: [{value: 'bisexual'}, {value: 'queer'}]
 )
 
 User.create(
@@ -53,7 +53,7 @@ User.create(
   education: 'some college',
   ethnicities_attributes: [{value: 'hispanic'}],
   genders_attributes: [{value: 'male'}],
-  orientation: 'heterosexual'
+  orientations_attributes: [{value: 'heterosexual'}]
 )
 
 User.create(
@@ -63,5 +63,5 @@ User.create(
   education: 'graduate degree',
   ethnicities_attributes: [{value: 'white'}],
   genders_attributes: [{value: 'female'}],
-  orientation: 'homosexual'
+  orientations_attributes: [{value: 'homosexual'}]
 )

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @gender_chart = Gender.where.not(value: '').group(:value).count
     @ethnicity_chart = Ethnicity.where.not(value: '').group(:value).count
     @education_chart = User.where.not(education: '').group(:education).count
-    @orientation_chart = User.where.not(orientation: '').group(:orientation).count
+    @orientation_chart = Orientation.where.not(value: '').group(:value).count
     @income_chart = {
       'Less than $25k per year' => User.where('income < 25000').count,
       'Between $25k and $50k per year' => User.where('income >= 25000 AND income < 50000').count,
@@ -58,6 +58,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:twitter_id, :age, :income, :education, :orientation, :ethnicities_textarea, :genders_textarea)
+      params.require(:user).permit(:twitter_id, :age, :income, :education, :orientations_textarea, :ethnicities_textarea, :genders_textarea)
     end
 end

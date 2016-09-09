@@ -7,12 +7,12 @@
 <li>Gender: <%= @user.genders.map { |x| x.value }.join(", ")  %></li>
 <li>Sexual Orientation: <%= @user.orientations.map { |x| x.value }.join(", ")  %></li>
 </ul>
-<%= link_to "Edit/Update your information", "/users/:screen_name/edit" %>
+<%= button_to "Edit/Update your information", "/users/:screen_name/edit" %>
 <br>
-<%= link_to 'Remove Your Data', user_path(@user),
+<%= button_to 'Remove Your Data', user_path(@user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
 <hr></hr>
 <h2>Looks good?</h2>
 <br>
-<%= link_to("See your results", "/users/self") %>
+<%= button_to "See your results", "/users/self", method: :get %>

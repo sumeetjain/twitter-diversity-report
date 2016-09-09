@@ -1,17 +1,16 @@
 <h1 class="twelve columns center page_title">Update User Survey</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Remove Your Data', user_path(@user),
+<div class="twelve columns center">
+<%= button_to 'Remove Your Data', user_path(@user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
-
-
 <hr></hr>
 <h2>Looks good?</h2>
 <br>
 <% if session[:twitter_handle] != nil %>
-  <%= link_to("See your search result for #{session[:twitter_handle]}", "/result") %>
+  <%= button_to("See your search result for #{session[:twitter_handle]}", "/result") %>
 <% else %>
-  <%= link_to("See your results", "/users/self") %>
+  <%= button_to("See your results", "/users/self") %>
 <% end %>
+</div>

@@ -14,17 +14,17 @@ class SearchresultsController < ApplicationController
   def index
     client = Searchresult.client
     if session[:twitter_handle] == ""
-      flash[:message] = "Did you press enter too soon? We didn't see a Twitter handle. Try again below:"
+      flash[:message] = "Did you press enter too soon? We didn't see a Twitter handle. Try again."
       redirect_to "/"
 
     else
       begin
         @testedfriends = Searchresult.testedfriends(client, session[:twitter_handle])
         rescue Twitter::Error::NotFound
-          flash[:message] = "Hmmm...Twitter didn't recognize that handle. Try again here:"
+          flash[:message] = "Hmmm...Twitter didn't recognize that handle. Try again."
           return redirect_to "/"
         rescue Twitter::Error::Unauthorized
-          flash[:message] = "Something's wrong with that Twitter account. It may be suspended. Try another search here:"
+          flash[:message] = "Something's wrong with that Twitter account. It may be suspended. Try another search."
           return redirect_to "/"
         rescue Twitter::Error::EnhanceYourCalm, Twitter::Error::TooManyRequests,
                Twitter::Error::InternalServerError, Twitter::Error::BadGateway,

@@ -8,13 +8,13 @@ Rails.application.routes.draw do
 
     ########## USERS ##############################
 
-    resources :users
-
     get "/users/:screen_name/edit" => 'users#edit' #protected
 
     get "/users/self" => 'searchresults#showself'
 
     get "/users/self/result" => 'users#selfresult'
+
+    resources :users
 
     ########## RESULTS ###########################
     post "/reroute" => 'searchresults#reroute'

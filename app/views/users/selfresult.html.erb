@@ -9,7 +9,9 @@
 </ul>
 <%= link_to "Edit/Update your information", "/users/:screen_name/edit" %>
 <br>
-<%= link_to "Delete your information", "/users/delete" %>
+<%= link_to 'Remove Your Data', user_path(@user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
 <hr></hr>
 <h2>Looks good?</h2>
 <br>

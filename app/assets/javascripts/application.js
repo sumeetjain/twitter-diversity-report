@@ -14,5 +14,3 @@
 //= require jquery_ujs
 //= require chartkick
 //= require_tree .
-
-@import "global";

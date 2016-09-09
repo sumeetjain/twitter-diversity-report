@@ -7,7 +7,7 @@
 <li>Gender: <%= @user.genders.map { |x| x.value }.join(", ")  %></li>
 <li>Sexual Orientation: <%= @user.orientations.map { |x| x.value }.join(", ")  %></li>
 </ul>
-<%= button_to "Edit/Update your information", "/users/:screen_name/edit" %>
+<%= button_to "Edit/Update your information", "/users/:screen_name/edit", method: :get %>
 <br>
 <%= button_to 'Remove Your Data', user_path(@user),
               method: :delete,

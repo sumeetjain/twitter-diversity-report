@@ -9,8 +9,8 @@
 <h2>Looks good?</h2>
 <br>
 <% if session[:twitter_handle] != nil %>
-  <%= button_to("See your search result for #{session[:twitter_handle]}", "/result") %>
+  <%= button_to "See your search result for #{session[:twitter_handle]}", "/result", method: :get %>
 <% else %>
-  <%= button_to("See your results", "/users/self") %>
+  <%= button_to "See your results", "/users/self", method: :get %>
 <% end %>
 </div>

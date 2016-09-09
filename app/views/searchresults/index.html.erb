@@ -1,5 +1,6 @@
 <h1>User Demographics</h1>
 <% if @testedfriends != [] %>
+  Friends who have answered: <%= @testedfriends.count %>
   <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
   <%= pie_chart @ethnicity_chart %>
   <%= pie_chart @gender_chart %>
@@ -8,5 +9,11 @@
   <%= pie_chart @age_chart %>
   <%= pie_chart @income_chart %>
 <% else %>
-  <h3>It doesn't look like anyone you're following has taken our quiz yet!</h3>
+  <h3>It doesn't look like anyone
+    <% if session[:screen_name] == session[:twitter_handle] %>
+      you're
+    <% else %>
+      @<%= session[:twitter_handle] %> is
+    <% end %>
+     following has taken our quiz yet!</h3>
 <% end %>

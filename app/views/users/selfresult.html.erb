@@ -2,15 +2,17 @@
 <ul>
 <li>Education level: <%= @user.education %></li>
 <li>Income level <%= @user.income %></li>
-<li>Birth year <%= @user.age %></li>
+<li>Age <%= @user.age %></li>
 <li>Ethnicity: <%= @user.ethnicities.map { |x| x.value }.join(", ") %></li>
 <li>Gender: <%= @user.genders.map { |x| x.value }.join(", ")  %></li>
 <li>Sexual Orientation: <%= @user.orientations.map { |x| x.value }.join(", ")  %></li>
 </ul>
 <%= link_to "Edit/Update your information", "/users/:screen_name/edit" %>
 <br>
-<%= link_to "Delete your information", "/users/delete" %>
+<%= link_to 'Remove Your Data', user_path(@user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
 <hr></hr>
 <h2>Looks good?</h2>
 <br>
-<%= link_to("See your results", "/user/self") %>
+<%= link_to("See your results", "/users/self") %>

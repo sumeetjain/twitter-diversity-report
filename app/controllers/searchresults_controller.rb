@@ -33,9 +33,9 @@ class SearchresultsController < ApplicationController
         flash[:message] = "Looks like something's wrong on Twitter's end. Try back in a few minutes."
         return redirect_to "/"
       end
-      @ethnicity_chart =   @estedfriends.joins(:ethnicities).select("ethnicities.value").group("ethnicities.value").count
+      @ethnicity_chart =   @testedfriends.joins(:ethnicities).select("ethnicities.value").group("ethnicities.value").count
       @gender_chart = @testedfriends.joins(:genders).select("genders.value").group("genders.value").count
-      @orientation_chart =   @estedfriends.joins(:orientations).select("orientations.value").group("orientations.value").count
+      @orientation_chart =   @testedfriends.joins(:orientations).select("orientations.value").group("orientations.value").count
       @education_chart = @testedfriends.where.not(education: '').group(:education).count
       @income_chart = {
         'Less than $25k per year' => @testedfriends.where('income < 25000').count,

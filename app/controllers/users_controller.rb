@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by twitter_id: (session[:twitter_id])
+    if @user == nil
+      # flash[:message] = "An error occured. Please log in."
+      redirect_to "/logout"
+    end
   end
 
   def create
@@ -25,7 +29,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
-    redirect_to "/user/self/result"
+    redirect_to "/users/self/result"
 
   end
 

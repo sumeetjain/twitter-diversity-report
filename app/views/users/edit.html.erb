@@ -13,5 +13,5 @@
 <% if session[:twitter_handle] != nil %>
   <%= link_to("See your search result for #{session[:twitter_handle]}", "/result") %>
 <% else %>
-  <%= link_to("See your results", "/user/self") %>
+  <%= link_to("See your results", "/users/self") %>
 <% end %>

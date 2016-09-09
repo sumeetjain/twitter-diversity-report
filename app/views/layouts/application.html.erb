@@ -18,7 +18,7 @@
           <!-- <div class="header-link">Give Us Feedback</div> -->
           <div class="header-link left-border">
             <% if session[:screen_name] != nil %>
-              <%= link_to "View Your Info", '/user/self/result' %></div>
+              <%= link_to "View Your Info", '/users/self/result' %></div>
             <% else %>
               <%= link_to "Add Your Info", '/auth/twitter' %>
             <% end %>

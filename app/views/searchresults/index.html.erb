@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'twitterwdj' %>
+
 <h1>User Demographics</h1>
 <% if @testedfriends != [] %>
   Friends who have answered: <%= @testedfriends.count %>
@@ -9,11 +11,13 @@
   <%= pie_chart @age_chart %>
   <%= pie_chart @income_chart %>
 <% else %>
-  <h3>It doesn't look like anyone
+  <h3>
     <% if session[:screen_name] == session[:twitter_handle] %>
-      you're
+      It doesn't look like anyone you're following has taken our quiz yet.
+      <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hey+friends!+Take+this+Twitter+Diversity+Quiz+and+help+me+find+out+how+diverse+my+social+network+is!" data-size="large">Tweet</a> your friends to help promote diversity on Twitter!
     <% else %>
-      @<%= session[:twitter_handle] %> is
+      It doesn't look like anyone @<%= session[:twitter_handle] %> is following has taken our quiz yet!
+      <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hey+<%= "@#{session[:twitter_handle]}" %>,+take+this+Twitter+Diversity+Quiz+and+find+out+how+diverse+our+social+network+is!" data-size="large">Tweet</a> them to help promote diversity on Twitter!
     <% end %>
-     following has taken our quiz yet!</h3>
+  </h3>
 <% end %>

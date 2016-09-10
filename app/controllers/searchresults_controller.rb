@@ -51,8 +51,6 @@ class SearchresultsController < ApplicationController
         '45-54' => @testedfriends.where('age >= 45 AND age < 55').count,
           '55+' => @testedfriends.where('age >= 55').count
       }
-      render 'index.html.erb'
-      session[:twitter_handle] = nil
     end
   end
 

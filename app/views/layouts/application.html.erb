@@ -16,20 +16,26 @@
 
         <div class="four columns header-right offset-by-five">
           <!-- <div class="header-link">Give Us Feedback</div> -->
-          <div class="header-link left-border">
+          <div class="header-link">
             <% if session[:screen_name] != nil %>
               <%= link_to "View Your Info", '/users/self/result' %>
+              <div class="header-link"><%= link_to("Logout", '/logout') %></div>
             <% else %>
               <%= link_to "Add Your Info", '/auth/twitter' %>
-            <% end %></div>
-          <div class="header-link left-border"><%= link_to("Logout", '/logout') %></div>
+              <div class="header-link"><%= link_to("Login", '/auth/twitter') %></div>
+            <% end %>
+          </div>
         </div>
 
       </div>
 
 <%= yield %>
 
+  <div class="twelve columns footer">
+    © 2016 | <%= link_to "Omaha Code School", "http://omahacodeschool.com" %>
   </div>
+
+</div>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

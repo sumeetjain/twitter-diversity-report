@@ -11,6 +11,16 @@ class SearchresultsController < ApplicationController
     redirect_to '/result'
   end
 
+  def posttotwitter
+    client = Searchresult.client
+    if session[:screen_name] == session[:twitter_handle]
+      client.update("Hey friends! Take this Twitter Diversity Quiz and find out help me find out how diverse my social network is! http://localhost:3000/auth/twitter")
+    else
+      client.update("Hey #{session[:twitter_handle]}, take this Twitter Diversity Quiz and find out how diverse our social network is! http://localhost:3000/auth/twitter")
+    end
+    redirect_to "/"
+  end
+
   def index
     client = Searchresult.client
     if session[:twitter_handle] == ""
@@ -51,8 +61,6 @@ class SearchresultsController < ApplicationController
         '45-54' => @testedfriends.where('age >= 45 AND age < 55').count,
           '55+' => @testedfriends.where('age >= 55').count
       }
-      render 'index.html.erb'
-      session[:twitter_handle] = nil
     end
   end
 

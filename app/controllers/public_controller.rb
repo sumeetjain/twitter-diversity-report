@@ -1,5 +1,6 @@
 class PublicController < ApplicationController
   def index
+    session[:twitter_handle] = nil
   end
 
 #Don't see anywhere where this method is actually called

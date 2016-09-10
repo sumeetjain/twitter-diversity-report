@@ -203,3 +203,8 @@
 	bottom: 0;
 	text-align: center;
 }
+
+.smallarrow {
+	width: 2%;
+	height: auto;
+}

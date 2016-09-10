@@ -23,8 +23,6 @@ Rails.application.routes.draw do
 
     get "/result/:twitter_handle" => 'searchresults#reroute'
 
-    get "/result/posttotwitter" => 'searchresults#posttotwitter'
-
     ######### OMNIAUTH ###########################
 
     get "/auth/twitter/callback" => "public#returnFromAuth"

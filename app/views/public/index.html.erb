@@ -21,17 +21,18 @@
             <%= flash[:message] %>
           </div>
 
-          <div id="searchHelp" class="searchHelp">Who should I search for?</div>
+          <div class="l-infoBlock">
+            <div id="searchHelp" class="searchHelp">Who should I search for?</div>
 
-          <div class="searchHelp__title">YOURSELF</div>
-          <div class="searchHelp__message">How diverse is your feed? Are you exposed primarily to viewpoints similar to yours?</div>
+            <div class="searchHelp__title">YOURSELF</div>
+            <div class="searchHelp__message">How diverse is your feed? Are you exposed primarily to viewpoints similar to yours?</div>
 
-          <div class="searchHelp__title">ELECTED OFFICALS</div>
-          <div class="searchHelp__message">Are your representatives paying attention to the myriad of voices that comprise their constituency?</div>
+            <div class="searchHelp__title">ELECTED OFFICALS</div>
+            <div class="searchHelp__message">Are your representatives paying attention to the myriad of voices that comprise their constituency?</div>
 
-          <div class="searchHelp__title">YOUR FAVORITE JOURNALIST</div>
-          <div class="searchHelp__message">Are they seeking information from a wide variety of people?</div>
-
+            <div class="searchHelp__title">YOUR FAVORITE JOURNALIST</div>
+            <div class="searchHelp__message">Are they seeking information from a wide variety of people?</div>
+          </div>
       </div>
 
       <div class="six columns twitterData">
@@ -45,6 +46,7 @@
             <a href="/users/<%= session[:screen_name] %>/edit"><button class="button" name="editInfo">EDIT YOUR INFO</button></a>
         <% end %>
 
+        <div class="l-infoBlock">
           <div id="dataHelp" class="dataHelp">What happens to my data?</div>
 
           <div class="dataHelp__title">MORE ACCURATE DATA</div>
@@ -55,6 +57,6 @@
 
           <div class="dataHelp__title">ONLY SHARE WHAT YOU WANT</div>
           <div class="dataHelp__message">Seriously, no pressure. Not comfortable answering a question? Just leave it blank.</div>
-
+        </div>
       </div>
     </div>

@@ -11,5 +11,6 @@
 
 <%= button_to 'Remove Your Data', user_path(@user),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+              data: { confirm: 'Are you sure?' },
+              :class => "button-red" %>
 

@@ -7,12 +7,9 @@
 <li>Gender: <%= @user.genders.map { |x| x.value }.join(", ")  %></li>
 <li>Sexual Orientation: <%= @user.orientations.map { |x| x.value }.join(", ")  %></li>
 </ul>
-<%= button_to "Edit/Update your information", "/users/:screen_name/edit", method: :get %>
-<br>
+<%= button_to "Edit your information", "/users/:screen_name/edit", method: :get, :class => "button-primary" %>
+
 <%= button_to 'Remove Your Data', user_path(@user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
-<hr></hr>
-<h2>Looks good?</h2>
-<br>
-<%= button_to "See your results", "/users/self", method: :get %>
+

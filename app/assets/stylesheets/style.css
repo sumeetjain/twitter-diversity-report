@@ -197,3 +197,7 @@
   -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
 }
+
+.TABLE{
+	padding:90px;
+}

@@ -1,34 +1,55 @@
-<h1>Current information for <%= session[:screen_name] %></h1>
-
-
-
-
-<table class="u-full-width">
-    <tr>
-      <td>Age</td>
-      <td><%= @user.age %></td>
-    </tr>
-    <tr>
-      <td>Income</td>
-      <td><%= @user.income %></td>
-    </tr>
-    <tr>
-      <td>Education</td>
-      <td><%= @user.education %></td>
-    </tr>
-    <tr>
-      <td>Ethnicity</td>
-      <td> <%= @user.ethnicities.map { |x| x.value }.join(", ") %></td>
-    </tr>
-    <tr>
-      <td>Gender</td>
-      <td><%= @user.genders.map { |x| x.value }.join(", ")  %></td>
-    </tr>
-    <tr>
-      <td>Sexual Orientation</td>
-      <td><%= @user.orientations.map { |x| x.value }.join(", ")  %></td>
-    </tr>
-</table>
+<div class="">
+	<table class="u-full-width">
+	    <tr>
+	      <td>Age</td>
+	      <% if @user.age == nil %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.age %></td>
+	      <% end %>
+	    </tr>
+	    <tr>
+	      <td>Income</td>
+	      <% if @user.income == nil %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.income %></td>
+	      <% end %>
+	    </tr>
+	    <tr>
+	      <td>Education</td>
+	      <% if @user.education == nil %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.education %></td>
+	      <% end %>
+	    </tr>
+	    <tr>
+	      <td>Ethnicity</td>
+	      <% if @user.ethnicities.map { |x| x.value }.join(", ") == nil %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.ethnicities.map { |x| x.value }.join(", ") %></td>
+	      <% end %>
+	    </tr>
+	    <tr>
+	      <td>Gender</td>
+	      <% if @user.genders.map { |x| x.value }.join(", ") == nil %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.genders.map { |x| x.value }.join(", ") %></td>
+	      <% end %>
+	    </tr>
+	    <tr>
+	      <td>Sexual Orientation</td>
+	      <% if @user.orientations.map { |x| x.value }.join(", ") == nil %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.orientations.map { |x| x.value }.join(", ") %></td>
+	      <% end %>
+	    </tr>
+	</table>
+</div>
 <%= button_to "Edit your information", "/users/:screen_name/edit", method: :get, :class => "button-primary" %>
 
 <%= button_to 'Remove Your Data', user_path(@user),

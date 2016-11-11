@@ -1,4 +1,4 @@
-<div class="">
+<div class="info-table">
 	<table class="u-full-width">
 	    <tr>
 	      <td>Age</td>
@@ -26,7 +26,7 @@
 	    </tr>
 	    <tr>
 	      <td>Ethnicity</td>
-	      <% if @user.ethnicities.map { |x| x.value }.join(", ") == nil %>
+	      <% if @user.ethnicities.map { |x| x.value }.join(", ").empty? %>
 	      	<td>--</td>
 	      <% else %>
 	      	<td><%= @user.ethnicities.map { |x| x.value }.join(", ") %></td>
@@ -34,7 +34,7 @@
 	    </tr>
 	    <tr>
 	      <td>Gender</td>
-	      <% if @user.genders.map { |x| x.value }.join(", ") == nil %>
+	      <% if @user.genders.map { |x| x.value }.join(", ").empty? %>
 	      	<td>--</td>
 	      <% else %>
 	      	<td><%= @user.genders.map { |x| x.value }.join(", ") %></td>
@@ -42,7 +42,7 @@
 	    </tr>
 	    <tr>
 	      <td>Sexual Orientation</td>
-	      <% if @user.orientations.map { |x| x.value }.join(", ") == nil %>
+	      <% if @user.orientations.map { |x| x.value }.join(", ").empty? %>
 	      	<td>--</td>
 	      <% else %>
 	      	<td><%= @user.orientations.map { |x| x.value }.join(", ") %></td>

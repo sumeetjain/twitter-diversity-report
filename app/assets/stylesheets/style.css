@@ -199,5 +199,11 @@
 }
 
 .info-table{
-	padding:90px;
+	padding:100px 140px 30px 140px;
+}
+
+.button-container{
+	padding-top:20px;
+	display: flex;
+	justify-content: space-around;
 }

@@ -7,6 +7,7 @@
 	      <% else %>
 	      	<td><%= @user.age %></td>
 	      <% end %>
+	      <!-- <td>edit</td> -->
 	    </tr>
 	    <tr>
 	      <td>Income</td>
@@ -49,11 +50,13 @@
 	      <% end %>
 	    </tr>
 	</table>
+
+	<div class="button-container">
+	<%= button_to "Edit your information", "/users/:screen_name/edit", method: :get, :class => "button-primary" %>
+
+	<%= button_to 'Remove Your Data', user_path(@user),
+	              method: :delete,
+	              data: { confirm: 'Are you sure?' },
+	              :class => "button-red" %>
+	</div>
 </div>
-<%= button_to "Edit your information", "/users/:screen_name/edit", method: :get, :class => "button-primary" %>
-
-<%= button_to 'Remove Your Data', user_path(@user),
-              method: :delete,
-              data: { confirm: 'Are you sure?' },
-              :class => "button-red" %>
-

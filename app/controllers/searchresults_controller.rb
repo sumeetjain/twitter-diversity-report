@@ -24,7 +24,7 @@ class SearchresultsController < ApplicationController
           flash[:message] = "Hmmm...Twitter didn't recognize that handle. Try again."
           return redirect_to "/"
         rescue Twitter::Error::Unauthorized
-          flash[:message] = "Something's wrong with that Twitter account. It may be suspended. Try another search."
+          flash[:message] = "This Twitter account can not be accessed due to the users privacy settings, or the account may be suspended. Try another search."
           return redirect_to "/"
         rescue Twitter::Error::EnhanceYourCalm, Twitter::Error::TooManyRequests,
                Twitter::Error::InternalServerError, Twitter::Error::BadGateway,

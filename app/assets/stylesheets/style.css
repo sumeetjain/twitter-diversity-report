@@ -26,6 +26,10 @@
 	align-items: center;
 }
 
+.links{
+	text-decoration: none;
+}
+
 .header-link{
 	display: flex;
 	justify-content: center;
@@ -39,7 +43,7 @@
 }
 
 .header-link:last-child{
-	border-left: solid 1px grey;
+
 	margin-left: 10px;
 	padding-left: 10px;
 }

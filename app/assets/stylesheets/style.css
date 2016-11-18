@@ -43,7 +43,6 @@
 }
 
 .header-link:last-child{
-
 	margin-left: 10px;
 	padding-left: 10px;
 }
@@ -51,6 +50,7 @@
 .header-link:hover{
 	color: #33C3F0;
 	cursor: pointer;
+	background-color: #A6F5FA;
 }
 
 .container {

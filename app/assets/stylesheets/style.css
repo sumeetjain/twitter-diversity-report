@@ -36,16 +36,18 @@
 	align-items: center;
 	font-weight: bold;
 	white-space: nowrap;
+	height:100%;
+	padding: 10px;
 }
 
-.header-link:first-child{
+/*.header-link:first-child{
 	text-align: right;
-}
+}*/
 
-.header-link:last-child{
+/*.header-link:last-child{
 	margin-left: 10px;
 	padding-left: 10px;
-}
+}*/
 
 .header-link:hover{
 	color: #33C3F0;

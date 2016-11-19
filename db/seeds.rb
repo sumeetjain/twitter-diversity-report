@@ -6,61 +6,61 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(
-  twitter_id: 1,
+User.create!(
+  twitter_id: 8345082,
   age: 18,
   income: 0,
-  education: 'high school degree',
+  education: 'Secondary',
   ethnicities_attributes: [{value: 'white'}],
   genders_attributes: [{value: 'male'}],
   orientations_attributes: [{value: 'homosexual'}]
 )
 
-User.create(
-  twitter_id: 2,
+User.create!(
+  twitter_id: 89887215,
   age: 25,
   income: 50000,
-  education: 'college degree',
+  education: 'Post-secondary',
   ethnicities_attributes: [{value: 'white'}, {value: 'hispanic'}],
   genders_attributes: [{value: 'female'}],
   orientations_attributes: [{value: 'heterosexual'}]
 )
 
-User.create(
-  twitter_id: 3,
+User.create!(
+  twitter_id: 93069110,
   age: 28,
   income: 28000,
-  education: 'college degree',
+  education: 'Post-secondary',
   ethnicities_attributes: [{value: 'african american'}],
   genders_attributes: [{value: 'genderqueer'}, {value: 'nonbinary'}],
   orientations_attributes: [{value: 'heterosexual'}]
 )
 
-User.create(
-  twitter_id: 4,
+User.create!(
+  twitter_id: 44078966,
   age: 34,
   income: 37500,
-  education: 'graduate degree',
+  education: 'Graduate',
   ethnicities_attributes: [{value: 'asian'}],
   genders_attributes: [{value: 'female'}],
   orientations_attributes: [{value: 'bisexual'}, {value: 'queer'}]
 )
 
-User.create(
-  twitter_id: 5,
+User.create!(
+  twitter_id: 6723132,
   age: 22,
   income: 120000,
-  education: 'some college',
+  education: 'Post-graduate',
   ethnicities_attributes: [{value: 'hispanic'}],
   genders_attributes: [{value: 'male'}],
   orientations_attributes: [{value: 'heterosexual'}]
 )
 
-User.create(
-  twitter_id: 6,
+User.create!(
+  twitter_id: 831898993,
   age: 47,
   income: 83000,
-  education: 'graduate degree',
+  education: 'Graduate',
   ethnicities_attributes: [{value: 'white'}],
   genders_attributes: [{value: 'female'}],
   orientations_attributes: [{value: 'homosexual'}]

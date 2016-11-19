@@ -16,6 +16,13 @@ window.addEventListener("load", function() {
 	var searchHelp__title = document.getElementsByClassName("searchHelp__title");
 	var searchHelp__message = document.getElementsByClassName("searchHelp__message");
 
+	searchHelp.addEventListener("click", function(){
+
+		toggleAll(searchHelp__title);
+		toggleAll(searchHelp__message);
+
+	});
+
 	var dataHelp = document.getElementById("dataHelp");
 	var dataHelp__title = document.getElementsByClassName("dataHelp__title");
 	var dataHelp__message = document.getElementsByClassName("dataHelp__message");

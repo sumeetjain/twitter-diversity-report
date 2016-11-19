@@ -102,10 +102,12 @@
 .searchHelp__title{
 	font-weight: bold;
 	margin-top: 15px;
+	display:none;
 }
 
 .searchHelp__message{
 	font-size: 12px;
+	display: none;
 }
 
 .dataHelp{
@@ -222,6 +224,6 @@ td:first-child{
 	height:150px;
 }
 
-.l-infoBlock{
+/*.l-infoBlock{
   text-align: left;
-}
+}*/

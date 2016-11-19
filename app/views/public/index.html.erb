@@ -21,40 +21,17 @@
             <%= flash[:message] %>
           </div>
 
-          <div id="searchHelp" class="searchHelp">Who should I search for?</div>
+          <div class="l-infoBlock">
+            <div id="searchHelp" class="searchHelp">Who should I search for?</div>
 
-          <div class="searchHelp__title">YOURSELF</div>
-          <div class="searchHelp__message">How diverse is your feed? Are you exposed primarily to viewpoints similar to yours?</div>
+            <div class="searchHelp__title">YOURSELF</div>
+            <div class="searchHelp__message">How diverse is your feed? Are you exposed primarily to viewpoints similar to yours?</div>
 
-          <div class="searchHelp__title">ELECTED OFFICALS</div>
-          <div class="searchHelp__message">Are your representatives paying attention to the myriad of voices that comprise their constituency?</div>
+            <div class="searchHelp__title">ELECTED OFFICALS</div>
+            <div class="searchHelp__message">Are your representatives paying attention to the myriad of voices that comprise their constituency?</div>
 
-          <div class="searchHelp__title">YOUR FAVORITE JOURNALIST</div>
-          <div class="searchHelp__message">Are they seeking information from a wide variety of people?</div>
-
+            <div class="searchHelp__title">YOUR FAVORITE JOURNALIST</div>
+            <div class="searchHelp__message">Are they seeking information from a wide variety of people?</div>
+          </div>
       </div>
-
-      <!-- <div class="six columns twitterData">
-
-        <% if session[:screen_name] == nil %>
-          <label for="getStarted">ADD YOUR INFO:</label>
-
-          <a href="/auth/twitter"><button class="button-primary" name="getStarted">Get Started</button></a>
-        <% else %>
-            <label for="editInfo">@<%= session[:screen_name].upcase %></label>
-            <a href="/users/<%= session[:screen_name] %>/edit"><button class="button" name="editInfo">EDIT YOUR INFO</button></a>
-        <% end %>
-
-          <div id="dataHelp" class="dataHelp">What happens to my data?</div>
-
-          <div class="dataHelp__title">MORE ACCURATE DATA</div>
-          <div class="dataHelp__message">The greater percentage of twitter users who participate, the more complete and meaningful the data.</div>
-
-          <div class="dataHelp__title">IT’S KEPT ANONYMOUSS</div>
-          <div class="dataHelp__message">We keep any identifying information hidden in results; we're working to encrypt information for added security.</div>
-
-          <div class="dataHelp__title">ONLY SHARE WHAT YOU WANT</div>
-          <div class="dataHelp__message">Seriously, no pressure. Not comfortable answering a question? Just leave it blank.</div>
-
-      </div> -->
     </div>

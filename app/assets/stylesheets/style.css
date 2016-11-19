@@ -100,14 +100,11 @@
 }
 
 .searchHelp__title{
-	display: none;
 	font-weight: bold;
 	margin-top: 15px;
 }
 
 .searchHelp__message{
-	display: none;
-	margin-left: 10px;
 	font-size: 12px;
 }
 
@@ -124,14 +121,11 @@
 }
 
 .dataHelp__title{
-	display: none;
 	font-weight: bold;
 	margin-top: 15px;
 }
 
 .dataHelp__message{
-	display: none;
-	margin-left: 10px;
 	font-size: 12px;
 }
 
@@ -197,4 +191,8 @@
   border-radius: 0.28571429rem;
   -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
+}
+
+.l-infoBlock{
+  text-align: left;
 }

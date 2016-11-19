@@ -102,10 +102,12 @@
 .searchHelp__title{
 	font-weight: bold;
 	margin-top: 15px;
+	display:none;
 }
 
 .searchHelp__message{
 	font-size: 12px;
+	display: none;
 }
 
 .dataHelp{

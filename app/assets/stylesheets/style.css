@@ -132,6 +132,14 @@
 	text-align: center;
 }
 
+.padding-l{
+	padding-left:30px;
+}
+
+.padding-t{
+	padding-top:30px;
+}
+
 .page_title{
 	margin-top: 20px;
 }

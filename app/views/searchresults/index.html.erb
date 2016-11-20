@@ -2,12 +2,34 @@
 <% if @testedfriends != [] %>
   Friends who have answered: <%= @testedfriends.count %>
   <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
-  <%= pie_chart @ethnicity_chart %>
-  <%= pie_chart @gender_chart %>
-  <%= pie_chart @orientation_chart %>
-  <%= pie_chart @education_chart %>
-  <%= pie_chart @age_chart %>
-  <%= pie_chart @income_chart %>
+
+  <table>
+    <tr>
+      <td>
+        <%= pie_chart @ethnicity_chart, width: "300px" %>
+      </td>
+      <td>
+        <%= pie_chart @gender_chart, width: "300px" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= pie_chart @orientation_chart, width: "300px" %>
+      </td>
+      <td>
+        <%= pie_chart @education_chart, width: "300px" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= pie_chart @age_chart, width: "300px" %>
+      </td>
+      <td>
+        <%= pie_chart @income_chart, width: "300px" %>
+      </td>
+    </tr>
+  </table>
+
 <% else %>
   <h3>It doesn't look like anyone
     <% if session[:screen_name] == session[:twitter_handle] %>

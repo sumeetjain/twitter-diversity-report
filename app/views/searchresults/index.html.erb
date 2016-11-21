@@ -1,13 +1,21 @@
-<h1>User Demographics</h1>
+
 <% if @testedfriends != [] %>
-  Friends who have answered: <%= @testedfriends.count %>
+  Followers who have answered: <%= @testedfriends.count %>
   <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+  <div class="result-lable"> Followers by Ethnicity:</div>
   <%= pie_chart @ethnicity_chart %>
+  <div class="result-lable"> Followers by Gender:</div>
   <%= pie_chart @gender_chart %>
+  <div class="result-lable"> Followers by Sexual Orientation:</div>
   <%= pie_chart @orientation_chart %>
+  <div class="result-lable"> Followers by Education:</div>
   <%= pie_chart @education_chart %>
+  <div class="result-lable"> Followers by Age:</div>
   <%= pie_chart @age_chart %>
+  <div class="result-lable"> Followers by Income:</div>
   <%= pie_chart @income_chart %>
+
+
 <% else %>
   <h3>It doesn't look like anyone
     <% if session[:screen_name] == session[:twitter_handle] %>

@@ -224,6 +224,17 @@ td:first-child{
 	height:150px;
 }
 
-/*.l-infoBlock{
+.l-infoBlock{
   text-align: left;
-}*/
+
+}
+
+.result-lable{
+	border-bottom: 1.5px solid grey;
+	padding-top: 10px;
+	font-weight: bold;
+	font-size:21px;
+	background-color: white;
+}
+
+

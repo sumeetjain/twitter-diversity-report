@@ -14,17 +14,17 @@
     </div>
   <% end %>
 
-  <div class="twelve columns center">
+  <div class="twelve columns padding-l padding-t">
     <%= f.label :age %>
     <%= f.number_field :age %>
   </div>
 
-  <div class="twelve columns center">
+  <div class="twelve columns padding-l">
     <%= f.label :income %>
     <%= f.number_field :income %>
   </div>
 
-  <div class="twelve columns center">
+  <div class="twelve columns padding-l">
     <%= f.label :education %>
     <%= f.text_field :education %>
   </div>
@@ -43,23 +43,23 @@
   <%= f.label :education, value: "Post-graduate" %>
   <%= f.radio_button :education, "Post-graduate" %><br> -->
 
-  <div class="twelve columns center">
+  <div class="twelve columns padding-l">
     <%= f.label :ethnicities_textarea, "Ethnicity" %>
     <%= f.text_area :ethnicities_textarea %>
   </div>
 
-  <div class="twelve columns center">
+  <div class="twelve columns padding-l">
     <%= f.label :genders_textarea, "Gender" %>
     <%= f.text_area :genders_textarea %>
   </div>
 
-  <div class="twelve columns center">
+  <div class="twelve columns padding-l">
     <%= f.label :orientations_textarea, "Sexual Orientation" %>
     <%= f.text_area :orientations_textarea %>
   </div>
 
-  <div class="twelve columns center">
-    <%= f.submit %>
+  <div class="twelve columns padding-l">
+    <%= f.submit :class => 'button-primary'%>
   </div>
 
 <% end %>

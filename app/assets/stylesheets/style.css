@@ -65,6 +65,7 @@
 	padding: 20px;
 	border: solid 1px #E1E8ED;
 	border-radius: 5px;
+	margin-bottom: 50px;
 }
 
 .twitterResults{
@@ -101,10 +102,12 @@
 .searchHelp__title{
 	font-weight: bold;
 	margin-top: 15px;
+	display:none;
 }
 
 .searchHelp__message{
 	font-size: 12px;
+	display: none;
 }
 
 .dataHelp{
@@ -130,6 +133,14 @@
 
 .center{
 	text-align: center;
+}
+
+.padding-l{
+	padding-left:30px;
+}
+
+.padding-t{
+	padding-top:30px;
 }
 
 .page_title{
@@ -192,8 +203,30 @@
   transition: background 0.1s ease;
 }
 
+.info-table{
+	padding:100px 140px 30px 140px;
+}
+
+td:first-child{
+	color:#8B8B8B;
+}
+.button-container{
+	padding-top:20px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.bottom{
+	display:flex;
+}
+.bottom-img{
+	width:100%;
+	height:150px;
+}
+
 .l-infoBlock{
   text-align: left;
+
 }
 
 .result-lable{
@@ -203,3 +236,5 @@
 	font-size:21px;
 	background-color: white;
 }
+
+

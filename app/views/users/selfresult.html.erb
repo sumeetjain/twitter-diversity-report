@@ -1,18 +1,66 @@
-<h1>Current information for <%= session[:screen_name] %></h1>
-<ul>
-<li>Education level: <%= @user.education %></li>
-<li>Income level <%= @user.income %></li>
-<li>Age <%= @user.age %></li>
-<li>Ethnicity: <%= @user.ethnicities.map { |x| x.value }.join(", ") %></li>
-<li>Gender: <%= @user.genders.map { |x| x.value }.join(", ")  %></li>
-<li>Sexual Orientation: <%= @user.orientations.map { |x| x.value }.join(", ")  %></li>
-</ul>
-<%= button_to "Edit/Update your information", "/users/:screen_name/edit", method: :get %>
-<br>
-<%= button_to 'Remove Your Data', user_path(@user),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-<hr></hr>
-<h2>Looks good?</h2>
-<br>
-<%= button_to "See your results", "/users/self", method: :get %>
+<div class="info-table">
+	<table class="u-full-width">
+	    <tr>
+	      <td>Age</td>
+	      <% if @user.age == nil %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.age %></td>
+	      <% end %>
+	      <!-- <td>edit</td> -->
+	    </tr>
+	    <tr>
+	      <td>Income</td>
+	      <% if @user.income == nil %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.income %></td>
+	      <% end %>
+	    </tr>
+	    <tr>
+	      <td>Education</td>
+	      <% if @user.education == nil %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.education %></td>
+	      <% end %>
+	    </tr>
+	    <tr>
+	      <td>Ethnicity</td>
+	      <% if @user.ethnicities.map { |x| x.value }.join(", ").empty? %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.ethnicities.map { |x| x.value }.join(", ") %></td>
+	      <% end %>
+	    </tr>
+	    <tr>
+	      <td>Gender</td>
+	      <% if @user.genders.map { |x| x.value }.join(", ").empty? %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.genders.map { |x| x.value }.join(", ") %></td>
+	      <% end %>
+	    </tr>
+	    <tr>
+	      <td>Sexual Orientation</td>
+	      <% if @user.orientations.map { |x| x.value }.join(", ").empty? %>
+	      	<td>--</td>
+	      <% else %>
+	      	<td><%= @user.orientations.map { |x| x.value }.join(", ") %></td>
+	      <% end %>
+	    </tr>
+	</table>
+
+	<div class="button-container">
+	<%= button_to "Edit your information", "/users/:screen_name/edit", method: :get, :class => "button-primary" %>
+
+	<%= button_to 'Remove Your Data', user_path(@user),
+	              method: :delete,
+	              data: { confirm: 'Are you sure?' },
+	              :class => "button-red" %>
+	</div>
+</div>
+
+<!-- <div class="bottom">
+	<img class="bottom-img" src="/assets/handprints.png" alt=""/>
+</div> -->

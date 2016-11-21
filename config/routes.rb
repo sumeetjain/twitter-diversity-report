@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
     ########### PUBLIC ############################
 
-    get "/" => 'public#index' #if they click search, sends that name to post:results
+    root to: 'public#index' #if they click search, sends that name to post:results
 
     get "/logout" => 'public#logout'
 

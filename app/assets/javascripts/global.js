@@ -27,13 +27,6 @@ window.addEventListener("load", function() {
 	var dataHelp__title = document.getElementsByClassName("dataHelp__title");
 	var dataHelp__message = document.getElementsByClassName("dataHelp__message");
 
-	dataHelp.addEventListener("click", function(){
-		
-		toggleAll(dataHelp__title);
-		toggleAll(dataHelp__message);
-			
-	});
-
 	var getResults = document.getElementById("getResults");
 	var twitterHandle = document.getElementById("twitterHandle")
 	var errorMessage = document.getElementById("errorMessage");

@@ -195,3 +195,9 @@
 .l-infoBlock{
   text-align: left;
 }
+
+.result-lable{
+	font-weight: bold;
+	font-size:24px;
+	background-color: white;
+}

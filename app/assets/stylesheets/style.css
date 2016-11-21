@@ -26,27 +26,35 @@
 	align-items: center;
 }
 
-.header-link{
+.links{
+	text-decoration: none;
+	height:100%;
+	width:100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.header-link{
 	font-weight: bold;
 	white-space: nowrap;
+	height:100%;
+	padding: 10px;
 }
 
-.header-link:first-child{
+/*.header-link:first-child{
 	text-align: right;
-}
+}*/
 
-.header-link:last-child{
-	border-left: solid 1px grey;
+/*.header-link:last-child{
 	margin-left: 10px;
 	padding-left: 10px;
-}
+}*/
 
 .header-link:hover{
 	color: #33C3F0;
 	cursor: pointer;
+	background-color: #E1E1E1;
 }
 
 .container {

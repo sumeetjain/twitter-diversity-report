@@ -1,6 +1,6 @@
-<h1>User Demographics</h1>
+
 <% if @testedfriends != [] %>
-  Friends who have answered: <%= @testedfriends.count %>
+  Followers who have answered: <%= @testedfriends.count %>
   <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
   <div class="result-lable"> Followers by Ethnicity:</div>
   <%= pie_chart @ethnicity_chart %>
